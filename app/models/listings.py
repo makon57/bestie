@@ -1,4 +1,5 @@
 from .db import db
+from datetime import datetime
 from app.models import applications, images
 
 class Listing(db.Model):
@@ -7,7 +8,7 @@ class Listing(db.Model):
     id = db.Column(db.Integer,primary_key=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     name = db.Column(db.String(50), nullable=False)
-    gender = db.Column(db.Boolean, nullable=False)
+    gender = db.Column(db.String(50), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     pet_type = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
@@ -16,6 +17,7 @@ class Listing(db.Model):
 
     applications = db.relationship("Application", backref=db.backref("listings"), lazy=True)
     images = db.relationship("Image", backref=db.backref("listings", lazy=True))
+    user = db.relationship("User", back_populates="listings")
 
     def to_dict(self):
         return {

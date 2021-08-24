@@ -13,6 +13,8 @@ class Application(db.Model):
     created_at = db.Column(db.Date , nullable=False)
     updated_at = db.Column(db.Date , nullable=False)
 
+    user = db.relationship("User", back_populates="applications")
+
     def to_dict(self):
         return {
             'id': self.id,

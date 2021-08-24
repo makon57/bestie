@@ -11,12 +11,17 @@ def seed_users():
         name='Bobbie Brown', email='bobbie@aa.io', password='password', foster=False)
     manna = User(
         name='Manna Manna', email='manna@aa.io', password='password', foster=True)
+    ollie = User(
+        name='Ollie Mollie', email='ollie@aa.io', password='password', foster=True)
+    ana = User(
+        name='Ana Banana', email='ana@aa.io', password='password', foster=False)
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(manna)
-
+    db.session.add(ollie)
+    db.session.add(ana)
 
     db.session.commit()
 

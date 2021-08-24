@@ -12,6 +12,10 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     foster = db.Column(db.Boolean, nullable=False, default=False)
 
+    listings = db.relationship("Listing", backref=db.backref("users"), lazy=True)
+    applications = db.relationship("Application", backref=db.backref("users"), lazy=True)
+
+
     @property
     def password(self):
         return self.hashed_password
