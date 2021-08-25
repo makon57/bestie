@@ -56,10 +56,10 @@ ul > .foster {
 }
 
 .bestie-logo {
-    width: 8vw;
+    width: 9vw;
     position : absolute;
     top : 1vw;
-    left: 46%;
+    left: 45.5%;
     grid-area: logo;
 }
 

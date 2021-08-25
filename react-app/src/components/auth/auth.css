@@ -1,0 +1,19 @@
+.login-container,
+.signin-container {
+    background-color: white;
+    box-shadow:  0 3px 5px rgb(0 0 0 / 0.5);
+    width: 22vw;
+    height: 500px;
+    margin-left: 10%;
+    margin-top: 6%;
+    position: fixed;
+}
+
+.login-background,
+.signin-background {
+    width: 90%;
+}
+
+.login-bg-img {
+    width: 100%;
+}
