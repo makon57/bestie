@@ -188,3 +188,11 @@ br {
     margin-top: 2%;
     margin-bottom: 2%;
 }
+
+.applications a {
+    color: black;
+}
+
+.applications a:hover {
+    text-shadow: none;
+}

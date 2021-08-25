@@ -11,6 +11,8 @@ import User from './components/User';
 import Splash from './components/Splash';
 import { authenticate } from './store/session';
 import Header from './components/Header';
+import Listings from './components/Listings';
+import { fetchAllListings } from './store/listings';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +21,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(fetchAllListings());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -40,6 +43,9 @@ function App() {
         </Route>
         <Route path='/about' exact={true} >
           <Splash />
+        </Route>
+        <Route path='/adopt' exact={true} >
+          <Listings />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>

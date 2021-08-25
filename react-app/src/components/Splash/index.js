@@ -1,5 +1,6 @@
 import Header from "../Header";
-import "../Splash/Splash.css"
+import "../Splash/Splash.css";
+import { Link } from 'react-router-dom';
 
 const Splash = () => {
 
@@ -92,8 +93,8 @@ const Splash = () => {
         <div className='applications'>
             <h1>READY TO ADOPT A BESTIE?</h1>
             <div>
-                <button>Fill out an Adoption Application</button>
-                <button>Fill out a Foster Application</button>
+                <button><a href='/adoption-form'>Fill out an Adoption Application</a></button>
+                <button><a href='/foster-form'>Fill out a Foster Application</a></button>
             </div>
         </div>
         <div className="vol-don">

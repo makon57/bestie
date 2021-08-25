@@ -33,11 +33,6 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
-  const demoLogin = async (e) => {
-    e.preventDefault();
-    setErrors([]);
-    return dispatch(loginDemo())
-  }
 
   return (
     <div className='login-background'>
@@ -74,8 +69,9 @@ const LoginForm = () => {
           <div className='login-btn-container'>
             <button className='login-btn' type='submit'>LOGIN</button>
           </div>
-          <div className='demo-btn-container'>
-            <button className='demo-btn' onClick={demoLogin} type='submit'>DEMO</button>
+          <div className='demo-btn-container' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+            <button className='demo-btn' type='button' >DEMO</button>
+            {/* <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button> */}
           </div>
         </div>
       </form>

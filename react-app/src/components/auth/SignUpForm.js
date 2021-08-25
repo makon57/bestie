@@ -14,6 +14,12 @@ const SignUpForm = () => {
   const [foster, setFoster] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [message, setMessage] = useState('false')
+
+  const handleClick = async(e) => {
+    e.preventDefault();
+    setMessage('true')
+  }
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -115,7 +121,7 @@ const SignUpForm = () => {
           <div className='signup-btn-container'>
             <button className='signup-btn' type='submit'>SIGN UP</button>
           </div>
-          <div className='already-user'>
+          <div className='already-user' onClick={handleClick}>
             <Link to='/login'><label>Already a user? Login</label></Link>
           </div>
         </form>

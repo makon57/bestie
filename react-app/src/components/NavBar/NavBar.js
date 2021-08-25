@@ -31,7 +31,7 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='adopt'>
-            <NavLink to='/listings' exact={true} activeClassName='active'>
+            <NavLink to='/adopt' exact={true} activeClassName='active'>
               ADOPT
             </NavLink>
           </div>
