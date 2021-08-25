@@ -107,7 +107,7 @@ const SignUpForm = () => {
           <button type='submit'>Sign Up</button>
         </form>
       </div>
-    <img className='signin-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='dog'></img>
+    <img className='signin-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='cat'></img>
     </div>
   );
 };

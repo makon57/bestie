@@ -7,8 +7,9 @@ function Footer() {
   const user = useSelector(state => state.session.user)
 
   return (
-    <div className='main-footer'>
-      {user ?
+    <>
+    {user ?
+      <div className='main-footer'>
         <div className="footer-wrap">
           <div className="footer-left-container">
             <div>
@@ -31,9 +32,9 @@ function Footer() {
             </div>
           </div>
         </div>
-      : null}
-
-    </div>
+      </div>
+    : null}
+    </>
   );
 }
 
