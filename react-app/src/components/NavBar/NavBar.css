@@ -1,9 +1,36 @@
 nav {
     background-color: rgb(255, 89, 74);
-    display: flex;
-    align-items: flex-end;
+    height: 6vw;
 }
 
-logo {
-    background-color: rgb(255, 139, 132);
+ul {
+    list-style-type: none;
+}
+
+.menu-wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-left-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.menu-right-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.bestie-logo {
+    width: 10vw;
+    position : absolute;
+    top : 2vw;
+    left: 45%;
+}
+
+.bestie-logo2 {
+    width: 11vw;
 }
