@@ -1,34 +1,134 @@
-.login-container,
-.signin-container {
+.login-container {
     background-color: white;
-    box-shadow:  0 3px 5px rgb(0 0 0 / 0.5);
-    width: 22vw;
-    height: 500px;
-    margin-left: 10%;
-    margin-top: 6%;
+    box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
+    width: 500px;
+    height: 350px;
+    margin-top: 12%;
     position: fixed;
     overflow-y: scroll;
+    border-radius: 1px;
+    right: 10%;
+    padding-bottom: 30px;
 }
 
-.login-background {
-    width: 105%;
-    height: 100%;
-    margin: 0 auto;
-    overflow-x: hidden;
-    overflow-y: hidden;
+.signin-container {
+    background-color: white;
+    box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
+    width: 500px;
+    height: 550px;
+    margin-left: 10%;
+    margin-top: 10%;
+    position: fixed;
+    overflow-y: scroll;
+    border-radius: 1px;
+    padding-bottom: 30px;
 }
 
 .signin-background {
-    width: 100%;
+    width: 120%;
     height: 100%;
     margin: 0 auto;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-.login-bg-img,
+.login-background {
+    width: 110%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.login-bg-img {
+    width: 100%;
+    height: 100%;
+    overflow-x: none;
+    overflow-y: none;
+}
+
 .signin-bg-img {
+    height: 130%;
     width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+
+/* -------------------Form------------------ */
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.signin-form label {
+    font-size: 22px;
+    margin: 0px;
+}
+
+.login-form label {
+    font-size: 22px;
+    margin: 0px;
+}
+
+.signup-btn,
+.login-btn {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 40%;
+    border: none;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.name-container,
+.email-container,
+.password-container,
+.confirm-password-container,
+.login-form div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8%;
+}
+
+.signin-form input,
+.login-form input {
+    width: 90%;
+    height: 30px;
+}
+
+hr {
+    width: 85%;
+    color: rgba(182, 182, 182, 0.3);
+}
+
+.signup-btn-container,
+.login-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.login-btn-container {
+    margin: 0px 0px 0px 0px;
+}
+
+.foster-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "label checkbox"
+    ;
+    margin-left: 8%;
+}
+
+.foster-label {
+    grid-area: label;
+}
+
+.foster-check {
+    grid-area: checkbox;
 }

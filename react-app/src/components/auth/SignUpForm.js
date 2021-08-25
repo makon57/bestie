@@ -51,14 +51,16 @@ const SignUpForm = () => {
   return (
     <div className='signin-background'>
       <div className='signin-container'>
-        <form onSubmit={onSignUp}>
+        <h1>BESTIE SIGN UP</h1>
+        <form className='signin-form' onSubmit={onSignUp}>
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
-            <label>Name</label>
+          <hr></hr>
+          <div className='name-container'>
+            <label>NAME</label>
             <input
               type='text'
               name='name'
@@ -66,8 +68,9 @@ const SignUpForm = () => {
               value={name}
             ></input>
           </div>
-          <div>
-            <label>Email</label>
+          <hr></hr>
+          <div className='email-container'>
+            <label>EMAIL</label>
             <input
               type='text'
               name='email'
@@ -75,8 +78,9 @@ const SignUpForm = () => {
               value={email}
             ></input>
           </div>
-          <div>
-            <label>Password</label>
+          <hr></hr>
+          <div className='password-container'>
+            <label>PASSWORD</label>
             <input
               type='password'
               name='password'
@@ -84,8 +88,9 @@ const SignUpForm = () => {
               value={password}
             ></input>
           </div>
-          <div>
-            <label>Repeat Password</label>
+          <hr></hr>
+          <div className='confirm-password-container'>
+            <label>CONFIRM PASSWORD</label>
             <input
               type='password'
               name='repeat_password'
@@ -94,20 +99,24 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <div>
-            <label>Are you a foster?</label>
+          <hr></hr>
+          <div className='foster-container'>
+            <label className='foster-label'>Are you signing up as foster?</label>
             <input
+              className='foster-check'
               type='checkbox'
               name='foster'
               onChange={updateFoster}
               value={foster}
-              required={true}
             ></input>
           </div>
-          <button type='submit'>Sign Up</button>
+          <hr></hr>
+          <div className='signup-btn-container'>
+            <button className='signup-btn' type='submit'>SIGN UP</button>
+          </div>
         </form>
       </div>
-    <img className='signin-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='cat'></img>
+    <img className='signin-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='cat'></img>
     </div>
   );
 };

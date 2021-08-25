@@ -31,13 +31,13 @@ const NavBar = () => {
             </NavLink>
           </div>
           <div className='adopt'>
-            <NavLink to='/login' exact={true} activeClassName='active'>
-              Login
+            <NavLink to='/listings' exact={true} activeClassName='active'>
+              ADOPT
             </NavLink>
           </div>
           <div className='foster'>
-            <NavLink to='/sign-up' exact={true} activeClassName='active'>
-              Sign Up
+            <NavLink to='/signup' exact={true} activeClassName='active'>
+              FOSTER
             </NavLink>
           </div>
         </div>
@@ -50,22 +50,42 @@ const NavBar = () => {
               DONATE
             </NavLink>
           </div>
-          <div className='about'>
-            <NavLink to='/users/:id' exact={true} activeClassName='active'>
-              PROFILE
-            </NavLink>
-          </div>
           {user ?
+          <>
+            <div className='about'>
+              <NavLink to='/users/:id' exact={true} activeClassName='active'>
+                PROFILE
+              </NavLink>
+            </div>
             <div className='auth'>
               <LogoutButton />
             </div>
+          </>
           : params === '/sign-up' ?
-            <NavLink to='/login' onClick={() => setParams('/login')} exact={true} activeClassName='active'>
-              Login
-            </NavLink>
-          : <NavLink to='/sign-up' onClick={() => setParams('/sign-up')} exact={true} activeClassName='active'>
-              Sign Up
-            </NavLink>
+            <>
+            <div className='about'>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                ABOUT
+              </NavLink>
+            </div>
+            <div className='auth'>
+              <NavLink to='/login' onClick={() => setParams('/login')} exact={true} activeClassName='active'>
+                LOGIN
+              </NavLink>
+            </div>
+            </>
+          : <>
+            <div className='about'>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                ABOUT
+              </NavLink>
+            </div>
+            <div className='auth'>
+              <NavLink to='/sign-up' onClick={() => setParams('/sign-up')} exact={true} activeClassName='active'>
+                SIGN UP
+              </NavLink>
+            </div>
+            </>
           }
         </div>
       </div>

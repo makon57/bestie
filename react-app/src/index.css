@@ -6,10 +6,22 @@ html, body{
     height: 100%;
     /* box-sizing: border-box; */
     font-family: 'PT Sans Narrow';
-    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+button, h1 {
+    font-family: 'Bebas Neue';
+}
+
+input {
+    font-family: 'PT Sans Narrow';
+    font-size: 22px;
+    border: none;
+    color: rgba(153, 153, 153, 0.9);
+    text-transform: uppercase;
 }

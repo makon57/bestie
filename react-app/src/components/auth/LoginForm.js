@@ -34,36 +34,40 @@ const LoginForm = () => {
   return (
     <div className='login-background'>
     <div className='login-container'>
-      <form onSubmit={onLogin}>
+    <h1>BESTIE LOGIN</h1>
+      <form className='login-form' onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
+        <hr></hr>
         <div>
           <label htmlFor='email'>Email</label>
           <input
             name='email'
             type='text'
-            placeholder='Email'
             value={email}
             onChange={updateEmail}
           />
         </div>
+        <hr></hr>
         <div>
           <label htmlFor='password'>Password</label>
           <input
             name='password'
             type='password'
-            placeholder='Password'
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
+        </div>
+        <hr></hr>
+        <div className='login-btn-container'>
+          <button className='login-btn' type='submit'>Login</button>
         </div>
       </form>
     </div>
-    <img className='login-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='dog'></img>
+    <img className='login-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='dog'></img>
     </div>
   );
 };

@@ -24,16 +24,38 @@ ul {
     grid-template-areas:
         "logo adopt foster"
     ;
+    height: 6vw;
 }
 
-ul > .logo {
+.logo {
     grid-area: logo;
+    margin: auto;
 }
-ul > .adopt {
+.adopt {
     grid-area: adopt;
+    margin: auto;
 }
-ul > .foster {
+.foster {
     grid-area: foster;
+    margin: auto;
+}
+
+a {
+    color: white;
+    font-size: 35px;
+}
+
+a:hover {
+    text-shadow: 3px 3px 3px black;
+}
+
+.auth a {
+    color: black;
+    font-size: 35px;
+}
+
+.auth a:hover {
+    text-shadow: 3px 3px 3px white;
 }
 
 .menu-right-container {
@@ -43,23 +65,27 @@ ul > .foster {
     grid-template-areas:
         "donate about auth"
     ;
+    height: 6vw;
 }
 
 .donate {
     grid-area: donate;
+    margin: auto;
 }
 .about {
     grid-area: about;
+    margin: auto;
 }
 .auth {
     grid-area: auth;
+    margin: auto;
 }
 
 .bestie-logo {
     width: 9vw;
-    position : absolute;
+    position : relative;
     top : 1vw;
-    left: 45.5%;
+    left: 28%;
     grid-area: logo;
 }
 
@@ -69,5 +95,5 @@ ul > .foster {
 }
 
 .bestie-logo2 {
-    width: 12vw;
+    width: 11vw;
 }

@@ -32,8 +32,8 @@ function Footer() {
             </div>
           </div>
         </div>
-      </div>
-    : null}
+        </div>
+      : null}
     </>
   );
 }
