@@ -23,13 +23,13 @@ function User() {
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
-      </li>
-      <li>
-        <strong>Username</strong> {user.username}
+        <strong>Name</strong> {user.name}
       </li>
       <li>
         <strong>Email</strong> {user.email}
+      </li>
+      <li>
+        <strong>Foster?</strong> {user.foster === true ? 'Yes' : 'No'}
       </li>
     </ul>
   );

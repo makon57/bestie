@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.widgets.core import CheckboxInput
 from app.models import User
 
 
@@ -24,3 +25,4 @@ class SignUpForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired()])
+    foster = CheckboxInput('foster')

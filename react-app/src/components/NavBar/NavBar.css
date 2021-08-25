@@ -1,0 +1,9 @@
+nav {
+    background-color: rgb(255, 89, 74);
+    display: flex;
+    align-items: flex-end;
+}
+
+logo {
+    background-color: rgb(255, 139, 132);
+}
