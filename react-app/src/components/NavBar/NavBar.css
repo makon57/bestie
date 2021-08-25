@@ -1,6 +1,7 @@
 nav {
     background-color: rgb(255, 89, 74);
     height: 6vw;
+    display: block;
 }
 
 ul {
@@ -8,27 +9,58 @@ ul {
 }
 
 .menu-wrap {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas:
+        "left logo right"
+    ;
 }
 
 .menu-left-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-area: left;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "logo adopt foster"
+    ;
+}
+
+ul > .logo {
+    grid-area: logo;
+}
+ul > .adopt {
+    grid-area: adopt;
+}
+ul > .foster {
+    grid-area: foster;
 }
 
 .menu-right-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-area: right;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "donate about auth"
+    ;
+}
+
+.donate {
+    grid-area: donate;
+}
+.about {
+    grid-area: about;
+}
+.auth {
+    grid-area: auth;
 }
 
 .bestie-logo {
-    width: 10vw;
+    width: 8vw;
     position : absolute;
     top : 1vw;
-    left: 45%;
+    left: 46%;
+    grid-area: logo;
 }
 
 .bestie-logo:hover {
