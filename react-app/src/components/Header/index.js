@@ -13,7 +13,7 @@ const [params, setParams] = useState(window.location.pathname)
 
   return (
     <div>
-      {params === '/' ?
+      {params === '/' || params === '/about' ?
         <div className='header-container'>
           <img src="https://i.imgur.com/KmxttNE.jpg" alt='cat and dog'></img>
         </div>

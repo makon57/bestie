@@ -1,26 +1,35 @@
 .main-footer {
     background-color: rgb(255, 89, 74);
     height: 7vw;
-    position:absolute;
+    position: relative;
     left:0;
     bottom:0;
     right:0;
+    margin: 0;
 }
 
 .footer-wrap {
+    background-color: rgb(255, 89, 74);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        ". . git link . ."
-        ". . angel angel . ."
+        ". git logo link ."
+        ". . angel . ."
     ;
+    padding-bottom: 12px;
 }
 
 .bestie-logo-footer {
     width: 9vw;
-    position : absolute;
-    left: 45.5%;
-    bottom: 3vw;
+    position : relative;
+    bottom: 4vw;
+}
+
+.bestie-logo-link {
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
 
 .bestie-logo-footer:hover {
@@ -30,30 +39,36 @@
 
 .footer-left-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
     grid-area: git;
-    margin-right: 20px;
-    margin-top: 10px;
+    /* margin-right: 20px;
+    margin-top: 10px; */
 }
 
 .footer-right-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
     grid-area: link;
-    margin-left: 20px;
-    margin-top: 10px;
+    /* margin-left: 20px;
+    margin-top: 10px; */
 }
 
-.logo-angelist {
+.angelist-link {
     display: flex;
     justify-content: center;
+    align-items: center;
     grid-area: angel;
+    margin: 0px
 }
+
+
 
 p {
     color: white;
-    font-size: 30px;
-    margin: 10px
+    font-size: 35px;
+    margin: 0 0 0 0;
 }
 
 p:hover {

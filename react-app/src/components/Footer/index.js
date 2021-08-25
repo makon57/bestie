@@ -1,35 +1,32 @@
 import '../Footer/Footer.css'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Footer() {
 
   const user = useSelector(state => state.session.user)
+  const params = window.location.pathname;
 
   return (
     <>
-    {user ?
+    {user || params === '/about' ?
       <div className='main-footer'>
         <div className="footer-wrap">
           <div className="footer-left-container">
-            <div>
-              <Link to='https://github.com/makon57' exact={true} activeClassName='active'>
-                  <p>GITHUB</p>
-              </Link>
-            </div>
+            <a href='https://github.com/makon57' exact={true} activeClassName='active'>
+                <p>GITHUB</p>
+            </a>
           </div>
-          <div className='logo-angelist'>
-            <Link to='https://angel.co/u/manna-kong' exact={true} activeClassName='active'>
-              <img className='bestie-logo-footer' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
-              <p className='footer-center-container'>ANGELIST</p>
-            </Link>
-          </div>
+          <NavLink to='/' className='bestie-logo-link' exact={true} activeClassName='active'>
+            <img className='bestie-logo-footer' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
+          </NavLink>
+          <a href='https://angel.co/u/manna-kong' className='angelist-link' exact={true} activeClassName='active'>
+            <p>ANGELIST</p>
+          </a>
           <div className="footer-right-container">
-            <div>
-              <Link to='https://www.linkedin.com/in/manna-kong/' exact={true} activeClassName='active'>
-                  <p>LINKEDIN</p>
-              </Link>
-            </div>
+            <a href='https://www.linkedin.com/in/manna-kong/' exact={true} activeClassName='active'>
+              <p>LINKEDIN</p>
+            </a>
           </div>
         </div>
         </div>
