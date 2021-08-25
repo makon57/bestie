@@ -1,6 +1,7 @@
 from .db import db
+from sqlalchemy.orm import backref
 from datetime import datetime
-from app.models import applications, images
+from app.models import application, image
 
 class Listing(db.Model):
     __tablename__ = 'listings'
@@ -17,7 +18,7 @@ class Listing(db.Model):
 
     applications = db.relationship("Application", backref=db.backref("listings"), lazy=True)
     images = db.relationship("Image", backref=db.backref("listings", lazy=True))
-    user = db.relationship("User", back_populates="listings")
+    # user = db.relationship("User", back_populates="listings")
 
     def to_dict(self):
         return {
