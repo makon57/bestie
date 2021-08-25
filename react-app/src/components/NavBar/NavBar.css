@@ -27,8 +27,13 @@ ul {
 .bestie-logo {
     width: 10vw;
     position : absolute;
-    top : 2vw;
+    top : 1vw;
     left: 45%;
+}
+
+.bestie-logo:hover {
+    -webkit-filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.4));
+    filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.5));
 }
 
 .bestie-logo2 {

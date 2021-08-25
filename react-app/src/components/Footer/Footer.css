@@ -1,0 +1,61 @@
+.main-footer {
+    background-color: rgb(255, 89, 74);
+    height: 7vw;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+.footer-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        ". . git link . ."
+        ". . angel angel . ."
+    ;
+}
+
+.bestie-logo-footer {
+    width: 10vw;
+    position : absolute;
+    left: 45%;
+    bottom: 3vw;
+}
+
+.bestie-logo-footer:hover {
+    -webkit-filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.4));
+    filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.5));
+}
+
+.footer-left-container {
+    display: flex;
+    justify-content: center;
+    grid-area: git;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.footer-right-container {
+    display: flex;
+    justify-content: center;
+    grid-area: link;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.logo-angelist {
+    display: flex;
+    justify-content: center;
+    grid-area: angel;
+}
+
+p {
+    color: white;
+    font-size: 30px;
+    margin: 10px
+}
+
+p:hover {
+    text-shadow: 3px 3px 3px black;
+}
