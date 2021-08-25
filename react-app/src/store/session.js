@@ -27,6 +27,7 @@ export const authenticate = () => async (dispatch) => {
 
     dispatch(setUser(data));
   }
+  return response
 }
 
 export const login = (email, password) => async (dispatch) => {
@@ -96,6 +97,25 @@ export const signUp = (name, email, password) => async (dispatch) => {
     return ['An error occurred. Please try again.']
   }
 }
+
+export const loginDemo = () => async (dispatch) => {
+  const user = {
+    credential: "Demo-lition",
+    password: "password"
+  }
+  const { credential, password } = user;
+  const response = await fetch('/api/auth/demo', {
+    method: 'POST',
+    body: JSON.stringify({
+      credential,
+      password
+    }),
+  });
+  const data = await response.json();
+  console.log(data);
+  dispatch(setUser(data.user));
+  return response;
+};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {

@@ -1,0 +1,17 @@
+.options-contianer {
+    background-color: rgb(255, 89, 74);
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr 1fr 1fr .5fr;
+    grid-template-areas:
+        "left logo right"
+    ;
+}
+
+.splash-contianer {
+    display: flex;
+    flex-direction: column;
+}
+
+html, body {
+    overflow-y: scroll;
+}

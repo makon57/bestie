@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../auth/auth.css'
+import Header from '../Header';
+import { loginDemo } from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,6 +33,12 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+    return dispatch(loginDemo())
+  }
+
   return (
     <div className='login-background'>
     <div className='login-container'>
@@ -42,7 +50,7 @@ const LoginForm = () => {
           ))}
         </div>
         <hr></hr>
-        <div>
+        <div className='login-email'>
           <label htmlFor='email'>Email</label>
           <input
             name='email'
@@ -52,7 +60,7 @@ const LoginForm = () => {
           />
         </div>
         <hr></hr>
-        <div>
+        <div className='login-password'>
           <label htmlFor='password'>Password</label>
           <input
             name='password'
@@ -62,12 +70,18 @@ const LoginForm = () => {
           />
         </div>
         <hr></hr>
-        <div className='login-btn-container'>
-          <button className='login-btn' type='submit'>Login</button>
+        <div className='demo-log-container'>
+          <div className='login-btn-container'>
+            <button className='login-btn' type='submit'>LOGIN</button>
+          </div>
+          <div className='demo-btn-container'>
+            <button className='demo-btn' onClick={demoLogin} type='submit'>DEMO</button>
+          </div>
         </div>
       </form>
     </div>
-    <img className='login-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='dog'></img>
+    <Header />
+    {/* <img className='login-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='dog'></img> */}
     </div>
   );
 };

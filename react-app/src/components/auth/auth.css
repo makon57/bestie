@@ -1,9 +1,10 @@
 .login-container {
     background-color: white;
     box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
-    width: 500px;
+    width: 35%;
+    max-width: 500px;
     height: 350px;
-    margin-top: 12%;
+    margin-top: 10%;
     position: fixed;
     overflow-y: scroll;
     border-radius: 1px;
@@ -14,10 +15,11 @@
 .signin-container {
     background-color: white;
     box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
-    width: 500px;
+    width: 35%;
+    max-width: 500px;
     height: 550px;
     margin-left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
     position: fixed;
     overflow-y: scroll;
     border-radius: 1px;
@@ -72,7 +74,8 @@ h1 {
 }
 
 .signup-btn,
-.login-btn {
+.login-btn,
+.demo-btn {
     background-color: black;
     color: white;
     height: 40px;
@@ -88,10 +91,32 @@ h1 {
 .email-container,
 .password-container,
 .confirm-password-container,
-.login-form div {
+.login-email,
+.login-password {
     display: flex;
     flex-direction: column;
     margin-left: 8%;
+}
+
+.demo-log-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "login demo"
+    ;
+}
+
+.demo-btn-container {
+    grid-area: demo;
+}
+
+.login-btn-container {
+    grid-area: login;
+}
+
+.login-btn,
+.demo-btn {
+    width: 150px;
 }
 
 .signin-form input,
@@ -105,14 +130,28 @@ hr {
     color: rgba(182, 182, 182, 0.3);
 }
 
+.already-user,
 .signup-btn-container,
-.login-btn-container {
+.login-btn-container,
+.demo-btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-div.login-btn-container {
+.already-user a {
+    color: black;
+    font-size: 22px;
+    padding-top: 10px;
+}
+
+.already-user a:hover {
+    color: rgb(105, 104, 104);
+    text-shadow: none;
+}
+
+div.login-btn-container,
+div.demo-btn-container {
     margin: 0px 0px 0px 0px;
 }
 

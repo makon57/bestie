@@ -8,7 +8,9 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Splash from './components/Splash';
 import { authenticate } from './store/session';
+import Header from './components/Header';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      {/* <Header /> */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -38,11 +41,11 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:id' exact={true} >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Splash />
         </ProtectedRoute>
       </Switch>
       <Footer />

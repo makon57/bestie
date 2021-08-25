@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../auth/auth.css'
+import Header from '../Header';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -114,9 +115,13 @@ const SignUpForm = () => {
           <div className='signup-btn-container'>
             <button className='signup-btn' type='submit'>SIGN UP</button>
           </div>
+          <div className='already-user'>
+            <Link to='/login'><label>Already a user? Login</label></Link>
+          </div>
         </form>
       </div>
-    <img className='signin-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='cat'></img>
+      <Header />
+    {/* <img className='signin-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='cat'></img> */}
     </div>
   );
 };
