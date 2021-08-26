@@ -10,7 +10,7 @@ const Listings = () => {
   // const dispatch = useDispatch()
   // const [listings, setListings] = useState([])
   const listings = Object.values(useSelector((state) => state.listings.listings));
-  console.log(listings)
+  console.log(listings[0].images[0])
 
 
   // useEffect(() => {
@@ -31,6 +31,7 @@ const Listings = () => {
             <p>{listing.gender}</p>
             <p>{listing.pet_type}</p>
             <p>{listing.description}</p>
+            <img src={listing.images.images[0]} alt='listing'></img>
 
             {/* <div className="image-container">
               <ListingModal />

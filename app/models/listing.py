@@ -29,6 +29,7 @@ class Listing(db.Model):
             'age': self.age,
             'pet_type': self.pet_type,
             'description': self.description,
+            'images' : self.get_images(),
             'created_at': str(self.created_at),
             'updated_at': str(self.updated_at)
         }
@@ -37,4 +38,4 @@ class Listing(db.Model):
         return [application.to_dict() for application in self.applications]
 
     def get_images(self):
-        return [image.to_dict() for image in self.images]
+        return {'images' : [image.image_url for image in self.images]}
