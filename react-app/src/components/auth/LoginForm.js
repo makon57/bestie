@@ -39,12 +39,8 @@ const LoginForm = () => {
     <div className='login-container'>
     <h1>BESTIE LOGIN</h1>
       <form className='login-form' onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
         <hr></hr>
+        {errors.email ? <h4>{errors.email}</h4> : null}
         <div className='login-email'>
           <label htmlFor='email'>Email</label>
           <input
@@ -55,6 +51,7 @@ const LoginForm = () => {
           />
         </div>
         <hr></hr>
+        {errors.password ? <h4>{errors.password}</h4> : null}
         <div className='login-password'>
           <label htmlFor='password'>Password</label>
           <input

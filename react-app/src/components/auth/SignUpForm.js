@@ -21,12 +21,19 @@ const SignUpForm = () => {
     setMessage('true')
   }
 
+
   const onSignUp = async (e) => {
     e.preventDefault();
+    const data = await dispatch(signUp(name, email, password));
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(name, email, password));
       if (data) {
         setErrors(data)
+      }
+    } else {
+      if (data) {
+        setErrors({...data, passMatch: 'Passwords do not match.'})
+      } else {
+        setErrors({passMatch: 'Passwords do not match.'})
       }
     }
   };
@@ -60,12 +67,8 @@ const SignUpForm = () => {
       <div className='signin-container'>
         <h1>BESTIE SIGN UP</h1>
         <form className='signin-form' onSubmit={onSignUp}>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
           <hr></hr>
+          {errors.name ? <h4>{errors.name}</h4> : null }
           <div className='name-container'>
             <label>NAME</label>
             <input
@@ -73,9 +76,11 @@ const SignUpForm = () => {
               name='name'
               onChange={updateName}
               value={name}
+              required={true}
             ></input>
           </div>
           <hr></hr>
+          {errors.email ? <h4>{errors.email}</h4> : null}
           <div className='email-container'>
             <label>EMAIL</label>
             <input
@@ -83,9 +88,11 @@ const SignUpForm = () => {
               name='email'
               onChange={updateEmail}
               value={email}
+              required={true}
             ></input>
           </div>
           <hr></hr>
+          {errors.password ? <h4>{errors.password}</h4> : null}
           <div className='password-container'>
             <label>PASSWORD</label>
             <input
@@ -93,9 +100,11 @@ const SignUpForm = () => {
               name='password'
               onChange={updatePassword}
               value={password}
+              required={true}
             ></input>
           </div>
           <hr></hr>
+          {errors.passMatch ? <h4>{errors.passMatch}</h4> : null}
           <div className='confirm-password-container'>
             <label>CONFIRM PASSWORD</label>
             <input

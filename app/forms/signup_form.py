@@ -3,7 +3,7 @@ from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
 from wtforms.widgets.core import CheckboxInput
 from app.models import User
-
+import re
 
 def user_exists(form, field):
     # Checking if user exists
@@ -11,6 +11,13 @@ def user_exists(form, field):
     user = User.query.filter(User.email == email).first()
     if user:
         raise ValidationError('Email address is already in use.')
+
+def email_valid(form, field):
+    email = field.data
+    if re.match(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", email):
+        return
+    else:
+        raise ValidationError('Please provide a valid email address.')
 
 
 # def username_exists(form, field):
@@ -23,6 +30,6 @@ def user_exists(form, field):
 
 class SignUpForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists, email_valid])
     password = StringField('password', validators=[DataRequired()])
     foster = CheckboxInput('foster')
