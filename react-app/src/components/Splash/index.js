@@ -1,11 +1,13 @@
 import Header from "../Header";
 import "../Splash/Splash.css";
 import { Link } from 'react-router-dom';
+import Footer from "../Footer";
 
 const Splash = () => {
 
 
   return (
+    <>
     <div className='splash-container'>
         <Header />
         {/* <div className='options-container'>
@@ -105,6 +107,8 @@ const Splash = () => {
             </div>
         </div>
     </div>
+    <Footer />
+    </>
   )
 };
 

@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <>
-    {user || params === '/about' ?
+    {params === '/login' || params === '/sign-up' ? null :
       <div className='main-footer'>
         <div className="footer-wrap">
           <div className="footer-left-container">
@@ -29,8 +29,8 @@ function Footer() {
             </a>
           </div>
         </div>
-        </div>
-      : null}
+      </div>
+    }
     </>
   );
 }

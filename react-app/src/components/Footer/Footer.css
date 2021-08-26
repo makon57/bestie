@@ -65,12 +65,16 @@
 
 
 
-p {
+.footer-left-container p,
+.footer-right-container p,
+.angelist-link p {
     color: white;
     font-size: 35px;
     margin: 0 0 0 0;
 }
 
-p:hover {
+.footer-left-container p:hover,
+.footer-right-container p:hover,
+.angelist-link p:hover {
     text-shadow: 3px 3px 3px black;
 }

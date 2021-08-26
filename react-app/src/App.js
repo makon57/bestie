@@ -53,11 +53,11 @@ function App() {
         <ProtectedRoute path='/users/:id' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <Splash />
-        </ProtectedRoute>
+        </Route>
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

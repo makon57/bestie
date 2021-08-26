@@ -1,0 +1,7 @@
+.listing-item p {
+    color: black;
+}
+
+.listing-item p:hover {
+    text-shadow: none;
+}
