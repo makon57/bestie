@@ -11,7 +11,7 @@ import './NavBar.css'
 const NavBar = () => {
 
   const user = useSelector(state => state.session.user)
-
+  const name = user?.name.split(' ')
 
   const [params, setParams] = useState(window.location.pathname)
 
@@ -54,7 +54,7 @@ const NavBar = () => {
           <>
             <div className='about'>
               <NavLink to='/users/:id' exact={true} activeClassName='active'>
-                PROFILE
+                {name[0].toUpperCase()}
               </NavLink>
             </div>
             <div className='auth'>
