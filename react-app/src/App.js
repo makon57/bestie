@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 import Header from './components/Header';
 import Listings from './components/Listings';
 import { fetchAllListings } from './store/listings';
+import CreateListingForm from './components/Listings/CreateListingForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,15 +48,18 @@ function App() {
         <Route path='/adopt' exact={true} >
           <Listings />
         </Route>
+        <Route path='/' exact={true} >
+          <Splash />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:id' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
-          <Splash />
-        </Route>
+        <ProtectedRoute path='/create-listing' exact={true} >
+          <CreateListingForm />
+        </ProtectedRoute>
       </Switch>
       {/* <Footer /> */}
     </BrowserRouter>

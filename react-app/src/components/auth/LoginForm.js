@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../auth/auth.css'
 import Header from '../Header';
@@ -12,6 +12,12 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [message, setMessage] = useState('false')
+
+  const handleClick = async(e) => {
+    e.preventDefault();
+    setMessage('true')
+  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -70,6 +76,9 @@ const LoginForm = () => {
             <button className='demo-btn' type='button' >DEMO</button>
             {/* <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button> */}
           </div>
+        </div>
+        <div className='already-user' onClick={handleClick}>
+          <Link to='/sign-up'><label>Not a user? Sign Up!</label></Link>
         </div>
       </form>
     </div>

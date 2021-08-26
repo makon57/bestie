@@ -24,14 +24,16 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    const data = await dispatch(signUp(name, email, password));
+
     if (password === repeatPassword) {
+      const data = await dispatch(signUp(name, email, password));
       if (data) {
         setErrors(data)
       }
-    } else {
+    } else if (password !== repeatPassword) {
+      const data = await dispatch(signUp(name, email, password));
       if (data) {
-        setErrors({...data, passMatch: 'Passwords do not match.'})
+        setErrors({...data, passMatch: "Passwords do not match."})
       } else {
         setErrors({passMatch: 'Passwords do not match.'})
       }
@@ -131,7 +133,7 @@ const SignUpForm = () => {
             <button className='signup-btn' type='submit'>SIGN UP</button>
           </div>
           <div className='already-user' onClick={handleClick}>
-            <Link to='/login'><label>Already a user? Login</label></Link>
+            <Link to='/login'><label>Already a user? Login!</label></Link>
           </div>
         </form>
       </div>

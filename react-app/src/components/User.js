@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import CreateListingForm from './Listings/CreateListingForm';
 
 function User() {
   const [user, setUser] = useState({});
@@ -33,6 +34,9 @@ function User() {
       </li>
       <li>
         <strong>Foster?</strong> {user.foster === true ? 'Yes' : 'No'}
+      </li>
+      <li>
+        <button><Link to='/create-listing' exact={true}>Create A Listing</Link></button>
       </li>
     </ul>
   );
