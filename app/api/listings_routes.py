@@ -69,6 +69,7 @@ def edit_listings(id):
 
             db.session.add(listing)
             db.session.commit()
+            edit_image(listing.to_dict())
             return listing.to_dict()
         else:
             return {'errors':form.errors},500
@@ -88,26 +89,3 @@ def edit_image(data):
         .update({Image.listing_id: data['id']})
     db.session.commit()
     return
-
-
-    # data_id = data['id']
-    # print('---svaknlnkvwva-----')
-    # print(data_id)
-    # images = Image.query.filter(Image.listing_id == 1)
-    # # image_list = {image.to_dict()['id']: image.to_dict() for image in images}
-    # print('---------------')
-    # print(images)
-    # print('--------------')
-    # keys = image_list.keys()
-    # for i in keys:
-    #     item = image_list[i]
-    #     print(item)
-    #     item['listing_id'] = data_id
-    #     # db.session.add(item)
-    #     print(item)
-    #     db.session.commit()
-    # return
-
-
-# new_name = request.form['form_name']
-#     client.name = new_name

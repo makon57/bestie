@@ -63,23 +63,6 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
     }
 }
 
-// export const uploadingImages = (firstData) => async (dispatch) => {
-//     console.log(firstData)
-//     const response = await fetch('/api/listings/images', {
-//         method: "POST",
-//         headers: { 'Content-Type': "application/json" },
-//         body: JSON.stringify(firstData)
-//     })
-
-//     const data = await response.json()
-//     if (response.ok) {
-//         dispatch(createListing(firstData))
-//         return ({...firstData,...data})
-//     }
-//     if (data.errors) {
-//         return data
-//     }
-// }
 
 export const fetchEditListing = (id, name, gender, age, pet_type, description) => async (dispatch) => {
     const response = await fetch(`/api/listings/${id}`, {

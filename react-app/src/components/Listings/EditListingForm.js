@@ -23,12 +23,11 @@ const EditListingForm = () => {
 
 
   const [image, setImage] = useState(listing.images);
-  const [imageLoading, setImageLoading] = useState(false);
 
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setImageLoading(true);
+
     const data = await dispatch(fetchEditListing(
       listing.id,
       name,
@@ -36,15 +35,12 @@ const EditListingForm = () => {
       age,
       petType,
       description,
+      image
 
     ));
     if (data) {
-      setImageLoading(false);
       setErrors(data);
-
-      // history.push(`/listings/${data.id}`)
     }
-    setImageLoading(false);
     history.push(`/users/${user.id}`)
   };
 
@@ -69,26 +65,6 @@ const EditListingForm = () => {
     setDescription(e.target.value);
   };
 
-  const updateImage = (e) => {
-    const file = e.target.files;
-    setImage(file);
-  }
-
-  let content;
-
-  if (user) {
-    content = (
-      // <UploadPicture />
-      <div onClick={updateImage}>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={updateImage}
-        />
-        {(imageLoading)&& <p>Loading...</p>}
-      </div>
-    )
-  }
 
   return (
     <>
