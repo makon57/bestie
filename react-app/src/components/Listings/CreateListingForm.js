@@ -65,7 +65,9 @@ const CreateListingForm = () => {
   return (
     <>
       <Header />
-      <UploadPicture />
+      <div>
+        <UploadPicture />
+      </div>
       <div>
         <form onSubmit={onSubmit}>
           <hr></hr>

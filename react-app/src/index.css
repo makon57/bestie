@@ -1,4 +1,7 @@
 /* TODO Add site wide styles */
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+
 html, body{
     margin: 0;
     padding: 0;

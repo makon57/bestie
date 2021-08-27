@@ -94,14 +94,10 @@ const EditListingForm = () => {
     <>
       <Header />
       <div>
+          <UploadPicture />
+      </div>
+      <div>
         <form onSubmit={onSubmit}>
-          <div>
-            {content}
-          </div>
-          {/* { images ? images.map(image => (
-            <img key={image.id} src={image.image_url} alt={image.listing_id}></img>
-          ))
-          : null} */}
           <hr></hr>
           <div>
             <label>NAME</label>

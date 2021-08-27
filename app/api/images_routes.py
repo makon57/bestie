@@ -11,7 +11,6 @@ image_routes = Blueprint("images", __name__)
 @image_routes.route("/", methods=["POST"])
 @login_required
 def upload_image():
-    print('======yayayay-----')
     if "image" not in request.files:
         return {"errors": "image required"}, 402
 
@@ -25,13 +24,11 @@ def upload_image():
     upload = upload_file_to_s3(image)
 
     if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
+
         return upload, 401
 
     url = upload["url"]
-    # flask_login allows us to get the current user from the request
+    
     new_image = Image(listing_id=1, image_url=url, created_at = datetime.now(), updated_at= datetime.now())
     db.session.add(new_image)
     db.session.commit()

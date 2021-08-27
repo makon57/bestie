@@ -5,7 +5,7 @@ import { fetchAllListings, fetchDeleteListing, fetchEditListing } from '../store
 import CreateListingForm from './Listings/CreateListingForm';
 import '../components/Listings/Listing.css'
 import EditListingForm from './Listings/EditListingForm';
-
+import ImageGallery from 'react-image-gallery';
 
 function User() {
   const history = useHistory()
@@ -73,9 +73,8 @@ function User() {
             <div>{listing.gender}</div>
             <div>{listing.pet_type}</div>
             <div>{listing.description}</div>
-            {listing.images && listing.images.length > 1 ? listing.images.map((image) => (
-              <img key={image.id} src={image.image_url} alt=''></img>
-            )) : <img src={listing.images.images[0]} alt='listing'></img> }
+
+            {listing.images && listing.images.length > 1 ? <ImageGallery items={listing.images} /> : <img src={listing.images.images[0]} alt='listing'></img> }
             <button onClick={() => deleteListing(listing.id)}><i className="far fa-trash-alt"></i></button>
             <button onClick={() => editListing(listing.id)}><i className="fas fa-edit"></i></button>
           </li>

@@ -17,7 +17,7 @@ class Listing(db.Model):
     updated_at = db.Column(db.Date , nullable=False)
 
     applications = db.relationship("Application", backref=db.backref("listings"), lazy=True)
-    images = db.relationship("Image", backref=db.backref("listings", lazy=True))
+    images = db.relationship("Image", backref=db.backref("listings", lazy=True), cascade = "all,delete")
     # user = db.relationship("User", back_populates="listings")
 
     def to_dict(self):
