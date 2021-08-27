@@ -1,38 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Listings from ".";
+import { fetchCreateListing } from "../../store/listings";
 import Header from "../Header";
+import UploadPicture from "./UploadPicture";
 
 
 const CreateListingForm = () => {
 
+  const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
-
+  const [errors, setErrors] = useState([])
   const [name, setName] = useState('')
-  const [gender, setGender] = useState('')
+  const [gender, setGender] = useState('Female')
   const [age, setAge] = useState(1)
-  const [petType, setPetType] = useState('')
+  const [petType, setPetType] = useState('Dog')
   const [description, setDescription] = useState('')
 
 
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
+  const [image, setImage] = useState(null);
+  const [imageLoading, setImageLoading] = useState(false);
 
-  //   if (password === repeatPassword) {
-  //     const data = await dispatch(signUp(name, email, password));
-  //     if (data) {
-  //       setErrors(data)
-  //     }
-  //   } else if (password !== repeatPassword) {
-  //     const data = await dispatch(signUp(name, email, password));
-  //     if (data) {
-  //       setErrors({...data, passMatch: "Passwords do not match."})
-  //     } else {
-  //       setErrors({passMatch: 'Passwords do not match.'})
-  //     }
-  //   }
-  // };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setImageLoading(true);
+    const data = await dispatch(fetchCreateListing(
+      user.id,
+      name,
+      gender,
+      age,
+      petType,
+      description,
+      image,
+    ));
+    if (data) {
+      setImageLoading(false);
+      setErrors(data);
+
+      // history.push(`/listings/${data.id}`)
+    }
+    setImageLoading(false);
+    history.push(`/users/${user.id}`)
+  };
+
+
 
 
   const updateName = (e) => {
@@ -55,12 +69,40 @@ const CreateListingForm = () => {
     setDescription(e.target.value);
   };
 
+  const updateImage = (e) => {
+    const file = e.target.files;
+    setImage(file);
+  }
+
+  let content;
+
+  if (user) {
+    content = (
+      // <UploadPicture />
+      <div onClick={updateImage}>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={updateImage}
+        />
+        <button type="button" >Submit</button>
+        {(imageLoading)&& <p>Loading...</p>}
+      </div>
+    )
+  }
 
   return (
     <>
       <Header />
       <div>
-        <form >
+        <form onSubmit={onSubmit}>
+          <div>
+            {content}
+          </div>
+          {/* { images ? images.map(image => (
+            <img key={image.id} src={image.image_url} alt={image.listing_id}></img>
+          ))
+          : null} */}
           <hr></hr>
           <div>
             <label>NAME</label>
@@ -117,7 +159,7 @@ const CreateListingForm = () => {
           </div>
           <hr></hr>
           <div className='signup-btn-container'>
-            <button className='signup-btn' type='submit'>SIGN UP</button>
+            <button className='signup-btn' type='submit' >SUBMIT</button>
           </div>
         </form>
       </div>

@@ -36,7 +36,7 @@ export const fetchAllListings = () => async (dispatch) => {
     }
 }
 
-export const fetchCreateListing = (user_id, name, description, price, quantity, image) => async (dispatch) => {
+export const fetchCreateListing = (user_id, name, gender, age, pet_type, description, image) => async (dispatch) => {
 
     const response = await fetch('/api/listings/create', {
         method: "POST",
@@ -44,17 +44,36 @@ export const fetchCreateListing = (user_id, name, description, price, quantity, 
         body: JSON.stringify({
             user_id,
             name,
+            gender,
+            age,
+            pet_type,
             description,
-            price,
-            quantity,
             image
         })
     })
 
+    const firstData = await response.json()
+    // console.log(firstData)
+    if (response.ok) {
+        dispatch(createListing(firstData))
+        return firstData
+    }
+    if (firstData.errors) {
+        return firstData
+    }
+}
+
+export const uploadingImages = (firstData) => async (dispatch) => {
+    const response = await fetch('/api/listings/images', {
+        method: "POST",
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify(firstData)
+    })
+
     const data = await response.json()
     if (response.ok) {
-        dispatch(createListing(data))
-        return data
+
+        return ({...firstData,...data})
     }
     if (data.errors) {
         return data
@@ -86,7 +105,7 @@ export const fetchEditListing = (id, name, description, price, quantity, image) 
 }
 
 export const fetchDeleteListing = (id) => async (dispatch) => {
-    const response= await fetch(`/api/listings/${id}`, {
+    const response = await fetch(`/api/listings/${id}`, {
         method: "DELETE"
     })
 
