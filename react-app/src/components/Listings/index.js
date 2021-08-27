@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllListings } from "../../store/listings";
+import { useSelector } from 'react-redux';
 import Footer from "../Footer";
 import Header from "../Header";
 
 
 const Listings = () => {
 
-  // const dispatch = useDispatch()
-  // const [listings, setListings] = useState([])
-  const listings = Object.values(useSelector((state) => state.listings.listings));
-  console.log(listings[0].images[0])
-
-
-  // useEffect(() => {
-  //   (async() => {
-  //     const data = await dispatch(fetchAllListings());
-  //     setListings(data)
-  //   })();
-  // }, [dispatch]);
+  const listings = Object.values(useSelector((state) => state.listings));
 
   return (
     <div>
