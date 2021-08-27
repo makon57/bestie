@@ -55,7 +55,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
     const firstData = await response.json()
     // console.log(firstData)
     if (response.ok) {
-        dispatch(createListing(firstData))
+        dispatch(uploadingImages(firstData))
         return firstData
     }
     if (firstData.errors) {
@@ -64,6 +64,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
 }
 
 export const uploadingImages = (firstData) => async (dispatch) => {
+    console.log(firstData)
     const response = await fetch('/api/listings/images', {
         method: "POST",
         headers: { 'Content-Type': "application/json" },
@@ -72,7 +73,7 @@ export const uploadingImages = (firstData) => async (dispatch) => {
 
     const data = await response.json()
     if (response.ok) {
-
+        dispatch(createListing(firstData))
         return ({...firstData,...data})
     }
     if (data.errors) {
@@ -80,17 +81,16 @@ export const uploadingImages = (firstData) => async (dispatch) => {
     }
 }
 
-export const fetchEditListing = (id, name, description, price, quantity, image) => async (dispatch) => {
+export const fetchEditListing = (id, name, gender, age, pet_type, description) => async (dispatch) => {
     const response = await fetch(`/api/listings/${id}`, {
         method: "PUT",
         headers: { 'Content-Type': "application/json" },
         body: JSON.stringify({
-            product_id: id,
             name,
+            gender,
+            age,
+            pet_type,
             description,
-            price,
-            quantity,
-            image
         })
     })
     const data = await response.json()

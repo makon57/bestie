@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 # from app.models import Listing
 
 
-class ListingCreateForm(FlaskForm):
+class ListingEditForm(FlaskForm):
     user_id = IntegerField()
     name = StringField('Name', validators=[DataRequired()])
     gender = StringField('Gender', validators=[DataRequired()])

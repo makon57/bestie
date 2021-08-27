@@ -74,7 +74,6 @@ const LoginForm = () => {
           </div>
           <div className='demo-btn-container' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
             <button className='demo-btn' type='button' >DEMO</button>
-            {/* <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button> */}
           </div>
         </div>
         <div className='already-user' onClick={handleClick}>
@@ -83,7 +82,6 @@ const LoginForm = () => {
       </form>
     </div>
     <Header />
-    {/* <img className='login-bg-img' src="https://i.imgur.com/VunlvLt.jpg" alt='dog'></img> */}
     </div>
   );
 };

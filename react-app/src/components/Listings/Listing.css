@@ -5,3 +5,7 @@
 .listing-item p:hover {
     text-shadow: none;
 }
+
+button i {
+    width: 20px;
+}

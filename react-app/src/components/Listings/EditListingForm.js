@@ -1,41 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-
-import { fetchCreateListing } from "../../store/listings";
+import { useHistory, useParams } from "react-router-dom";
+import Listings from ".";
+import { fetchEditListing } from "../../store/listings";
 import Header from "../Header";
 import UploadPicture from "./UploadPicture";
 
 
-const CreateListingForm = () => {
+const EditListingForm = () => {
 
-
-
+  const params = useParams()
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const listing = useSelector(state => state.listings[params.id])
   const [errors, setErrors] = useState([])
-  const [name, setName] = useState('')
-  const [gender, setGender] = useState('Female')
-  const [age, setAge] = useState(1)
-  const [petType, setPetType] = useState('Dog')
-  const [description, setDescription] = useState('')
+  const [name, setName] = useState(listing.name)
+  const [gender, setGender] = useState(listing.gender)
+  const [age, setAge] = useState(listing.age)
+  const [petType, setPetType] = useState(listing.pet_type)
+  const [description, setDescription] = useState(listing.description)
+
+
+  const [image, setImage] = useState(listing.images);
+  const [imageLoading, setImageLoading] = useState(false);
 
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(fetchCreateListing(
-      user.id,
+    setImageLoading(true);
+    const data = await dispatch(fetchEditListing(
+      listing.id,
       name,
       gender,
       age,
       petType,
       description,
-    ));
 
+    ));
     if (data) {
+      setImageLoading(false);
       setErrors(data);
+
+      // history.push(`/listings/${data.id}`)
     }
+    setImageLoading(false);
     history.push(`/users/${user.id}`)
   };
 
@@ -60,15 +69,35 @@ const CreateListingForm = () => {
     setDescription(e.target.value);
   };
 
+  const updateImage = (e) => {
+    const file = e.target.files;
+    setImage(file);
+  }
+
+  let content;
+
+  if (user) {
+    content = (
+      // <UploadPicture />
+      <div onClick={updateImage}>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={updateImage}
+        />
+        {(imageLoading)&& <p>Loading...</p>}
+      </div>
+    )
+  }
+
   return (
     <>
       <Header />
       <div>
-        <div>
-          <UploadPicture />
-        </div>
         <form onSubmit={onSubmit}>
-
+          <div>
+            {content}
+          </div>
           {/* { images ? images.map(image => (
             <img key={image.id} src={image.image_url} alt={image.listing_id}></img>
           ))
@@ -100,7 +129,7 @@ const CreateListingForm = () => {
                 type='text'
                 name='age'
                 onChange={updateAge}
-                value={age}
+                value={listing.age}
                 required={true}
               ></input>
             </div>
@@ -137,4 +166,4 @@ const CreateListingForm = () => {
   )
 }
 
-export default CreateListingForm;
+export default EditListingForm;

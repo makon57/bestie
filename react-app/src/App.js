@@ -14,6 +14,7 @@ import Header from './components/Header';
 import Listings from './components/Listings';
 import { fetchAllListings } from './store/listings';
 import CreateListingForm from './components/Listings/CreateListingForm';
+import EditListingForm from './components/Listings/EditListingForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,6 +60,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/create-listing' exact={true} >
           <CreateListingForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/listings/:id/edit' exact={true} >
+          <EditListingForm />
         </ProtectedRoute>
       </Switch>
       {/* <Footer /> */}

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { fetchAllListings, fetchDeleteListing } from '../store/listings';
+import { fetchAllListings, fetchDeleteListing, fetchEditListing } from '../store/listings';
 import CreateListingForm from './Listings/CreateListingForm';
+import '../components/Listings/Listing.css'
+import EditListingForm from './Listings/EditListingForm';
+
 
 function User() {
   const history = useHistory()
@@ -20,6 +23,10 @@ function User() {
       setErrors(data);
     }
     setDeleteL(false)
+  };
+
+  const editListing = (listingId) => {
+    history.push(`/listings/${listingId}/edit`)
   };
 
 
@@ -70,6 +77,7 @@ function User() {
               <img key={image.id} src={image.image_url} alt=''></img>
             )) : <img src={listing.images.images[0]} alt='listing'></img> }
             <button onClick={() => deleteListing(listing.id)}><i className="far fa-trash-alt"></i></button>
+            <button onClick={() => editListing(listing.id)}><i className="fas fa-edit"></i></button>
           </li>
         ))}
         </ul>
