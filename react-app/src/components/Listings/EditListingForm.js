@@ -129,7 +129,7 @@ const EditListingForm = () => {
                 type='text'
                 name='age'
                 onChange={updateAge}
-                value={listing.age}
+                value={age}
                 required={true}
               ></input>
             </div>

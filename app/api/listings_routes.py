@@ -39,8 +39,12 @@ def create_listing():
             created_at = datetime.now(),
             updated_at= datetime.now()
         )
+
         db.session.add(new_listing)
         db.session.commit()
+        edit_image(new_listing.to_dict())
+        # db.session.add(result)
+        # db.session.commit()
         return new_listing.to_dict()
     else:
         return {'errors':form.errors},500
@@ -49,7 +53,6 @@ def create_listing():
 @login_required
 def edit_listings(id):
     listing = Listing.query.filter(Listing.id == id).first()
-    print(listing)
 
     if request.method == 'GET':
         return listing.to_dict()
@@ -76,3 +79,29 @@ def edit_listings(id):
         db.session.delete(listing)
         db.session.commit()
         return {"deletion":"successful"}
+
+
+@listings_routes.route("/images", methods=["PUT"])
+@login_required
+def edit_image(data):
+    data_id = data['id']
+    print('---svaknlnkvwva-----')
+    print(data_id)
+    images = Image.query.filter(Image.listing_id == 1)
+    image_list = {image.to_dict()['id']: image.to_dict() for image in images}
+    print('---------------')
+    print(image_list)
+    print('--------------')
+    keys = image_list.keys()
+    for i in keys:
+        item = image_list[i]
+        print(item)
+        item['listing_id'] = data_id
+        # db.session.add(item)
+        print(item)
+    # db.session.commit()
+    return data
+
+
+# new_name = request.form['form_name']
+#     client.name = new_name

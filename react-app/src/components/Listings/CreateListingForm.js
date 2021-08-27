@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { fetchCreateListing } from "../../store/listings";
 import Header from "../Header";
-import UploadPicture from "./UploadPicture";
+import UploadPicture from './UploadPicture'
 
 
 const CreateListingForm = () => {
@@ -24,6 +24,7 @@ const CreateListingForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const data = await dispatch(fetchCreateListing(
       user.id,
       name,
@@ -31,6 +32,7 @@ const CreateListingForm = () => {
       age,
       petType,
       description,
+
     ));
 
     if (data) {
@@ -63,16 +65,9 @@ const CreateListingForm = () => {
   return (
     <>
       <Header />
+      <UploadPicture />
       <div>
-        <div>
-          <UploadPicture />
-        </div>
         <form onSubmit={onSubmit}>
-
-          {/* { images ? images.map(image => (
-            <img key={image.id} src={image.image_url} alt={image.listing_id}></img>
-          ))
-          : null} */}
           <hr></hr>
           <div>
             <label>NAME</label>

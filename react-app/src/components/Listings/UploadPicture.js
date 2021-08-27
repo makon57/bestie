@@ -10,19 +10,18 @@ const UploadPicture = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("image", image);
 
+        const formData = new FormData()
+        formData.append("image", image);
         setImageLoading(true);
 
-        const res = await fetch('/api/images', {
+        const res = await fetch('/api/images/', {
             method: "POST",
             body: formData,
         });
         if (res.ok) {
             await res.json();
             setImageLoading(false);
-            history.push("/images");
         }
         else {
             setImageLoading(false);
@@ -41,6 +40,7 @@ const UploadPicture = () => {
               accept="image/*"
               onChange={updateImage}
             />
+            <button type="submit">Submit</button>
             {(imageLoading)&& <p>Loading...</p>}
         </form>
     )
