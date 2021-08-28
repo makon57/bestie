@@ -1,7 +1,38 @@
-from app.models import db, Listing
+from app.models import db, Listing, Image
 from datetime import datetime
+import random
+from faker import Faker
+fake = Faker()
+from app.seeds.images_list import list_of_pets
 
-
+def thing(animal, array):
+    k = 0
+    gender = ['Male', 'Female']
+    numbers = [2, 4, 5]
+    while k < len(array):
+        l = Listing (
+            user_id = random.choice(numbers),
+            name = fake.name().split(' ')[0],
+            gender = random.choice(gender),
+            age = random.randint(1, 20),
+            pet_type = animal,
+            description = fake.text(max_nb_chars=250),
+            created_at=datetime.now(),
+            updated_at= datetime.now()
+        )
+        db.session.add(l)
+        db.session.commit()
+        listing = l.to_dict()
+        print(listing)
+        img = Image(
+            listing_id=listing['id'],
+            image_url= array[k],
+            created_at=datetime.now(),
+            updated_at=datetime.now()
+        )
+        db.session.add(img)
+        db.session.commit()
+        k += 1
 
 def seed_listings():
     pet1 = Listing(
@@ -55,6 +86,23 @@ def seed_listings():
     db.session.add(pet7)
     db.session.add(pet8)
 
+    i = 0
+    items = list(list_of_pets.keys())
+    print(items)
+    while i < len(items):
+        if items[i] == 'cat':
+            thing('Cat', list_of_pets['cat'])
+        elif items[i] == 'dog':
+            thing('Dog', list_of_pets['dog'])
+        elif items[i] == 'rabbit':
+            thing('Rabbit', list_of_pets['rabbit'])
+        elif items[i] == 'horse':
+            thing('Horse', list_of_pets['horse'])
+        elif items[i] == 'guinea pig':
+            thing('Rabbit', list_of_pets['rabbit'])
+        elif items[i] == 'other':
+            thing('Other', list_of_pets['other'])
+        i += 1
 
     db.session.commit()
 

@@ -1,0 +1,55 @@
+list_of_pets = {
+    'cat' : [
+        "https://i.imgur.com/WqrgXHk.jpg",
+        "https://i.imgur.com/KjfH6j9.jpg",
+        "https://i.imgur.com/Suvqves.jpg",
+        "https://i.imgur.com/69T58Np.jpg",
+        "https://i.imgur.com/ezkPgiP.jpg",
+        "https://i.imgur.com/vlP12qS.jpg",
+        "https://i.imgur.com/8x1q4VD.jpg",
+        "https://i.imgur.com/53Qd6kI.jpg",
+    ],
+    'dog' : [
+        'https://i.imgur.com/qrdTdYh.jpg',
+        "https://i.imgur.com/flXri3F.jpg",
+        "https://i.imgur.com/hyiDfjx.jpg",
+        "https://i.imgur.com/aZeuRgt.jpg",
+        "https://i.imgur.com/4jIbC0m.jpg",
+        "https://i.imgur.com/zRRwMwn.jpg",
+        "https://i.imgur.com/9cxQfw7.jpg",
+        "https://i.imgur.com/WrA3Ok4.jpg",
+        "https://i.imgur.com/CH6I7Hy.jpg",
+    ],
+    'rabbit' : [
+        "https://i.imgur.com/25BERL9.jpg",
+        "https://i.imgur.com/GZtkLZK.jpg",
+        "https://i.imgur.com/FxtSzUK.jpg",
+        "https://i.imgur.com/ueAiUEZ.jpg",
+        "https://i.imgur.com/uD4ratE.jpg",
+        "https://i.imgur.com/Ocp6APL.jpg",
+        "https://i.imgur.com/efgk62G.jpg",
+        "https://i.imgur.com/jF3KT1w.jpg",
+    ],
+    'guinea pig' : [
+        "https://i.imgur.com/Ts60Jg3.jpg",
+        "https://i.imgur.com/EmuH5T2.jpg",
+        "https://i.imgur.com/S7hRHJo.jpg",
+        "https://i.imgur.com/Wl8Lr1a.jpg",
+        "https://i.imgur.com/qZOYoap.jpg",
+    ],
+    'other' : [
+        "https://i.imgur.com/qGgvbeV.jpg",
+        "https://i.imgur.com/0w0btgD.jpg",
+        "https://i.imgur.com/Sn79El4.jpg",
+        "https://i.imgur.com/LbvJNpa.jpg",
+    ],
+
+    'horse' : [
+        "https://i.imgur.com/OChZ0I1.jpg",
+        "https://i.imgur.com/24dXoWO.jpg",
+        "https://i.imgur.com/gL0Hx7n.jpg",
+        "https://i.imgur.com/0zLqO7L.jpg",
+        "https://i.imgur.com/65sFsrg.jpg",
+        "https://i.imgur.com/tXWrjlN.jpg",
+    ]
+}

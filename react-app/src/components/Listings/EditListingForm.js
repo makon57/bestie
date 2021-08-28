@@ -112,7 +112,7 @@ const EditListingForm = () => {
                 <option value="Cat">Cat</option>
                 <option value="Rabbit">Rabbit</option>
                 <option value="Guinea Pig">Guinea Pig</option>
-                <option value="Hamster">Hamster</option>
+                <option value="Horse">Horse</option>
                 <option value="Other">Other</option>
               </select>
             </div>
