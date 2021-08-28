@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import Listings from ".";
-import { fetchEditListing } from "../../store/listings";
+import { fetchEditListing, fetchDeleteListing } from "../../store/listings";
+import Footer from "../Footer";
 import Header from "../Header";
 import UploadPicture from "./UploadPicture";
-
+import '../Listings/Form.css'
 
 const EditListingForm = () => {
 
@@ -20,10 +20,17 @@ const EditListingForm = () => {
   const [age, setAge] = useState(listing.age)
   const [petType, setPetType] = useState(listing.pet_type)
   const [description, setDescription] = useState(listing.description)
-
+  const [setDeleteL] = useState(false)
 
   const [image, setImage] = useState(listing.images);
 
+  const deleteListing = async (listingId) => {
+    const data = dispatch(fetchDeleteListing(listingId));
+    if (data) {
+      setErrors(data);
+    }
+    setDeleteL(false)
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -69,33 +76,25 @@ const EditListingForm = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className='background-div'></div>
+        <div>
           <UploadPicture />
-      </div>
-      <div>
-        <form onSubmit={onSubmit}>
-          <hr></hr>
-          <div>
-            <label>NAME</label>
-            <input
-              type='text'
-              name='name'
-              onChange={updateName}
-              value={name}
-              required={true}
-            ></input>
-          </div>
-          <hr></hr>
-          <div>
-            <div>
-              <label>GENDER</label>
-              <select name='gender' onChange={updateGender} value={gender} required={true}>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-              </select>
+        </div>
+        <div className='form-container'>
+          <form onSubmit={onSubmit}>
+            <h1 className='form-header'>BESTIE FORM</h1>
+            <hr className='hr1'></hr>
+            <div className='form-name'>
+              <label>NAME</label>
+              <input
+                type='text'
+                name='name'
+                onChange={updateName}
+                value={name}
+                required={true}
+              ></input>
             </div>
-            <hr></hr>
-            <div>
+            <div className='form-age'>
               <label>AGE</label>
               <input
                 type='text'
@@ -105,7 +104,15 @@ const EditListingForm = () => {
                 required={true}
               ></input>
             </div>
-            <div>
+            <hr className='hr2'></hr>
+            <div className='form-gender'>
+              <label>GENDER</label>
+              <select name='gender' onChange={updateGender} value={gender} required={true}>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </div>
+            <div className='form-pet-type'>
               <label>PET TYPE</label>
               <select name="petType" onChange={updatePetType} value={petType} required={true}>
                 <option value="Dog">Dog</option>
@@ -116,24 +123,30 @@ const EditListingForm = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-          </div>
-          <hr></hr>
-          <div>
-            <label>DESCRIPTION</label>
-            <input
-              type='text'
-              name='name'
-              onChange={updateDescription}
-              value={description}
-              required={true}
-            ></input>
-          </div>
-          <hr></hr>
-          <div className='signup-btn-container'>
-            <button className='signup-btn' type='submit' >SUBMIT</button>
-          </div>
-        </form>
-      </div>
+            <hr className='hr3'></hr>
+            <hr className='hr2'></hr>
+            <hr className='hr2'></hr>
+            <div className='form-description'>
+              <label>DESCRIPTION</label>
+              <textarea
+                type='text'
+                name='description'
+                onChange={updateDescription}
+                value={description}
+                required={true}
+              ></textarea>
+            </div>
+            <hr className='hr2'></hr>
+            <div className='form-submit-btn delete-edit'>
+              <button className='edit-btn' type='submit' >EDIT</button>
+              <button className='delete-btn' onClick={() => deleteListing(listing.id)}>DELETE</button>
+            </div>
+          </form>
+        </div>
+        <div className='filler'>
+          <p></p>
+        </div>
+      <div className='footer'><Footer /></div>
     </>
   )
 }

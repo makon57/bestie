@@ -165,3 +165,21 @@ hr {
     background-color: transparent;
     z-index: 1;
 }
+
+.delete-edit button {
+    height: 60px;
+    width: 200px;
+    margin: 15px 15px 15px 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    background-color: rgb(0, 107, 0);
+    color: white;
+}
+
+.delete-btn {
+    background-color: rgb(138, 0, 0);
+    color: white;
+}
