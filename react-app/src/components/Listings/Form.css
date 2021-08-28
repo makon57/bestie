@@ -1,3 +1,7 @@
+body {
+    overflow-y: scroll;
+}
+
 .upload-container {
     width: 60%;
     height: 400px;
@@ -48,11 +52,11 @@
     background-color: white;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
     width: 60%;
-    height: 700px;
+    height: 800px;
     margin-bottom: 10%;
     grid-area: form;
     padding-top: 3%;
-    padding-bottom: 5%;
+    padding-bottom: 7%;
     margin: 10% 5% 0 5%;
     margin: auto;
     position: absolute;
@@ -125,22 +129,39 @@
     grid-area: header
 }
 .form-submit-btn {
-    grid-area: submit
+    grid-area: submit;
+    margin: auto;
+    margin-top: 20px;
 }
 
-.h1 {
-    grid-area: h1;
-}
-.h2 {
-    grid-area: h2;
-}
-.h3 {
-    grid-area: h3
-}
-.h4 {
-    grid-area: h4
+.form-submit-btn button {
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
 }
 
 hr {
     width: 100%;
+    margin-top: 5%;
+}
+
+.filler {
+    width: 80%;
+    height: 110%;
+    margin: 0 auto;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    z-index: auto;
+    background-color: rgb(255, 89, 74);
+}
+
+.footer {
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+    position: absolute;
+    top: 180%;
+    background-color: transparent;
+    z-index: 1;
 }

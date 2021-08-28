@@ -1,9 +1,9 @@
 .main-footer {
     background-color: rgb(255, 89, 74);
     height: 7vw;
-    position: fixed;
+    position: relative;
     left:0;
-    bottom:0;
+    top: 100%;
     right:0;
     margin: 0;
     z-index: 3;

@@ -114,6 +114,8 @@ const CreateListingForm = () => {
               </select>
             </div>
             <hr className='hr3'></hr>
+            <hr className='hr2'></hr>
+            <hr className='hr2'></hr>
             <div className='form-description'>
               <label>DESCRIPTION</label>
               <textarea
@@ -124,13 +126,16 @@ const CreateListingForm = () => {
                 required={true}
               ></textarea>
             </div>
-            <hr className='hr4'></hr>
-            <div className='signup-btn-container form-submit-btn'>
+            <hr className='hr2'></hr>
+            <div className='form-submit-btn'>
               <button className='signup-btn' type='submit' >SUBMIT</button>
             </div>
           </form>
         </div>
-      <Footer />
+        <div className='filler'>
+          <p></p>
+        </div>
+      <div className='footer'><Footer /></div>
     </>
   )
 }
