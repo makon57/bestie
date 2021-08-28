@@ -41,7 +41,7 @@ const Splash = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <i className="fa-solid fa-memo icons"></i>
+                <img src="https://i.imgur.com/Ba1cmFT.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-b'>
@@ -53,7 +53,7 @@ const Splash = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <i className="fa-solid fa-hand-wave icons"></i>
+                <img src="https://i.imgur.com/MSZoCJK.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-a'>
@@ -65,7 +65,7 @@ const Splash = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <i className="fa-solid fa-heart-pulse icons"></i>
+                <img src="https://i.imgur.com/Ku9RtFe.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-b'>
@@ -77,7 +77,7 @@ const Splash = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <i className="fa-solid fa-sack-dollar icons"></i>
+                <img src="https://i.imgur.com/Uu6ohv5.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-a'>
@@ -89,7 +89,7 @@ const Splash = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <i className="fa-solid fa-house-chimney icons"></i>
+                <img src="https://i.imgur.com/Dd7765T.png" alt='form'></img>
             </div>
         </div>
         <div className='applications'>

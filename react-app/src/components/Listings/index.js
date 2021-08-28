@@ -7,13 +7,14 @@ const Listings = () => {
 
   const listings = Object.values(useSelector((state) => state.listings));
 
+
   return (
     <div>
       <Header />
       <div className='list-container'>
       <ul className="listing-list">
         {listings?.map((listing) => (
-          <div key={listing.name} className="container">
+          <div key={listing.name} className="container" >
             <li key={listing.id} className="listing-item">
               <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img>
               <div className='petInfo'>
@@ -22,7 +23,6 @@ const Listings = () => {
                 <p>GENDER: {listing.gender}</p>
                 <p>PET TYPE: {listing.pet_type}</p>
               </div>
-              {/* <p>{listing.description}</p> */}
             </li>
           </div>
         ))}

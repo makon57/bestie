@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, request
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -65,8 +65,10 @@ def sign_up():
         user = User(
             name=form.data['name'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            foster=form.data['foster'],
         )
+        print(user)
         db.session.add(user)
         db.session.commit()
         login_user(user)

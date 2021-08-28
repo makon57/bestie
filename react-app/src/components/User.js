@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { fetchAllListings, fetchDeleteListing, fetchEditListing } from '../store/listings';
-import CreateListingForm from './Listings/CreateListingForm';
-import '../components/Listings/Listing.css'
-import EditListingForm from './Listings/EditListingForm';
+import { Link, useHistory } from 'react-router-dom';
+import { fetchDeleteListing } from '../store/listings';
 import ImageGallery from 'react-image-gallery';
 import '../components/Listings/Listing.css'
-import Header from './Header';
 import '../components/Header/Header.css'
 
 function User() {
@@ -16,7 +12,7 @@ function User() {
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
-  const [deleteL, setDeleteL] = useState(false)
+  const [setDeleteL] = useState(false)
   const things = Object.values(useSelector(state => state.listings))
   const listings = things.filter(things => things.user_id === userId)
 
@@ -51,7 +47,6 @@ function User() {
   return (
     <>
       <div className='user-header-container'>
-        {/* <img src="https://i.imgur.com/Hz6JbqL.jpg" alt='cat and dog'></img> */}
         <span className='user-header-name'>
           <p>Hi {user.name ? user.name.split(' ')[0] : 'Bestie'}!</p>
         </span>
@@ -76,7 +71,7 @@ function User() {
       </div>
       <div className='list-container'>
         <ul className="listing-list">
-          {listings.map((listing)=> (
+          {listings?.map((listing)=> (
             <div className="container" key={listing.name}>
               <li key={listing.id} className="listing-item" onChange={() => setDeleteL(true)}>
                 {listing.images && listing.images.length > 1 ? <ImageGallery items={listing.images} /> : <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> }
@@ -86,8 +81,8 @@ function User() {
                   <p>{listing.pet_type}</p>
                 </div>
 
-                <button onClick={() => deleteListing(listing.id)}><i className="far fa-trash-alt"></i></button>
-                <button onClick={() => editListing(listing.id)}><i className="fas fa-edit"></i></button>
+                <button onClick={() => deleteListing(listing.id)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
+                <button onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
               </li>
             </div>
           ))}

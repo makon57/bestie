@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, NavLink, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import '../auth/auth.css'
 import Header from '../Header';
@@ -14,7 +14,7 @@ const SignUpForm = () => {
   const [foster, setFoster] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [message, setMessage] = useState('false')
+  const [setMessage] = useState('false')
 
   const handleClick = async(e) => {
     e.preventDefault();
@@ -24,14 +24,14 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-
+    console.log(foster)
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(name, email, password));
+      const data = await dispatch(signUp(name, email, password, foster));
       if (data) {
         setErrors(data)
       }
     } else if (password !== repeatPassword) {
-      const data = await dispatch(signUp(name, email, password));
+      const data = await dispatch(signUp(name, email, password, foster));
       if (data) {
         setErrors({...data, passMatch: "Passwords do not match."})
       } else {
@@ -57,7 +57,7 @@ const SignUpForm = () => {
   };
 
   const updateFoster = (e) => {
-    setFoster(!foster);
+    setFoster(true);
   };
 
   if (user) {
@@ -124,7 +124,7 @@ const SignUpForm = () => {
               className='foster-check'
               type='checkbox'
               name='foster'
-              onChange={updateFoster}
+              onClick={updateFoster}
               value={foster}
             ></input>
           </div>
@@ -138,7 +138,6 @@ const SignUpForm = () => {
         </form>
       </div>
       <Header />
-    {/* <img className='signin-bg-img' src="https://i.imgur.com/TKJ3cgt.jpg" alt='cat'></img> */}
     </div>
   );
 };

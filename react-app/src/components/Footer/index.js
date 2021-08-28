@@ -1,5 +1,5 @@
 import '../Footer/Footer.css'
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Footer() {
@@ -13,18 +13,18 @@ function Footer() {
       <div className='main-footer'>
         <div className="footer-wrap">
           <div className="footer-left-container">
-            <a href='https://github.com/makon57' >
+            <a href='https://github.com/makon57' target="_blank" rel="noreferrer noopener">
                 <p>GITHUB</p>
             </a>
           </div>
           <NavLink to='/' className='bestie-logo-link' exact={true} activeClassName='active'>
             <img className='bestie-logo-footer' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
           </NavLink>
-          <a href='https://angel.co/u/manna-kong' className='angelist-link' >
+          <a href='https://angel.co/u/manna-kong' target="_blank" rel="noreferrer noopener" className='angelist-link' >
             <p>ANGELIST</p>
           </a>
           <div className="footer-right-container">
-            <a href='https://www.linkedin.com/in/manna-kong/' >
+            <a href='https://www.linkedin.com/in/manna-kong/profile' target="_blank" rel="noreferrer noopener">
               <p>LINKEDIN</p>
             </a>
           </div>

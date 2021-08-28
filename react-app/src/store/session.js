@@ -1,4 +1,4 @@
-// constants
+
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
@@ -71,7 +71,8 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (name, email, password) => async (dispatch) => {
+export const signUp = (name, email, password, foster) => async (dispatch) => {
+
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {
@@ -81,6 +82,7 @@ export const signUp = (name, email, password) => async (dispatch) => {
       name,
       email,
       password,
+      foster,
     }),
   });
 

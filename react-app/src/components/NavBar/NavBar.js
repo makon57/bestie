@@ -41,7 +41,7 @@ const NavBar = () => {
             </NavLink>
           </div>
         </div>
-        <NavLink to='/' exact={true} activeClassName='active'>
+        <NavLink to='/' exact={true} activeClassName='active' >
           <img className='bestie-logo' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
         </NavLink>
         <div className='menu-right-container'>

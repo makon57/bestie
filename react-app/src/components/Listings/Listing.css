@@ -57,3 +57,14 @@ div .petInfo {
 .petInfo p {
     margin-bottom: 0px;
 }
+
+.container button {
+    background-color: transparent;
+    border: none;
+    margin: 2% 2% 2% 2%;
+}
+
+.container button img {
+    background-color: transparent;
+    width: 40px;
+}
