@@ -28,7 +28,7 @@ def upload_image():
         return upload, 401
 
     url = upload["url"]
-    
+
     new_image = Image(listing_id=1, image_url=url, created_at = datetime.now(), updated_at= datetime.now())
     db.session.add(new_image)
     db.session.commit()

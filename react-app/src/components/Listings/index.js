@@ -10,22 +10,23 @@ const Listings = () => {
   return (
     <div>
       <Header />
-      <div className="container">
-        <ul className="listing-list">
+      <div className='list-container'>
+      <ul className="listing-list">
         {listings?.map((listing) => (
-          <li key={listing.id} className="listing-item">
-            <p>{listing.name}</p>
-            <p>{listing.gender}</p>
-            <p>{listing.pet_type}</p>
-            <p>{listing.description}</p>
-            <img src={listing.images.images[0]} alt='listing'></img>
-
-            {/* <div className="image-container">
-              <ListingModal />
-            </div> */}
-          </li>
+          <div key={listing.name} className="container">
+            <li key={listing.id} className="listing-item">
+              <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img>
+              <div className='petInfo'>
+                <p>BESTIE ID: {listing.id}</p>
+                <p>NAME: {listing.name}</p>
+                <p>GENDER: {listing.gender}</p>
+                <p>PET TYPE: {listing.pet_type}</p>
+              </div>
+              {/* <p>{listing.description}</p> */}
+            </li>
+          </div>
         ))}
-        </ul>
+      </ul>
       </div>
       <Footer />
     </div>

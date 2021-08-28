@@ -9,3 +9,51 @@
 button i {
     width: 20px;
 }
+
+.listing-list {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 4% 0 4%;
+    padding: 0 0 0 0;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.listing-item {
+    width: 30%;
+    margin: none;
+}
+
+.list-container img {
+    max-width: 400px;
+}
+
+.container {
+    max-width: 400px;
+    width: 400px;
+    height: 600px;
+    margin: 2% 2% 2% 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+}
+
+div .petInfo {
+    margin-left: 10px;
+    width: 100%;
+    font-size: 25px;
+
+}
+
+.petInfo p {
+    margin-bottom: 0px;
+}

@@ -6,6 +6,9 @@ import CreateListingForm from './Listings/CreateListingForm';
 import '../components/Listings/Listing.css'
 import EditListingForm from './Listings/EditListingForm';
 import ImageGallery from 'react-image-gallery';
+import '../components/Listings/Listing.css'
+import Header from './Header';
+import '../components/Header/Header.css'
 
 function User() {
   const history = useHistory()
@@ -47,6 +50,12 @@ function User() {
 
   return (
     <>
+      <div className='user-header-container'>
+        {/* <img src="https://i.imgur.com/Hz6JbqL.jpg" alt='cat and dog'></img> */}
+        <span className='user-header-name'>
+          <p>Hi {user.name ? user.name.split(' ')[0] : 'Bestie'}!</p>
+        </span>
+      </div>
       <div>
         <ul>
           <li>
@@ -65,20 +74,23 @@ function User() {
           : null }
         </ul>
       </div>
-      <div className="container">
+      <div className='list-container'>
         <ul className="listing-list">
-        {listings.map((listing)=> (
-          <li key={listing.id} className="listing-item" onChange={() => setDeleteL(true)}>
-            <div>{listing.name}</div>
-            <div>{listing.gender}</div>
-            <div>{listing.pet_type}</div>
-            <div>{listing.description}</div>
+          {listings.map((listing)=> (
+            <div className="container" key={listing.name}>
+              <li key={listing.id} className="listing-item" onChange={() => setDeleteL(true)}>
+                {listing.images && listing.images.length > 1 ? <ImageGallery items={listing.images} /> : <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> }
+                <div className='petInfo'>
+                  <p>{listing.name}</p>
+                  <p>{listing.gender}</p>
+                  <p>{listing.pet_type}</p>
+                </div>
 
-            {listing.images && listing.images.length > 1 ? <ImageGallery items={listing.images} /> : <img src={listing.images.images[0]} alt='listing'></img> }
-            <button onClick={() => deleteListing(listing.id)}><i className="far fa-trash-alt"></i></button>
-            <button onClick={() => editListing(listing.id)}><i className="fas fa-edit"></i></button>
-          </li>
-        ))}
+                <button onClick={() => deleteListing(listing.id)}><i className="far fa-trash-alt"></i></button>
+                <button onClick={() => editListing(listing.id)}><i className="fas fa-edit"></i></button>
+              </li>
+            </div>
+          ))}
         </ul>
       </div>
     </>
