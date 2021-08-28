@@ -1,11 +1,12 @@
 .main-footer {
     background-color: rgb(255, 89, 74);
     height: 7vw;
-    position: relative;
+    position: fixed;
     left:0;
     bottom:0;
     right:0;
     margin: 0;
+    z-index: 3;
 }
 
 .footer-wrap {

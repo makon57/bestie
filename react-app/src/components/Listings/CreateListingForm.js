@@ -4,8 +4,9 @@ import { useHistory } from "react-router-dom";
 
 import { fetchCreateListing } from "../../store/listings";
 import Header from "../Header";
+import Footer from '../Footer';
 import UploadPicture from './UploadPicture'
-
+import '../Listings/Form.css'
 
 const CreateListingForm = () => {
 
@@ -65,33 +66,25 @@ const CreateListingForm = () => {
   return (
     <>
       <Header />
-      <div>
-        <UploadPicture />
-      </div>
-      <div>
-        <form onSubmit={onSubmit}>
-          <hr></hr>
-          <div>
-            <label>NAME</label>
-            <input
-              type='text'
-              name='name'
-              onChange={updateName}
-              value={name}
-              required={true}
-            ></input>
-          </div>
-          <hr></hr>
-          <div>
-            <div>
-              <label>GENDER</label>
-              <select name='gender' onChange={updateGender} value={gender} required={true}>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-              </select>
+      <div className='background-div'></div>
+        <div>
+          <UploadPicture />
+        </div>
+        <div className='form-container'>
+          <form onSubmit={onSubmit}>
+            <h1 className='form-header'>BESTIE FORM</h1>
+            <hr className='hr1'></hr>
+            <div className='form-name'>
+              <label>NAME</label>
+              <input
+                type='text'
+                name='name'
+                onChange={updateName}
+                value={name}
+                required={true}
+              ></input>
             </div>
-            <hr></hr>
-            <div>
+            <div className='form-age'>
               <label>AGE</label>
               <input
                 type='text'
@@ -101,7 +94,15 @@ const CreateListingForm = () => {
                 required={true}
               ></input>
             </div>
-            <div>
+            <hr className='hr2'></hr>
+            <div className='form-gender'>
+              <label>GENDER</label>
+              <select name='gender' onChange={updateGender} value={gender} required={true}>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </div>
+            <div className='form-pet-type'>
               <label>PET TYPE</label>
               <select name="petType" onChange={updatePetType} value={petType} required={true}>
                 <option value="Dog">Dog</option>
@@ -112,24 +113,24 @@ const CreateListingForm = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-          </div>
-          <hr></hr>
-          <div>
-            <label>DESCRIPTION</label>
-            <input
-              type='text'
-              name='name'
-              onChange={updateDescription}
-              value={description}
-              required={true}
-            ></input>
-          </div>
-          <hr></hr>
-          <div className='signup-btn-container'>
-            <button className='signup-btn' type='submit' >SUBMIT</button>
-          </div>
-        </form>
-      </div>
+            <hr className='hr3'></hr>
+            <div className='form-description'>
+              <label>DESCRIPTION</label>
+              <textarea
+                type='text'
+                name='description'
+                onChange={updateDescription}
+                value={description}
+                required={true}
+              ></textarea>
+            </div>
+            <hr className='hr4'></hr>
+            <div className='signup-btn-container form-submit-btn'>
+              <button className='signup-btn' type='submit' >SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      <Footer />
     </>
   )
 }

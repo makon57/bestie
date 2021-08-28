@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-
+import '../Listings/Form.css'
 
 const UploadPicture = () => {
     const [image, setImage] = useState(null);
@@ -32,15 +32,17 @@ const UploadPicture = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
-        </form>
+        <div className='upload-container'>
+            <form onSubmit={handleSubmit}>
+                <input
+                type="file"
+                accept="image/*"
+                onChange={updateImage}
+                />
+                <button type="submit">Submit</button>
+                {(imageLoading)&& <p>Loading...</p>}
+            </form>
+        </div>
     )
 }
 

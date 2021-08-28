@@ -30,6 +30,13 @@ input {
     text-transform: uppercase;
 }
 
+textarea {
+    font-family: 'PT Sans Narrow';
+    font-size: 22px;
+    border: none;
+    color: rgba(153, 153, 153, 0.9);
+}
+
 i {
     font-family: 'FontAwesome';
 }
