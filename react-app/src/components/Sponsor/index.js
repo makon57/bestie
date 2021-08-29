@@ -32,7 +32,7 @@ const Sponsor = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <img src="https://i.imgur.com/Ba1cmFT.png" alt='form'></img>
+                <img src="https://i.imgur.com/gNjfOaq.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-b'>
@@ -44,12 +44,12 @@ const Sponsor = () => {
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <img src="https://i.imgur.com/MSZoCJK.png" alt='form'></img>
+                <img src="https://i.imgur.com/a6lfipo.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-a'>
                 <h2>OPTION 3:</h2>
-                <h3>Show us some love!</h3>
+                <h3>Spread the word!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -61,7 +61,7 @@ const Sponsor = () => {
             <hr></hr>
             <div className='steps-b'>
                 <h2>OPTION 4:</h2>
-                <h3>Give use money!</h3>
+                <h3>Share the wealth!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
