@@ -78,7 +78,7 @@ const EditListingForm = () => {
       <Header />
       <div className='background-div'></div>
         <div>
-          <UploadPicture />
+          <UploadPicture listImage={listing.images.images[listing.images.images.length - 1]}/>
         </div>
         <div className='form-container'>
           <form onSubmit={onSubmit}>

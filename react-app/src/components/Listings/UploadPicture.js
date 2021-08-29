@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import '../Listings/Form.css'
 
-const UploadPicture = () => {
+const UploadPicture = (props) => {
+
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-
+    const [url, setUrl] = useState(props.listImage ? props.listImage : 'https://i.imgur.com/BPOYKBx.png')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,19 +29,24 @@ const UploadPicture = () => {
 
     const updateImage = (e) => {
         const file = e.target.files[0];
+        if (file) {
+          setUrl(URL.createObjectURL(file))
+        }
         setImage(file);
     }
+
 
     return (
         <div className='upload-container'>
             <form onSubmit={handleSubmit}>
+                <img src={url} alt="i" />
                 <input
                 type="file"
                 accept="image/*"
+                id="imgInp"
                 onChange={updateImage}
                 />
-                <button type="submit">Submit</button>
-                {(imageLoading)&& <p>Loading...</p>}
+                <button type="submit">{(imageLoading) ? 'Loading . . . ' : 'UPLOAD'}</button>
             </form>
         </div>
     )

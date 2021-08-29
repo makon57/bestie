@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(fetchAllListings());
+      // await dispatch(fetchAllListings());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -64,6 +64,9 @@ function App() {
         <ProtectedRoute path='/listings/:id/edit' exact={true} >
           <EditListingForm />
         </ProtectedRoute>
+        <Route>
+          404 page not found
+        </Route>
       </Switch>
       {/* <Footer /> */}
     </BrowserRouter>
