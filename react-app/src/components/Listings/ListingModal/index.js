@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { Modal } from '../../../context/Modal';
-import ListDetail from './ListDetail';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import DeleteListingModal from '../DeleteListingModal';
@@ -51,9 +50,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                 </>
                 : null }
                 {showDeleteModal &&  (
-
                     <DeleteListingModal listing={listing} setShowDeleteModal={setShowDeleteModal} setShowListModal={setShowListModal}/>
-
                 )}
             </Modal>
             )}

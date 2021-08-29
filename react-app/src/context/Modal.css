@@ -31,13 +31,13 @@
     align-items: center;
     margin: auto;
     padding: 20px;
-    max-width: 70%;
-    max-height: 80%;
+    max-width: 60%;
+    max-height: 70%;
 }
 
 #modal-content img {
-    max-width: 70%;
-    max-height: 80%;
+    max-width:500px;
+    max-height: 700px;
 }
 
 @media (max-width: 500px) {
