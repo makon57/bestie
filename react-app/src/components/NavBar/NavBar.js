@@ -46,8 +46,8 @@ const NavBar = () => {
         </NavLink>
         <div className='menu-right-container'>
           <div className='donate'>
-            <NavLink to='/donate' exact={true} activeClassName='active'>
-              DONATE
+            <NavLink to='/sponsor' exact={true} activeClassName='active'>
+              SPONSOR
             </NavLink>
           </div>
           {user ?

@@ -4,17 +4,18 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar'
-import Footer from './components/Footer';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Splash from './components/Splash';
 import { authenticate } from './store/session';
-import Header from './components/Header';
 import Listings from './components/Listings';
-import { fetchAllListings } from './store/listings';
 import CreateListingForm from './components/Listings/CreateListingForm';
 import EditListingForm from './components/Listings/EditListingForm';
+import Sponsor from './components/Sponsor';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -23,7 +24,6 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      // await dispatch(fetchAllListings());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -35,7 +35,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      {/* <Header /> */}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -48,6 +47,9 @@ function App() {
         </Route>
         <Route path='/adopt' exact={true} >
           <Listings />
+        </Route>
+        <Route path='/Sponsor' exact={true} >
+          <Sponsor />
         </Route>
         <Route path='/' exact={true} >
           <Splash />
@@ -68,7 +70,6 @@ function App() {
           404 page not found
         </Route>
       </Switch>
-      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
