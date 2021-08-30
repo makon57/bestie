@@ -7,6 +7,8 @@ function Footer() {
   const user = useSelector(state => state.session.user)
   const params = window.location.pathname;
 
+
+
   return (
     <>
     {params === '/login' || params === '/sign-up' ? null :
@@ -17,7 +19,7 @@ function Footer() {
                 <p>GITHUB</p>
             </a>
           </div>
-          <NavLink to='/' className='bestie-logo-link' exact={true} activeClassName='active'>
+          <NavLink to='/adopt' className='bestie-logo-link' exact={true} activeClassName='active'>
             <img className='bestie-logo-footer' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
           </NavLink>
           <a href='https://angel.co/u/manna-kong' target="_blank" rel="noreferrer noopener" className='angelist-link' >

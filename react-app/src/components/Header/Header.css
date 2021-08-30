@@ -28,6 +28,32 @@
     padding-top: 12%;
 }
 
+.user-header-name input {
+    color: #000000;
+    font-size: 2vw;
+    /* vertical-align: center; */
+    font-family: 'Bebas Neue';
+    margin: 0 0 0 0;
+    height: 50px;
+    width: 30%;
+    max-width: 800px;
+    padding-left: 10px;
+}
+
+.user-header-name h1 {
+    color: #000000;
+    font-size: 2vw;
+    /* vertical-align: center; */
+    font-family: 'Bebas Neue';
+    margin: 0 0 0 0;
+    padding-top: 15%;
+    padding-left: 35%;
+    left: 42%;
+    height: 50px;
+    width: 30%;
+}
+
+
 .user-header-name::after{
     position:fixed;
 }

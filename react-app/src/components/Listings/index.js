@@ -18,6 +18,11 @@ const Listings = () => {
     dispatch(fetchAllListings());
   }, [dispatch]);
 
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
+
   return (
     <div>
       <Header />

@@ -14,11 +14,13 @@ const SignUpForm = () => {
   const [foster, setFoster] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [setMessage] = useState('false')
+  const [message, setMessage] = useState('false')
 
   const handleClick = async(e) => {
     e.preventDefault();
-    setMessage('true')
+    if(message) {
+      setMessage(!message)
+    }
   }
 
 

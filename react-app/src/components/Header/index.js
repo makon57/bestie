@@ -17,6 +17,13 @@ const Header = () => {
         <div className='header-container'>
           <img src="https://i.imgur.com/KmxttNE.jpg" alt='cat and dog'></img>
         </div>
+      : params === '/adopt' ?
+        <div className='user-header-container'>
+          <span className='user-header-name'>
+            <h1>Filter your bestie search!</h1>
+            <input type="text" placeholder='Search . . . '></input>
+          </span>
+        </div>
       : params === '/login' ?
         <div className='login-header-container'>
           <img src="https://i.imgur.com/VunlvLt.jpg" alt='cat'></img>

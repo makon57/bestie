@@ -41,7 +41,7 @@ const NavBar = () => {
             </NavLink>
           </div>
         </div>
-        <NavLink to='/' exact={true} activeClassName='active' >
+        <NavLink to='/adopt' exact={true} activeClassName='active' >
           <img className='bestie-logo' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>
         </NavLink>
         <div className='menu-right-container'>
@@ -70,7 +70,7 @@ const NavBar = () => {
             </div>
             <div className='auth'>
               <NavLink to='/login' onClick={() => setParams('/login')} exact={true} activeClassName='active'>
-                LOGIN
+                LOGIN/SIGN UP
               </NavLink>
             </div>
             </>
@@ -82,7 +82,7 @@ const NavBar = () => {
             </div>
             <div className='auth'>
               <NavLink to='/sign-up' onClick={() => setParams('/sign-up')} exact={true} activeClassName='active'>
-                SIGN UP
+                LOGIN/SIGN UP
               </NavLink>
             </div>
             </>

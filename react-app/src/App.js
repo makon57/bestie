@@ -14,8 +14,7 @@ import CreateListingForm from './components/Listings/CreateListingForm';
 import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
 import Foster from './components/Foster';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+
 
 
 function App() {
