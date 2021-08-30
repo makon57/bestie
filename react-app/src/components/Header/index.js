@@ -4,7 +4,7 @@ import '../Header/Header.css'
 
 const Header = () => {
 
-const [params, setParams] = useState(window.location.pathname)
+  const [params, setParams] = useState(window.location.pathname)
 
 
   useEffect(() => (

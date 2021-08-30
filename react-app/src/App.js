@@ -13,6 +13,7 @@ import Listings from './components/Listings';
 import CreateListingForm from './components/Listings/CreateListingForm';
 import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
+import Foster from './components/Foster';
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 
@@ -48,8 +49,11 @@ function App() {
         <Route path='/adopt' exact={true} >
           <Listings />
         </Route>
-        <Route path='/Sponsor' exact={true} >
+        <Route path='/sponsor' exact={true} >
           <Sponsor />
+        </Route>
+        <Route path='/foster' exact={true} >
+          <Foster />
         </Route>
         <Route path='/' exact={true} >
           <Splash />

@@ -6,6 +6,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ListingModal from '../Listings/ListingModal';
 // import { Modal } from '../../context/Modal';
+import "../Listings/Listing.css"
 
 const Listings = () => {
 

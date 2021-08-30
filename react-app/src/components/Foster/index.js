@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 
-const Sponsor = () => {
+const Foster = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -16,10 +16,10 @@ const Sponsor = () => {
     <div className='splash-container'>
         <div>
             <div className='intro'>
-                <h1 className='how-to'>HOW CAN I BECOME A SPONSOR?</h1>
-                <h1>Sponsor us! Or a pet! Or three or four pets!</h1>
+                <h1 className='how-to'>HOW DO I BECOME A FOSTER?</h1>
+                <h1>Fill out an application and lets see if we can become besties!</h1>
                 <p>
-                    First off, what's a sponsor? Well, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    First off, what's a foster? Well, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -27,51 +27,51 @@ const Sponsor = () => {
             </div>
             <hr></hr>
             <div className='steps-a'>
-                <h2>OPTION 1:</h2>
-                <h3>Donate toys or food!</h3>
+                <h2>STEP 1:</h2>
+                <h3>Fill out a foster application!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <img src="https://i.imgur.com/gNjfOaq.png" alt='form'></img>
+                <img src="https://i.imgur.com/Ba1cmFT.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-b'>
-                <h2>OPTION 2:</h2>
-                <h3>Come play with our besties!</h3>
+                <h2>STEP 2:</h2>
+                <h3>Let's go on a date!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <img src="https://i.imgur.com/a6lfipo.png" alt='form'></img>
+                <img src="https://i.imgur.com/U10mQty.png" alt='form'></img>
             </div>
             <hr></hr>
             <div className='steps-a'>
-                <h2>OPTION 3:</h2>
-                <h3>Spread the word!</h3>
-                <p>
-                    Share our besties on social media platforms and tag us @bestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <img src="https://i.imgur.com/x5LXDC0.png" alt='form'></img>
-            </div>
-            <hr></hr>
-            <div className='steps-b'>
-                <h2>OPTION 4:</h2>
-                <h3>Share the wealth!</h3>
+                <h2>STEP 3:</h2>
+                <h3>Let's go on another date, but take me home!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <img src="https://i.imgur.com/Uu6ohv5.png" alt='form'></img>
+                <img src="https://i.imgur.com/Dd7765T.png" alt='form'></img>
+            </div>
+            <hr></hr>
+            <div className='steps-b'>
+                <h2>STEP 4:</h2>
+                <h3>Let's DTR!</h3>
+                <p>
+                    It's time to 'define the relationship'. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <img src="https://i.imgur.com/2j1OboE.png" alt='form'></img>
             </div>
         </div>
         <div className='applications'>
@@ -93,4 +93,4 @@ const Sponsor = () => {
   )
 };
 
-export default Sponsor;
+export default Foster;

@@ -2,15 +2,22 @@ import Header from "../Header";
 import "../Splash/Splash.css";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
 const Splash = () => {
 
+    const [params, setParams] = useState(window.location.pathname)
 
-  return (
+
+    useEffect(() => (
+        setParams(window.location.pathname)
+    ),[setParams])
+
+    return (
     <>
     <div className='splash-container'>
-        <Header />
+        { params === '/about' ? null : <Header /> }
         {/* <div className='options-container'>
             <div>
                 <h1>ADOPT</h1>
@@ -96,7 +103,7 @@ const Splash = () => {
         <div className='applications'>
             <h1>READY TO ADOPT A BESTIE?</h1>
             <div>
-                <button><Link to='/adopt'>Check out our list of available besties!</Link></button>
+                <button><Link to='/adopt'>Check out our list of besties!</Link></button>
             </div>
         </div>
         <div className="vol-don">

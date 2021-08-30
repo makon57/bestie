@@ -40,26 +40,27 @@ function User() {
       <div className='user-header-container'>
         <span className='user-header-name'>
           <p>Hi {user.name ? user.name.split(' ')[0] : 'Bestie'}!</p>
+          <div className='user-information'>
+            <ul>
+              <li className='user-name'>
+                <strong>{user.name}</strong>
+              </li>
+              <li className='user-email'>
+                <strong>Email:</strong> {user.email}
+              </li>
+              <li className='user-foster'>
+                <strong>Foster?</strong> {user.foster === true ? 'YES' : 'NO'}
+              </li >
+              {user.foster === true ?
+                <li className='user-create'>
+                  <button><Link to='/create-listing' >Create A Listing</Link></button>
+                </li>
+              : null }
+            </ul>
+          </div>
         </span>
       </div>
-      <div>
-        <ul>
-          <li>
-            <strong>Name</strong> {user.name}
-          </li>
-          <li>
-            <strong>Email</strong> {user.email}
-          </li>
-          <li>
-            <strong>Foster?</strong> {user.foster === true ? 'Yes' : 'No'}
-          </li>
-          {user.foster === true ?
-            <li>
-              <button><Link to='/create-listing' >Create A Listing</Link></button>
-            </li>
-          : null }
-        </ul>
-      </div>
+
       <div className='list-container'>
         <ul className="listing-list">
           {listings?.map((listing)=> (
