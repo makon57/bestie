@@ -26,7 +26,7 @@ const EditListingForm = () => {
   const [description, setDescription] = useState(listing.description)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [image, setImage] = useState(listing.images);
-  // const [editState, setEditState] = useState(false)
+ 
 
   const deleteListing = async (e) => {
     e.preventDefault();
@@ -36,10 +36,6 @@ const EditListingForm = () => {
       setErrors(data);
     }
     history.push(`/users/${user.id}`)
-    // if (editState) {
-    //   setEditState(false)
-    // }
-    // <Redirect to={<User />}/>
   };
 
   const onSubmit = async (e) => {
