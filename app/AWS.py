@@ -4,7 +4,7 @@ import os
 import uuid
 
 BUCKET_NAME = os.environ.get("S3_BUCKET_NAME")
-LOCATION = os.environ.get("S3-REGION")
+LOCATION = os.environ.get("S3_REGION")
 S3_LOCATION = f"https://{BUCKET_NAME}.s3.{LOCATION}.amazonaws.com/"
 ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 
