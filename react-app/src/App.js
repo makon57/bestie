@@ -14,6 +14,7 @@ import CreateListingForm from './components/Listings/CreateListingForm';
 import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
 import Foster from './components/Foster';
+import { fetchAllListings } from './store/listings';
 
 
 
@@ -24,6 +25,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(fetchAllListings())
       setLoaded(true);
     })();
   }, [dispatch]);
