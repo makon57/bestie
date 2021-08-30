@@ -1,0 +1,184 @@
+
+
+.login-container {
+    background-color: white;
+    box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
+    width: 35%;
+    max-width: 500px;
+    height: 350px;
+    margin-top: 10%;
+    position: fixed;
+    overflow-y: scroll;
+    border-radius: 1px;
+    right: 10%;
+    padding-bottom: 30px;
+}
+
+.signin-container {
+    background-color: white;
+    box-shadow:  5px 3px 3px 5px rgb(0 0 0 / 0.4);
+    width: 35%;
+    max-width: 500px;
+    height: 550px;
+    margin-left: 10%;
+    margin-top: 5%;
+    position: fixed;
+    overflow-y: scroll;
+    border-radius: 1px;
+    padding-bottom: 30px;
+}
+
+.signin-background {
+    width: 120%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.login-background {
+    width: 110%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.login-bg-img {
+    width: 100%;
+    height: 100%;
+    overflow-x: none;
+    overflow-y: none;
+}
+
+.signin-bg-img {
+    height: 130%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+/* -------------------Form------------------ */
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.signin-form label {
+    font-size: 22px;
+    margin: 0px;
+}
+
+.login-form label {
+    font-size: 22px;
+    margin: 0px;
+}
+
+.signup-btn,
+.login-btn,
+.demo-btn {
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 40%;
+    border: none;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.name-container,
+.email-container,
+.password-container,
+.confirm-password-container,
+.login-email,
+.login-password {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8%;
+    width: 85%;
+}
+
+.demo-log-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "login demo"
+    ;
+}
+
+.demo-btn-container {
+    grid-area: demo;
+}
+
+.login-btn-container {
+    grid-area: login;
+}
+
+.login-btn,
+.demo-btn {
+    width: 150px;
+}
+
+.signin-form input,
+.login-form input {
+    width: 90%;
+    height: 30px;
+}
+
+hr {
+    width: 85%;
+    color: rgba(182, 182, 182, 0.3);
+}
+
+.already-user,
+.signup-btn-container,
+.login-btn-container,
+.demo-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.already-user a {
+    color: black;
+    font-size: 22px;
+    padding-top: 3%;
+}
+
+.already-user a:hover {
+    color: rgb(255, 89,74);
+    text-shadow: none;
+}
+
+div.login-btn-container,
+div.demo-btn-container {
+    margin: 0px 0px 0px 0px;
+}
+
+.foster-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "label checkbox"
+    ;
+    margin-left: 8%;
+}
+
+.foster-label {
+    grid-area: label;
+}
+
+.foster-check {
+    grid-area: checkbox;
+}
+
+h4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: red;
+    margin: 2% 8% 2%;
+}

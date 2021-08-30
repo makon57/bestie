@@ -1,10 +1,9 @@
 from app.models import db, Image
 from datetime import datetime
 
-
 def seed_images():
     image1 = Image(
-        listing_id=1, image_url="https://assets.animalhumanesociety.org/animalhumanesociety.org/files/styles/animal_450x330/public/adoption/images/large/2021/08/19/942fb917-ea39-484c-a8a6-1b470c259135.jpg?h=8a14a818&itok=EOeugTAw",
+        listing_id=1, image_url="https://i.imgur.com/9uBLi5V.jpg",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     image2 = Image(
@@ -67,6 +66,7 @@ def seed_images():
         listing_id=8, image_url="https://s3.amazonaws.com/filestore.rescuegroups.org/3699/pictures/animals/17125/17125776/81266350_500x700.jpg",
         created_at=datetime.now(), updated_at=datetime.now()
     )
+
 
     db.session.add(image1)
     db.session.add(image2)

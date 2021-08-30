@@ -3,11 +3,19 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Splash from './components/Splash';
 import { authenticate } from './store/session';
+import Listings from './components/Listings';
+import CreateListingForm from './components/Listings/CreateListingForm';
+import EditListingForm from './components/Listings/EditListingForm';
+import Sponsor from './components/Sponsor';
+import Foster from './components/Foster';
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,15 +42,36 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <Route path='/about' exact={true} >
+          <Splash />
+        </Route>
+        <Route path='/adopt' exact={true} >
+          <Listings />
+        </Route>
+        <Route path='/sponsor' exact={true} >
+          <Sponsor />
+        </Route>
+        <Route path='/foster' exact={true} >
+          <Foster />
+        </Route>
+        <Route path='/' exact={true} >
+          <Splash />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:id' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/create-listing' exact={true} >
+          <CreateListingForm />
         </ProtectedRoute>
+        <ProtectedRoute path='/listings/:id/edit' exact={true} >
+          <EditListingForm />
+        </ProtectedRoute>
+        <Route>
+          404 page not found
+        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -1,0 +1,100 @@
+nav {
+    background-color: rgb(255, 89, 74);
+    height: 6vw;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu-wrap {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas:
+        "left logo right"
+    ;
+}
+
+.menu-left-container {
+    display: grid;
+    grid-area: left;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "logo adopt foster"
+    ;
+    height: 6vw;
+}
+
+.logo {
+    grid-area: logo;
+    margin: auto;
+}
+.adopt {
+    grid-area: adopt;
+    margin: auto;
+}
+.foster {
+    grid-area: foster;
+    margin: auto;
+}
+
+a {
+    color: white;
+    font-size: 35px;
+}
+
+a:hover {
+    text-shadow: 3px 3px 3px black;
+}
+
+.auth a {
+    color: black;
+    font-size: 35px;
+}
+
+.auth a:hover {
+    text-shadow: 3px 3px 3px white;
+}
+
+.menu-right-container {
+    display: grid;
+    grid-area: right;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "donate about auth"
+    ;
+    height: 6vw;
+}
+
+.donate {
+    grid-area: donate;
+    margin: auto;
+}
+.about {
+    grid-area: about;
+    margin: auto;
+}
+.auth {
+    grid-area: auth;
+    margin: auto;
+}
+
+.bestie-logo {
+    width: 9vw;
+    position : relative;
+    top : 1vw;
+    left: 28%;
+    grid-area: logo;
+}
+
+.bestie-logo:hover {
+    -webkit-filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.4));
+    filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.5));
+}
+
+.bestie-logo2 {
+    width: 11vw;
+}
+

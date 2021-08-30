@@ -1,0 +1,113 @@
+.user-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "name ."
+        "email create"
+        "foster ."
+    ;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.user-information ul {
+    padding-left: 0px;
+}
+
+.user-name {
+    position: relative;
+    grid-area: name;
+    font-size: 40px;
+}
+.user-email {
+    position: relative;
+    grid-area: email;
+    font-size: 30px;
+}
+.user-foster {
+    position: relative;
+    grid-area: foster;
+    font-size: 30px;
+}
+.user-create button {
+    position: relative;
+    grid-area: create;
+    background-color: rgb(255, 89, 74);
+    border: none;
+    border-radius: 4px;
+    height: 5%;
+    width: 300px;
+    margin-top: 5%;
+}
+
+.listing-item p {
+    color: black;
+}
+
+.listing-item p:hover {
+    text-shadow: none;
+}
+
+button i {
+    width: 20px;
+}
+
+.listing-list {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 4% 0 4%;
+    padding: 0 0 0 0;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.listing-item {
+    width: 30%;
+    margin: none;
+}
+
+.list-container img {
+    max-width: 400px;
+}
+
+.container {
+    max-width: 400px;
+    width: 400px;
+    height: 600px;
+    margin: 2% 2% 2% 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+}
+
+div .petInfo {
+    margin-left: 10px;
+    width: 100%;
+    font-size: 25px;
+
+}
+
+.petInfo p {
+    margin-bottom: 0px;
+}
+
+.container button {
+    background-color: transparent;
+    border: none;
+    margin: 2% 2% 2% 2%;
+}
+
+.container button img {
+    background-color: transparent;
+    width: 40px;
+}

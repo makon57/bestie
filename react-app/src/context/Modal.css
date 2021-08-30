@@ -1,0 +1,47 @@
+#modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+#modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+#modal-content {
+    position: absolute;
+    background-color:white;
+    border-radius: 6px;
+    width: auto;
+    height: auto;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    max-width: 60%;
+    max-height: 70%;
+}
+
+#modal-content img {
+    max-width:500px;
+    max-height: 700px;
+}
+
+@media (max-width: 500px) {
+    #modal-content {
+        width: 70%;
+    }
+}

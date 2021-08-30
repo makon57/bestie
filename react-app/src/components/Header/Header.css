@@ -1,0 +1,67 @@
+.header-container img,
+.login-header-container img {
+    width: 100%;
+
+}
+
+.signup-header-container img {
+    width: 100%;
+
+}
+
+.user-header-container {
+    width: 100%;
+    height: 800px;
+    position: inherit;
+    text-align: center;
+    background-image: url("https://i.imgur.com/Hz6JbqL.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.user-header-name p {
+    color: #000000;
+    font-size: 10vw;
+    /* vertical-align: center; */
+    font-family: 'Bebas Neue';
+    padding-top: 12%;
+}
+
+.user-header-name input {
+    color: #000000;
+    font-size: 2vw;
+    /* vertical-align: center; */
+    font-family: 'Bebas Neue';
+    margin: 0 0 0 0;
+    height: 50px;
+    width: 30%;
+    max-width: 800px;
+    padding-left: 10px;
+}
+
+.user-header-name h1 {
+    color: #000000;
+    font-size: 2vw;
+    /* vertical-align: center; */
+    font-family: 'Bebas Neue';
+    margin: 0 0 0 0;
+    padding-top: 15%;
+    padding-left: 35%;
+    left: 42%;
+    height: 50px;
+    width: 30%;
+}
+
+
+.user-header-name::after{
+    position:fixed;
+}
+
+p {
+    margin: 0 0 0 0;
+}
+
+.user-header-name:after {
+    position: relative;
+}

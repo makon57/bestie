@@ -1,0 +1,214 @@
+body {
+    overflow-y: scroll;
+}
+
+.upload-container {
+    width: 60%;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    background-color: white;
+    grid-area: upload;
+    z-index: 1;
+}
+
+.upload-container img {
+    max-width: 400px;
+    max-height: 400px;
+    grid-area: upimage;
+    margin: auto;
+}
+
+.upload-container input {
+    grid-area: upload;
+    display: flex;
+    justify-self: center;
+    align-self: flex-end;
+}
+
+.upload-container form {
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "upimage upload"
+        "upimage button"
+    ;
+}
+
+
+.upload-container button {
+    height: 25%;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 40px;
+    grid-area: button;
+    justify-self: center;
+    align-self: center;
+}
+
+.background-div {
+    background-color: rgb(255, 89, 74);
+    margin: 5% 20% 5% 20%;
+    grid-template-rows: 600px 1fr;
+    grid-template-areas:
+        "upload"
+        "form"
+    ;
+    position: relative;
+    z-index: auto;
+}
+
+.form-container {
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    width: 60%;
+    height: 800px;
+    margin-bottom: 10%;
+    grid-area: form;
+    padding-top: 3%;
+    padding-bottom: 7%;
+    margin: 10% 5% 0 5%;
+    margin: auto;
+    position: absolute;
+    z-index: 2;
+    top: 140%;
+    left: 20%;
+    overflow-y: scroll;
+
+}
+
+.form-container form {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "header header"
+        "hr1 hr1"
+        "name age"
+        "hr2 hr2"
+        "gender pet-type"
+        "hr3 hr3"
+        "description description"
+        "hr4 hr4"
+        "submit submit"
+    ;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.form-container img {
+    grid-area: image;
+    margin: auto;
+}
+
+.form-container label,
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 95%;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 8%; */
+}
+
+.form-container h1 {
+    font-family: 'Impact';
+    font-size: 60px;
+}
+
+.form-container textarea[name='description'] {
+    height: 200px;
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+    width: 100%;
+    margin-top: 3%;
+    margin-right: 0%;
+}
+
+.form-name {
+    grid-area: name;
+}
+.form-age {
+    grid-area: age;
+}
+.form-gender {
+    grid-area: gender;
+}
+.form-pet-type {
+    grid-area: pet-type;
+}
+.form-description {
+    grid-area: description;
+}
+.form-header {
+    grid-area: header
+}
+.form-submit-btn {
+    grid-area: submit;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.form-submit-btn button {
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+}
+
+.form-container hr {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.filler {
+    width: 80%;
+    height: 130%;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    z-index: auto;
+    background-color: rgb(255, 89, 74);
+}
+
+.footer {
+    width: 100%;
+    height: 700px;
+    margin: 0 auto;
+    position: absolute;
+    top: 190%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.delete-edit button {
+    height: 60px;
+    width: 200px;
+    margin: 15px 15px 15px 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    background-color: rgb(0, 107, 0);
+    color: white;
+}
+
+.delete-btn {
+    background-color: rgb(138, 0, 0);
+    color: white;
+}
