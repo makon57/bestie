@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../auth/auth.css'
 import Header from '../Header';
-import { loginDemo } from '../../store/session';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -12,7 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [message, setMessage] = useState('false')
+  const [setMessage] = useState('false')
 
   const handleClick = async(e) => {
     e.preventDefault();

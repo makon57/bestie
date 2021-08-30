@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllListings, fetchDeleteListing } from '../../../store/listings'
+import { fetchDeleteListing } from '../../../store/listings'
 import { Modal } from '../../../context/Modal';
 
 const DeleteListingModal = ({ listing, setShowDeleteModal, setShowListModal }) =>{

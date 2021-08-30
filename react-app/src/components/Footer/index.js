@@ -1,10 +1,10 @@
 import '../Footer/Footer.css'
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function Footer() {
 
-  const user = useSelector(state => state.session.user)
+  // const user = useSelector(state => state.session.user)
   const params = window.location.pathname;
 
 

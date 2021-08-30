@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams } from "react-router-dom";
-import { fetchEditListing, fetchDeleteListing, fetchAllListings } from "../../store/listings";
+import { useHistory, useParams } from "react-router-dom";
+import { fetchEditListing, fetchDeleteListing } from "../../store/listings";
 import Footer from "../Footer";
 import Header from "../Header";
 import UploadPicture from "./UploadPicture";
 import '../Listings/Form.css'
 import { Modal } from "../../context/Modal";
-import User from "../User";
+
 
 
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../components/Listings/Listing.css'
 import '../components/Header/Header.css'
 import ListingModal from './Listings/ListingModal';
-import { fetchAllListings } from '../store/listings';
+// import { useDispatch } from 'react-redux';
 
 function User() {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
   const things = Object.values(useSelector(state => state.listings))

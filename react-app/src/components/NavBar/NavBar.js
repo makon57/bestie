@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LoginForm from '../auth/LoginForm';
 import LogoutButton from '../auth/LogoutButton';
-import SignUpForm from '../auth/SignUpForm';
 import './NavBar.css'
 
 
