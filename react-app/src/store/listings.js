@@ -92,14 +92,13 @@ export const fetchDeleteListing = (id) => async (dispatch) => {
         method: "DELETE"
     })
 
+    const data = await response.json()
     if (response.ok) {
-        const data = await response.json()
-
-        if (data.errors) {
-            return;
-        }
         dispatch(deleteListing(id))
         return data
+    }
+    if (data.errors) {
+        return;
     }
 
 }

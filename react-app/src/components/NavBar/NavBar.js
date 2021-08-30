@@ -35,11 +35,19 @@ const NavBar = () => {
               ADOPT
             </NavLink>
           </div>
-          <div className='foster'>
-            <NavLink to='/foster' exact={true} activeClassName='active'>
-              FOSTER
-            </NavLink>
-          </div>
+          {user?.foster === true ?
+            <div className='foster'>
+              <NavLink to='/create-listing' exact={true} activeClassName='active'>
+                CREATE
+              </NavLink>
+            </div>
+          :
+            <div className='foster'>
+              <NavLink to='/foster' exact={true} activeClassName='active'>
+                FOSTER
+              </NavLink>
+            </div>
+          }
         </div>
         <NavLink to='/adopt' exact={true} activeClassName='active' >
           <img className='bestie-logo' src='https://i.imgur.com/ZX8v9Tq.png' alt='bestie-logo'></img>

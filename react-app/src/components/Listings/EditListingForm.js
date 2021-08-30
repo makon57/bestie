@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { fetchEditListing, fetchDeleteListing } from "../../store/listings";
 import Footer from "../Footer";
 import Header from "../Header";
 import UploadPicture from "./UploadPicture";
 import '../Listings/Form.css'
+import { Modal } from "../../context/Modal";
+import User from "../User";
+
+
 
 const EditListingForm = () => {
 
@@ -20,16 +24,22 @@ const EditListingForm = () => {
   const [age, setAge] = useState(listing.age)
   const [petType, setPetType] = useState(listing.pet_type)
   const [description, setDescription] = useState(listing.description)
-  const [setDeleteL] = useState(false)
-
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [image, setImage] = useState(listing.images);
+  // const [editState, setEditState] = useState(false)
 
-  const deleteListing = async (listingId) => {
-    const data = dispatch(fetchDeleteListing(listingId));
+  const deleteListing = async (e) => {
+    e.preventDefault();
+
+    const data = dispatch(fetchDeleteListing(listing.id));
     if (data) {
       setErrors(data);
     }
-    setDeleteL(false)
+    history.push(`/users/${user.id}`)
+    // if (editState) {
+    //   setEditState(false)
+    // }
+    // <Redirect to={<User />}/>
   };
 
   const onSubmit = async (e) => {
@@ -43,7 +53,6 @@ const EditListingForm = () => {
       petType,
       description,
       image
-
     ));
     if (data) {
       setErrors(data);
@@ -139,10 +148,17 @@ const EditListingForm = () => {
             <hr className='hr2'></hr>
             <div className='form-submit-btn delete-edit'>
               <button className='edit-btn' type='submit' >EDIT</button>
-              <button className='delete-btn' onClick={() => deleteListing(listing.id)}>DELETE</button>
+              <button className='delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
             </div>
           </form>
         </div>
+        {showDeleteModal &&  (
+          <Modal>
+            <div>Are you sure you want to delete this listing?</div>
+            <button onClick={deleteListing}>Yes</button>
+            <button onClick={() => setShowDeleteModal(false)}>No</button>
+          </Modal>
+        )}
         <div className='filler'>
           <p></p>
         </div>
