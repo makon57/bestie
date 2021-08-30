@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import { fetchEditListing, fetchDeleteListing } from "../../store/listings";
+import { fetchEditListing, fetchDeleteListing, fetchAllListings } from "../../store/listings";
 import Footer from "../Footer";
 import Header from "../Header";
 import UploadPicture from "./UploadPicture";
@@ -26,7 +26,6 @@ const EditListingForm = () => {
   const [description, setDescription] = useState(listing.description)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [image, setImage] = useState(listing.images);
- 
 
   const deleteListing = async (e) => {
     e.preventDefault();
@@ -35,6 +34,7 @@ const EditListingForm = () => {
     if (data) {
       setErrors(data);
     }
+    // await dispatch(fetchAllListings());
     history.push(`/users/${user.id}`)
   };
 

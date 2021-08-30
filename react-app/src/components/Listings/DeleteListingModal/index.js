@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDeleteListing } from '../../../store/listings'
+import { fetchAllListings, fetchDeleteListing } from '../../../store/listings'
 import { Modal } from '../../../context/Modal';
 
 const DeleteListingModal = ({ listing, setShowDeleteModal, setShowListModal }) =>{
@@ -9,10 +9,18 @@ const DeleteListingModal = ({ listing, setShowDeleteModal, setShowListModal }) =
     const history = useHistory()
     const dispatch = useDispatch()
 
+    const user = useSelector(state => state.session.user)
+    const [errors, setErrors] = useState([])
     const [deletel, setDeleteL] = useState(true)
 
     const deleteListing = async (listingId) => {
-        await dispatch(fetchDeleteListing(listingId));
+        const data = await dispatch(fetchDeleteListing(listingId));
+
+        if (data) {
+            setErrors(data);
+        }
+        history.push(`/users/${user.id}`)
+
         setDeleteL(!deletel)
         setShowDeleteModal(false)
         setShowListModal(false)

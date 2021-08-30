@@ -53,7 +53,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
     })
 
     const firstData = await response.json()
- 
+
     if (response.ok) {
         dispatch(createListing(firstData))
         return firstData

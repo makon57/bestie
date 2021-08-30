@@ -12,13 +12,14 @@ function User() {
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
   const things = Object.values(useSelector(state => state.listings))
-  const listings = things.filter(things => things.user_id === userId)
+
   const [showListModal, setShowListModal] = useState(false)
+  // const [things, setThings] = useState(Object.values(useSelector(state => state.listings)))
+  const listings = things.filter(things => things.user_id === userId)
 
-
-  useEffect(() => {
-    dispatch(fetchAllListings());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   setThings(dispatch(fetchAllListings()));
+  // }, [dispatch]);
 
   useEffect(() => {
     if (!userId) {

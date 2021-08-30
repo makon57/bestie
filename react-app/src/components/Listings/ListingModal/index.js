@@ -20,10 +20,13 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
         history.push(`/listings/${listingId}/edit`)
     };
 
-    const deleteListing = async (listingId) => {
-        await dispatch(fetchDeleteListing(listingId));
+    const deleteListing = (listingId) => {
+        dispatch(fetchDeleteListing(listingId));
         setShowListDelete(false)
     };
+
+
+
 
     return (
         <>
