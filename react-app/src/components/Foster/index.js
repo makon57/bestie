@@ -17,7 +17,7 @@ const Foster = () => {
         <div>
             <div className='intro'>
                 <h1 className='how-to'>HOW DO I BECOME A FOSTER?</h1>
-                <h1>Fill out an application and lets see if we can become besties!</h1>
+                <h1>Let's get in touch and we'll see if we're a good fit!</h1>
                 <p>
                     First off, what's a foster? Well, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -28,7 +28,7 @@ const Foster = () => {
             <hr></hr>
             <div className='steps-a'>
                 <h2>STEP 1:</h2>
-                <h3>Fill out a foster application!</h3>
+                <h3>Email us at bestie.rescue@bestie.com!</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

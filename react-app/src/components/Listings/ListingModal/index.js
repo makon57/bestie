@@ -25,10 +25,6 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
         setShowListDelete(false)
     };
 
-    const createApplication = (listingId) => {
-        history.push(`/applications/${listingId}/create`)
-    };
-
 
     return (
         <>
@@ -48,12 +44,13 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                         <button className='edit-btns' onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                         <button className='delete-btns' onClick={() => setShowListDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
                     </>
-                    : null }
+                    :
                     <div className='adopt-btn-container'>
-                        <button className='adopt-btn' onClick={() => createApplication(listing.id)}>
-                        Adopt {listing.name}
+                        <button className='adopt-btn'>
+                            <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
                         </button>
                     </div>
+                    }
                     {showListDelete &&  (
                         <Modal>
                             <div>Are you sure you want to delete this listing?</div>
@@ -80,12 +77,14 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                             <button className='delete-btns' onClick={() => setShowDeleteModal(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
                             <button className='edit-btns' onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                         </div>
-                        : null }
+                        :
                         <div className='adopt-btn-container'>
                             <button className='adopt-btn'>
                                 <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
                             </button>
                         </div>
+                        }
+
                     </div>
                     {showDeleteModal &&  (
                         <DeleteListingModal listing={listing} setShowDeleteModal={setShowDeleteModal} setShowListModal={setShowListModal}/>

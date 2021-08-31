@@ -5,6 +5,8 @@ from app.models import db, User
 def seed_users():
     demo = User(
         name='Demo Lition', email='demo@aa.io', password='password', foster=False)
+    foster = User(
+        name= 'Foster Monster', email='foster@aa.io', password='password', foster=True)
     marnie = User(
         name='Marnie Barnie', email='marnie@aa.io', password='password', foster=True)
     bobbie = User(
@@ -17,6 +19,7 @@ def seed_users():
         name='Ana Banana', email='ana@aa.io', password='password', foster=False)
 
     db.session.add(demo)
+    db.session.add(foster)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(manna)

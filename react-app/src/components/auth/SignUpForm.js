@@ -114,7 +114,7 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <hr></hr>
+          {/* <hr></hr>
           <div className='foster-container'>
             <label className='foster-label'>Are you signing up as foster?</label>
             <input
@@ -124,7 +124,7 @@ const SignUpForm = () => {
               onClick={updateFoster}
               value={foster}
             ></input>
-          </div>
+          </div> */}
           <hr></hr>
           <div className='signup-btn-container'>
             <button className='signup-btn' type='submit'>SIGN UP</button>

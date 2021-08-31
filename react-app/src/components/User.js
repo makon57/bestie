@@ -60,7 +60,9 @@ function User() {
                 <li className='user-create'>
                   <button><Link to='/create-listing' >Create A Listing</Link></button>
                 </li>
-              : null }
+              : <li className='user-create'>
+                  <button><Link to='/foster'>Become a foster</Link></button>
+                </li>}
             </ul>
           </div>
         </span>
