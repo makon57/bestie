@@ -44,4 +44,5 @@ class ApplicationCreateForm(FlaskForm):
     homeType = StringField('Home-Type', validators=[DataRequired()])
     pets = TextAreaField('Pets', validators=[DataRequired()])
     household = TextAreaField('Household', validators=[DataRequired()])
-    vetInfo = TextAreaField('Vet Information', validators=[DataRequired()])
+    vetName = StringField('Vet Name', validators=[DataRequired()])
+    vetCellphone = StringField('Vet Cellphone', validators=[DataRequired(), valid_cellphone])

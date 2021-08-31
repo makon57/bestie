@@ -26,7 +26,8 @@ export const createApplicationThunk = (
     homeType,
     pets,
     household,
-    vetInfo
+    vetName,
+    vetCellphone,
     ) => async (dispatch) => {
     console.log(listingId)
 
@@ -47,7 +48,8 @@ export const createApplicationThunk = (
             homeType,
             pets,
             household,
-            vetInfo
+            vetName,
+            vetCellphone,
         })
     })
 

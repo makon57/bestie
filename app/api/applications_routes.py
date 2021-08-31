@@ -37,7 +37,8 @@ def create_application():
             home_type=data['homeType'],
             pets=data['pets'],
             household=data['household'],
-            vet_info=data['vetInfo'],
+            vet_name=data['vetName'],
+            vet_cellphone=data['vetCellphone'],
             created_at = datetime.now(),
             updated_at= datetime.now()
         )

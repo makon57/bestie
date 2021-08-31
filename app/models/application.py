@@ -17,7 +17,8 @@ class Application(db.Model):
     home_type = db.Column(db.String(50), nullable=False)
     pets = db.Column(db.Text, nullable=False)
     household = db.Column(db.Text, nullable=False)
-    vet_info = db.Column(db.String(255), nullable=False)
+    vet_name = db.Column(db.String(50), nullable=False)
+    vet_cellphone = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.Date , nullable=False)
     updated_at = db.Column(db.Date , nullable=False)
 
@@ -39,7 +40,8 @@ class Application(db.Model):
             'home_type': self.home_type,
             'pets': self.pets,
             'household' : self.household,
-            'vet_info': self.vet_info,
+            'vet_name': self.vet_name,
+            'vet_cellphone': self.vet_cellphone,
             'created_at': str(self.created_at),
             'updated_at': str(self.updated_at)
         }

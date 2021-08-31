@@ -27,7 +27,8 @@ const CreateApplication = () => {
   const [homeType, setHomeType] = useState('House')
   const [pets, setPets] = useState('')
   const [household, setHousehold] = useState('')
-  const [vetInfo, setVetInfo] = useState('')
+  const [vetName, setVetName] = useState('')
+  const [vetCellphone, setVetCellphone] = useState('')
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +47,8 @@ const CreateApplication = () => {
         homeType,
         pets,
         household,
-        vetInfo,
+        vetName,
+        vetCellphone,
     ))
     if (data) {
       setErrors(data);
@@ -99,8 +101,12 @@ const CreateApplication = () => {
     setHousehold(e.target.value);
   };
 
-  const updateVetInfo = (e) => {
-    setVetInfo(e.target.value);
+  const updateVetName = (e) => {
+    setVetName(e.target.value);
+  };
+
+  const updateVetCellphone = (e) => {
+    setVetCellphone(e.target.value);
   };
 
 
@@ -236,15 +242,25 @@ const CreateApplication = () => {
             </div>
             {/* <hr className='hr2'></hr> */}
             {/* <hr className='hr2'></hr> */}
-            <div className='form-vet-info'>
-              <label>VET INFORMATION</label>
-              <textarea
+            <div className='form-vet-name'>
+              <label>VETERINARIAN'S NAME</label>
+              <input
                 type='text'
-                name='vetInfo'
-                onChange={updateVetInfo}
-                value={vetInfo}
+                name='vetName'
+                onChange={updateVetName}
+                value={vetName}
                 required={true}
-              ></textarea>
+              ></input>
+            </div>
+            <div className='form-vet-phone'>
+              <label>VETERINARIAN'S CELLPHONE</label>
+              <input
+                type='text'
+                name='vetCellphone'
+                onChange={updateVetCellphone}
+                value={vetCellphone}
+                required={true}
+              ></input>
             </div>
             <div className='form-submit-btn'>
               <button className='signup-btn' type='submit' >SUBMIT</button>
