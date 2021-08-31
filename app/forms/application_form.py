@@ -23,16 +23,25 @@ def valid_cellphone(form, field):
     else:
         raise ValidationError('Please provide a valid cellphone number.')
 
-
+def valid_zip(form, field):
+    zipcode = field.data
+    if re.match(r"^\d{5}(?:[-\s]\d{4})?$", zipcode):
+        return
+    else:
+        raise ValidationError('Please provide a valid zipcode.')
 
 class ApplicationCreateForm(FlaskForm):
-    user_id = IntegerField()
+    listingId = IntegerField('listingId', validators=[DataRequired()])
+    userId = IntegerField('useId', validators=[DataRequired()])
     name = StringField('Name', validators=[DataRequired()])
     age = IntegerField('Age', validators=[DataRequired(), adult_age])
     email = StringField('Email', validators=[DataRequired(), email_valid])
     cellphone = StringField('Cell Phone', validators=[DataRequired(), valid_cellphone])
     address = StringField('Address', validators=[DataRequired()])
-    home_type = StringField('Home-Type', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    state = StringField('State', validators=[DataRequired()])
+    zipcode = StringField('Zip Code', validators=[DataRequired(), valid_zip])
+    homeType = StringField('Home-Type', validators=[DataRequired()])
     pets = TextAreaField('Pets', validators=[DataRequired()])
     household = TextAreaField('Household', validators=[DataRequired()])
-    vet_info = TextAreaField('Vet Information', validators=[DataRequired()])
+    vetInfo = TextAreaField('Vet Information', validators=[DataRequired()])

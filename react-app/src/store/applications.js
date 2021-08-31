@@ -12,11 +12,43 @@ const getApplications = (listings) => ({
     listings,
 })
 
-export const createApplicationThunk = (payload) => async (dispatch) => {
-    const response = await fetch('api/applications/create', {
+export const createApplicationThunk = (
+    listingId,
+    userId,
+    name,
+    age,
+    email,
+    cellphone,
+    address,
+    city,
+    state,
+    zipcode,
+    homeType,
+    pets,
+    household,
+    vetInfo
+    ) => async (dispatch) => {
+    console.log(listingId)
+
+    const response = await fetch('/api/applications/create', {
         method: "POST",
-        headers: { "Content-Type" : "application/json" },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify({
+            listingId,
+            userId,
+            name,
+            age,
+            email,
+            cellphone,
+            address,
+            city,
+            state,
+            zipcode,
+            homeType,
+            pets,
+            household,
+            vetInfo
+        })
     })
 
     const data = await response.json()
@@ -41,6 +73,8 @@ export const getApplicationsThunk = (listingId) => async (dispatch) => {
         return data
     }
 }
+
+
 
 
 let initialState = {}

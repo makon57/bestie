@@ -12,7 +12,8 @@ const CreateApplication = () => {
   const history = useHistory()
   const userId = useSelector(state => state.session.user.id)
   const params = useParams()
-  const listing = useSelector(state => state.listings[params.id])
+  // const listing = useSelector(state => state.listings[params.id])
+  const listingId = params.id
 
   const [errors, setErrors] = useState([])
   const [name, setName] = useState('')
@@ -20,7 +21,10 @@ const CreateApplication = () => {
   const [email, setEmail] = useState('')
   const [cellphone, setCellphone] = useState('')
   const [address, setAddress] = useState('')
-  const [homeType, setHomeType] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
+  const [zipcode, setZipcode] = useState(99999)
+  const [homeType, setHomeType] = useState('House')
   const [pets, setPets] = useState('')
   const [household, setHousehold] = useState('')
   const [vetInfo, setVetInfo] = useState('')
@@ -28,20 +32,22 @@ const CreateApplication = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
+    const data = await dispatch(createApplicationThunk(
+        listingId,
         userId,
         name,
         age,
         email,
         cellphone,
         address,
+        city,
+        state,
+        zipcode,
         homeType,
         pets,
         household,
         vetInfo,
-    }
-
-    const data = await dispatch(createApplicationThunk(payload))
+    ))
     if (data) {
       setErrors(data);
     }
@@ -67,6 +73,18 @@ const CreateApplication = () => {
 
   const updateAddress = (e) => {
     setAddress(e.target.value);
+  };
+
+  const updateCity = (e) => {
+    setCity(e.target.value);
+  };
+
+  const updateState = (e) => {
+    setState(e.target.value);
+  };
+
+  const updateZipcode = (e) => {
+    setZipcode(e.target.value);
   };
 
   const updateHomeType = (e) => {
@@ -158,6 +176,38 @@ const CreateApplication = () => {
                 name='address'
                 onChange={updateAddress}
                 value={address}
+                required={true}
+              ></input>
+            </div>
+            <hr className='hr3'></hr>
+            <hr className='hr3'></hr>
+            <div className='form-city'>
+              <label>CITY</label>
+              <input
+                type='text'
+                name='city'
+                onChange={updateCity}
+                value={city}
+                required={true}
+              ></input>
+            </div>
+            <div className='form-state'>
+              <label>STATE</label>
+              <input
+                type='text'
+                name='state'
+                onChange={updateState}
+                value={state}
+                required={true}
+              ></input>
+            </div>
+            <div className='form-zipcode'>
+              <label>ZIPCODE</label>
+              <input
+                type='text'
+                name='zipcode'
+                onChange={updateZipcode}
+                value={zipcode}
                 required={true}
               ></input>
             </div>

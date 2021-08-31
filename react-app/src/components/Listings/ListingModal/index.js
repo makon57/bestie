@@ -25,7 +25,9 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
         setShowListDelete(false)
     };
 
-
+    const createApplication = (listingId) => {
+        history.push(`/applications/${listingId}/create`)
+    };
 
 
     return (
@@ -48,8 +50,8 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                 </>
                 : null }
                 <div className='adopt-btn-container'>
-                    <button className='adopt-btn'>
-                        <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
+                    <button className='adopt-btn' onClick={() => createApplication(listing.id)}>
+                       Adopt {listing.name}
                     </button>
                 </div>
                 {showListDelete &&  (

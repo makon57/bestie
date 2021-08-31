@@ -11,6 +11,9 @@ class Application(db.Model):
     email = db.Column(db.String(255), nullable=False)
     cellphone = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String(255), nullable=False)
+    city = db.Column(db.String(50), nullable=False)
+    state = db.Column(db.String(50), nullable=False)
+    zipcode = db.Column(db.String(50), nullable=False)
     home_type = db.Column(db.String(50), nullable=False)
     pets = db.Column(db.Text, nullable=False)
     household = db.Column(db.Text, nullable=False)
@@ -30,6 +33,9 @@ class Application(db.Model):
             'email' : self.email,
             'cellphone': self.cellphone,
             'address' : self.address,
+            'city' : self.city,
+            'state' : self.state,
+            'zipcode' : self.zipcode,
             'home_type': self.home_type,
             'pets': self.pets,
             'household' : self.household,
