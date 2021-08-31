@@ -8,7 +8,7 @@ from app.seeds.images_list import list_of_pets
 def thing(animal, array):
     k = 0
     gender = ['Male', 'Female']
-    numbers = [2, 4, 5]
+    numbers = [2, 3, 5, 6]
     while k < len(array):
         l = Listing (
             user_id = random.choice(numbers),
