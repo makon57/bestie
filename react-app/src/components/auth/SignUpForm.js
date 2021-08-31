@@ -33,12 +33,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     } else if (password !== repeatPassword) {
-      const data = await dispatch(signUp(name, email, password, foster));
-      if (data) {
-        setErrors({...data, passMatch: "Passwords do not match."})
-      } else {
-        setErrors({passMatch: 'Passwords do not match.'})
-      }
+      setErrors({passMatch: 'Passwords do not match.'})
     }
   };
 
