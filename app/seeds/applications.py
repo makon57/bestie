@@ -122,7 +122,7 @@ def seed_applications():
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app10 = Application(
-        listing_id=5, user_id=6,
+        listing_id=8, user_id=6,
         name="Ana Banana",
         age=35,
         email='ana@aa.io',
