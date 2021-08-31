@@ -11,12 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [setMessage] = useState('false')
-
-  const handleClick = async(e) => {
-    e.preventDefault();
-    setMessage('true')
-  }
+ 
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -78,7 +73,7 @@ const LoginForm = () => {
             <button className='foster-btn' type='button'>FOSTER DEMO</button>
           </div>
         </div>
-        <div className='already-user' onClick={handleClick}>
+        <div className='already-user'>
           <Link to='/sign-up'><label>Not a user? Sign Up!</label></Link>
         </div>
       </form>

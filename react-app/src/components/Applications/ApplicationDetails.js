@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
-import { fetchDeleteApplication } from "../../store/applications";
+import { fetchAllApplications, fetchDeleteApplication } from "../../store/applications";
 import EditApplication from "./EditApplication";
 
 
@@ -15,11 +15,11 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showApplicationDelete, setShowApplicationDelete] = useState(false)
   const listings = Object.values(useSelector(state => state.listings))
-  const [editMode, setEditMode] = useState(false)
 
-  // const editApplication = (applicationId) => {
-  //   history.push(`/applications/${applicationId}/edit`)
-  // }
+
+  const editApplication = (applicationId) => {
+    history.push(`/applications/${applicationId}/edit`)
+  }
 
   const deleteApplication = (applictionId) => {
     dispatch(fetchDeleteApplication(applictionId));
@@ -27,6 +27,10 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
     setShowDeleteModal(false)
     setShowApplicationModal(false)
   }
+
+  useEffect(() => (
+    dispatch(fetchAllApplications())
+  ), [dispatch])
 
 
   return (
@@ -43,8 +47,8 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
           </div>
           {application.user_id === userId ?
             <>
-                <button className='edit-btns' onClick={() => setEditMode(true)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
-                <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
+              <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
+              <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
             </>
           : null }
           {showApplicationDelete &&  (
@@ -76,7 +80,7 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
             { modalData.user_id === userId ?
             <div className='edit-delete-btns' >
               <button className='delete-btns' onClick={() => setShowDeleteModal(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
-              <button className='edit-btns' onClick={() => setEditMode(true)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
+              <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
             </div>
             : null }
           </div>
@@ -87,11 +91,6 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
               <button onClick={() => setShowDeleteModal(false)}>No</button>
             </Modal>
           )}
-        </Modal>
-      )}
-      {editMode && (
-        <Modal onClose={() => setEditMode(false)}>
-          <EditApplication application={application} />
         </Modal>
       )}
     </>

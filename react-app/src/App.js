@@ -17,6 +17,7 @@ import Foster from './components/Foster';
 import { fetchAllListings } from './store/listings';
 import CreateApplication from './components/Applications';
 import EditApplication from './components/Applications/EditApplication';
+import { fetchAllApplications } from './store/applications';
 
 
 
@@ -27,7 +28,8 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(fetchAllListings())
+      await dispatch(fetchAllListings());
+      await dispatch(fetchAllApplications());
       setLoaded(true);
     })();
   }, [dispatch]);

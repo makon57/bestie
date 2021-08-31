@@ -2,22 +2,19 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
-import { fetchDeleteApplication, fetchEditApplication } from '../../store/applications';
-// import Footer from "../Footer";
-// import Header from "../Header";
+import { fetchAllApplications, fetchDeleteApplication, fetchEditApplication } from '../../store/applications';
+import Footer from "../Footer";
+import Header from "../Header";
 
 
-const EditApplication = ({application}) => {
+const EditApplication = () => {
 
-//   const params = useParams()
+  const params = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
   const userId = useSelector(state => state.session.user.id)
-//   const applicationId = params.id
-
-//   const application = useSelector(state => state.applications[applicationId])
-
-
+  const application = useSelector(state => state.applications[params.id])
+  
   const [errors, setErrors] = useState([])
   const [name, setName] = useState(application.name)
   const [age, setAge] = useState(application.age)
@@ -33,6 +30,7 @@ const EditApplication = ({application}) => {
   const [vetName, setVetName] = useState(application.vet_name)
   const [vetCellphone, setVetCellphone] = useState(application.vet_cellphone)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
+  // const [editMode, setEditMode] = useState(false)
 
   const deleteApplication = async (e) => {
     e.preventDefault();
@@ -68,6 +66,7 @@ const EditApplication = ({application}) => {
     }
     history.push(`/users/${userId}`)
   };
+
 
 
   const updateName = (e) => {
@@ -125,7 +124,7 @@ const EditApplication = ({application}) => {
 
   return (
     <>
-
+    <Header />
       <div className='background-div'></div>
         <div className='form-container'>
           <form onSubmit={onSubmit}>
@@ -328,13 +327,17 @@ const EditApplication = ({application}) => {
             </div>
           </form>
         </div>
-        {showDeleteModal &&  (
-          <Modal>
-            <div>Are you sure you want to delete this application?</div>
-            <button onClick={deleteApplication}>Yes</button>
-            <button onClick={() => setShowDeleteModal(false)}>No</button>
-          </Modal>
-        )}
+        <div className='filler'>
+          <p></p>
+        </div>
+      <div className='footer'><Footer /></div>
+      {showDeleteModal &&  (
+        <Modal>
+          <div>Are you sure you want to delete this application?</div>
+          <button onClick={deleteApplication}>Yes</button>
+          <button onClick={() => setShowDeleteModal(false)}>No</button>
+        </Modal>
+      )}
     </>
   )
 }

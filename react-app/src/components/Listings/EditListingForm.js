@@ -34,7 +34,6 @@ const EditListingForm = () => {
     if (data) {
       setErrors(data);
     }
-    // await dispatch(fetchAllListings());
     history.push(`/users/${user.id}`)
   };
 
@@ -76,6 +75,7 @@ const EditListingForm = () => {
   const updateDescription = (e) => {
     setDescription(e.target.value);
   };
+
 
 
   return (

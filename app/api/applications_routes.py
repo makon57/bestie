@@ -53,7 +53,7 @@ def create_application():
 @applications_routes.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 @login_required
 def edit_application(id):
-    application = Application.query.get(id)
+    application = Application.query.filter(Application.id == id).one()
 
     if request.method == 'GET':
         return application.to_dict()
@@ -74,7 +74,8 @@ def edit_application(id):
             application.home_type=new_data['homeType'],
             application.pets=new_data['pets'],
             application.household=new_data['household'],
-            application.vet_info=new_data['vetInfo'],
+            application.vet_name=new_data['vetName'],
+            application.vet_cellphone=new_data['vetCellphone']
             application.updated_at= datetime.now()
 
             db.session.add(application)
