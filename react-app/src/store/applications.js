@@ -48,7 +48,7 @@ export const createApplicationThunk = (
     vetName,
     vetCellphone,
     ) => async (dispatch) => {
-    
+
 
     const response = await fetch('/api/applications/create', {
         method: "POST",
@@ -72,13 +72,17 @@ export const createApplicationThunk = (
         })
     })
 
-    const data = await response.json()
     if (response.ok) {
+        const data = await response.json();
         dispatch(createApplication(data))
-        return data
-    }
-    if (data.errors) {
-        return data
+        return response;
+    } else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 

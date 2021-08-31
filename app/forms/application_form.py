@@ -30,6 +30,16 @@ def valid_zip(form, field):
     else:
         raise ValidationError('Please provide a valid zipcode.')
 
+# def valid_state(form, field):
+#     state = field.data
+#     if len(state) < 4:
+#         raise ValidationError('Please provide a valid state. No abreviations.')
+
+# def valid_state(form, field):
+#     homeType = field.data
+#     if len(homeType) < 4:
+#         raise ValidationError('Please provide a valid state. No abreviations.')
+
 class ApplicationCreateForm(FlaskForm):
     listingId = IntegerField('listingId', validators=[DataRequired()])
     userId = IntegerField('useId', validators=[DataRequired()])
