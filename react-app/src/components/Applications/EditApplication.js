@@ -1,41 +1,54 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { createApplicationThunk } from '../../store/applications';
-import Footer from "../Footer";
-import Header from "../Header";
+import { Modal } from '../../context/Modal';
+import { fetchDeleteApplication, fetchEditApplication } from '../../store/applications';
+// import Footer from "../Footer";
+// import Header from "../Header";
 
 
-const CreateApplication = () => {
+const EditApplication = ({application}) => {
 
+//   const params = useParams()
   const dispatch = useDispatch()
   const history = useHistory()
   const userId = useSelector(state => state.session.user.id)
-  const params = useParams()
-  // const listing = useSelector(state => state.listings[params.id])
-  const listingId = params.id
+//   const applicationId = params.id
 
-  const [errors, setErrors] = useState({})
-  const [name, setName] = useState('')
-  const [age, setAge] = useState(18)
-  const [email, setEmail] = useState('')
-  const [cellphone, setCellphone] = useState('')
-  const [address, setAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [zipcode, setZipcode] = useState(99999)
-  const [homeType, setHomeType] = useState('House')
-  const [pets, setPets] = useState('')
-  const [household, setHousehold] = useState('')
-  const [vetName, setVetName] = useState('')
-  const [vetCellphone, setVetCellphone] = useState('')
+//   const application = useSelector(state => state.applications[applicationId])
+
+
+  const [errors, setErrors] = useState([])
+  const [name, setName] = useState(application.name)
+  const [age, setAge] = useState(application.age)
+  const [email, setEmail] = useState(application.email)
+  const [cellphone, setCellphone] = useState(application.cellphone)
+  const [address, setAddress] = useState(application.address)
+  const [city, setCity] = useState(application.city)
+  const [state, setState] = useState(application.state)
+  const [zipcode, setZipcode] = useState(application.zipcode)
+  const [homeType, setHomeType] = useState(application.home_type)
+  const [pets, setPets] = useState(application.pets)
+  const [household, setHousehold] = useState(application.household)
+  const [vetName, setVetName] = useState(application.vet_name)
+  const [vetCellphone, setVetCellphone] = useState(application.vet_cellphone)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+
+  const deleteApplication = async (e) => {
+    e.preventDefault();
+
+    const data = dispatch(fetchDeleteApplication(application.id));
+    if (data) {
+      setErrors(data);
+    }
+    history.push(`/users/${userId}`)
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const data = await dispatch(createApplicationThunk(
-        listingId,
-        userId,
+    const data = await dispatch(fetchEditApplication(
+        application.id,
         name,
         age,
         email,
@@ -53,6 +66,7 @@ const CreateApplication = () => {
     if (data) {
       setErrors(data);
     }
+    history.push(`/users/${userId}`)
   };
 
 
@@ -111,7 +125,7 @@ const CreateApplication = () => {
 
   return (
     <>
-      <Header />
+
       <div className='background-div'></div>
         <div className='form-container'>
           <form onSubmit={onSubmit}>
@@ -129,7 +143,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-age'>
-              {errors.age ? <h4>{errors.age}</h4> : null}
               <label>AGE</label>
               <input
                 type='text'
@@ -142,7 +155,6 @@ const CreateApplication = () => {
             <hr className='hr2'></hr>
             <hr className='hr2'></hr>
             <div className='form-email'>
-              {errors.email ? <h4>{errors.email}</h4> : null}
               <label>EMAIL</label>
               <input
                 type='text'
@@ -153,7 +165,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-cellphone'>
-              {errors.cellphone ? <h4>{errors.cellphone}</h4> : null}
               <label>CELL PHONE</label>
               <input
                 type='text'
@@ -210,7 +221,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-zipcode'>
-              {errors.zipcode ? <h4>{errors.zipcode}</h4> : null}
               <label>ZIPCODE</label>
               <input
                 type='text'
@@ -256,7 +266,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-vet-phone'>
-              {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
               <label>VETERINARIAN'S CELLPHONE</label>
               <input
                 type='text'
@@ -266,17 +275,22 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            <div className='form-submit-btn'>
-              <button className='signup-btn' type='submit' >SUBMIT</button>
+            <hr className='hr2'></hr>
+            <div className='form-submit-btn delete-edit'>
+              <button className='edit-btn' type='submit' >EDIT</button>
+              <button className='delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
             </div>
           </form>
         </div>
-        <div className='filler'>
-          <p></p>
-        </div>
-      <div className='footer'><Footer /></div>
+        {showDeleteModal &&  (
+          <Modal>
+            <div>Are you sure you want to delete this application?</div>
+            <button onClick={deleteApplication}>Yes</button>
+            <button onClick={() => setShowDeleteModal(false)}>No</button>
+          </Modal>
+        )}
     </>
   )
 }
 
-export default CreateApplication;
+export default EditApplication;

@@ -4,22 +4,26 @@ import { Link } from 'react-router-dom';
 import '../components/Listings/Listing.css'
 import '../components/Header/Header.css'
 import ListingModal from './Listings/ListingModal';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getUserApplicationsThunk } from '../store/applications';
+import ApplicationDetails from './Applications/ApplicationDetails';
+
+
 
 function User() {
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
   const things = Object.values(useSelector(state => state.listings))
-
+  const applications = Object.values(useSelector(state => state.applications))
   const [showListModal, setShowListModal] = useState(false)
-  // const [things, setThings] = useState(Object.values(useSelector(state => state.listings)))
+  const [showApplicationModal, setShowApplicationModal] = useState(false)
   const listings = things.filter(things => things.user_id === userId)
 
-  // useEffect(() => {
-  //   setThings(dispatch(fetchAllListings()));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getUserApplicationsThunk(userId))
+  },[dispatch, userId])
 
   useEffect(() => {
     if (!userId) {
@@ -61,7 +65,15 @@ function User() {
           </div>
         </span>
       </div>
-
+      <div className='applications-container'>
+        <ul className='applications-list'>
+          {applications?.map((application) => (
+            <div key={application.id}>
+              <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
+            </div>
+          ))}
+        </ul>
+      </div>
       <div className='list-container'>
         <ul className="listing-list">
           {listings?.map((listing)=> (

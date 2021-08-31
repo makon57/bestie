@@ -17,7 +17,8 @@ def seed_applications():
         home_type="House",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app2 = Application(
@@ -33,7 +34,8 @@ def seed_applications():
         home_type="Apartment",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app3 = Application(
@@ -49,7 +51,8 @@ def seed_applications():
         home_type="Townhouse",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app4 = Application(
@@ -65,7 +68,8 @@ def seed_applications():
         home_type="House",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app5 = Application(
@@ -81,7 +85,8 @@ def seed_applications():
         home_type="Apartment",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app6 = Application(
@@ -97,7 +102,8 @@ def seed_applications():
         home_type="Townhouse",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app7 = Application(
@@ -113,7 +119,8 @@ def seed_applications():
         home_type="House",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app8 = Application(
@@ -129,7 +136,8 @@ def seed_applications():
         home_type="Apartment",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app9 = Application(
@@ -145,7 +153,8 @@ def seed_applications():
         home_type="Townhouse",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     app10 = Application(
@@ -161,7 +170,8 @@ def seed_applications():
         home_type="Townhouse",
         pets="1 dog, 2 cats",
         household="Two adults, one 3 year-old",
-        vet_info="Susan O'Connor (000) 000-0000",
+        vet_name="Susan O'Connor",
+        vet_cellphone= "(000) 000-0000",
         created_at=datetime.now(), updated_at=datetime.now()
     )
 
