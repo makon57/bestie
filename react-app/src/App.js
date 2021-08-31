@@ -15,6 +15,7 @@ import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
 import Foster from './components/Foster';
 import { fetchAllListings } from './store/listings';
+import CreateApplication from './components/Applications';
 
 
 
@@ -70,6 +71,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/listings/:id/edit' exact={true} >
           <EditListingForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/applications/:id/create' exact={true} >
+          <CreateApplication />
         </ProtectedRoute>
         <Route>
           404 page not found

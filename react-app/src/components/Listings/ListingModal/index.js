@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Modal } from '../../../context/Modal';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import DeleteListingModal from '../DeleteListingModal';
 import { fetchDeleteListing } from '../../../store/listings';
@@ -47,7 +47,11 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                     <button className='delete-btns' onClick={() => setShowListDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
                 </>
                 : null }
-                <div className='adopt-btn-container'><button className='adopt-btn'>Adopt {listing.name}</button></div>
+                <div className='adopt-btn-container'>
+                    <button className='adopt-btn'>
+                        <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
+                    </button>
+                </div>
                 {showListDelete &&  (
                     <Modal>
                         <div>Are you sure you want to delete this listing?</div>
@@ -75,6 +79,11 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                         <button className='edit-btns' onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                     </div>
                     : null }
+                    <div className='adopt-btn-container'>
+                        <button className='adopt-btn'>
+                            <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
+                        </button>
+                    </div>
                 </div>
                 {showDeleteModal &&  (
                     <DeleteListingModal listing={listing} setShowDeleteModal={setShowDeleteModal} setShowListModal={setShowListModal}/>
