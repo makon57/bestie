@@ -72,7 +72,10 @@ const LoginForm = () => {
             <button className='login-btn' type='submit'>LOGIN</button>
           </div>
           <div className='demo-btn-container' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
-            <button className='demo-btn' type='button' >DEMO</button>
+            <button className='demo-btn' type='button'>DEMO</button>
+          </div>
+          <div className='foster-btn-container' onClick={() => dispatch(login('foster@aa.io', 'password'))}>
+            <button className='foster-btn' type='button'>FOSTER DEMO</button>
           </div>
         </div>
         <div className='already-user' onClick={handleClick}>
