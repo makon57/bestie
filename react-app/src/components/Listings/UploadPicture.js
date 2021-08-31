@@ -5,6 +5,7 @@ const UploadPicture = (props) => {
 
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [errors, setErrors] = useState([])
     const [url, setUrl] = useState(props.listImage ? props.listImage : 'https://i.imgur.com/BPOYKBx.png')
 
     const handleSubmit = async (e) => {
@@ -29,10 +30,20 @@ const UploadPicture = (props) => {
 
     const updateImage = (e) => {
         const file = e.target.files[0];
-        if (file) {
-          setUrl(URL.createObjectURL(file))
+
+        if (!file) {
+            setUrl(url)
+            setImage(image);
+        } else {
+            const ext = file.type.split('/')
+            const extensions = "pdf, png, jpg, jpeg, gif"
+            if (extensions.includes(ext[1])) {
+                setUrl(URL.createObjectURL(file))
+                setImage(file);
+            } else {
+                setErrors({filetype: 'Filetype not supported, please upload a pdf, png, jpg, jpeg, or gif file.'})
+            }
         }
-        setImage(file);
     }
 
 
@@ -42,11 +53,16 @@ const UploadPicture = (props) => {
                 <img src={url} alt="i" />
                 <input
                 type="file"
-                accept="image/*"
+                accept="image/png, image/gif, image/jpeg, image/pdf, image/jpg"
                 id="imgInp"
                 onChange={updateImage}
+                placeholder={image}
                 />
-                <button type="submit">{(imageLoading) ? 'Loading . . . ' : 'UPLOAD'}</button>
+                <p>{errors?.filetype}</p>
+                { url === 'https://i.imgur.com/BPOYKBx.png' || url === props?.listImage ?
+                    <button type="submit" required={false}>{(imageLoading) ? 'Loading . . . ' : 'UPLOAD'}</button>
+                :   <button type="submit" required={true}>{(imageLoading) ? 'Loading . . . ' : 'UPLOAD'}</button>
+                }
             </form>
         </div>
     )

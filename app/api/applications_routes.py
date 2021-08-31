@@ -49,10 +49,10 @@ def create_application():
         return {'errors':form.errors},500
 
 
-@applications_routes.route('/<int:id>/user/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+@applications_routes.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 @login_required
-def edit_application(id):
-    application = Application.query.filter(Application.id == id).first()
+def edit_application(listing_id, user_id):
+    application = Application.query.filter(Application.user_id == user_id and Application.listing_id == listing_id)
 
     if request.method == 'GET':
         return application.to_dict()
@@ -88,3 +88,9 @@ def edit_application(id):
         db.session.delete(application)
         db.session.commit()
         return {"deletion":"successful"}
+
+@applications_routes.route('/<int:id>/user')
+@login_required
+def user_applications(id):
+    applications = Application.query.filter(Application.user_id == id).all()
+    return {application.to_dict()['id']: application.to_dict() for application in applications}
