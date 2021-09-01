@@ -50,9 +50,16 @@ const Header = () => {
         <div className='login-header-container'>
           <img src="https://i.imgur.com/VunlvLt.jpg" alt='cat'></img>
         </div>
-      : <div className='signup-header-container'>
+      : params === '/sign-up' ?
+        <div className='signup-header-container'>
           <img src="https://i.imgur.com/TKJ3cgt.jpg" alt='dog'></img>
         </div>
+      :
+      <div className='forms-header-img-container'>
+        <span className='user-header-name'>
+          <h1>↓FILL OUT YOUR FORM↓</h1>
+        </span>
+      </div>
       }
     </div>
   )
