@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../Header/Header.css'
-
+import '../Splash/Splash.css'
 
 const Header = () => {
 
@@ -13,9 +13,31 @@ const Header = () => {
 
   return (
     <div>
-      {params === '/' || params === '/about' ?
+      {params === '/' ?
         <div className='header-container'>
-          <img src="https://i.imgur.com/KmxttNE.jpg" alt='cat and dog'></img>
+          <span className='user-header-name'>
+            <div className="span-header">
+              <h1>WELCOME TO BESTIE!</h1>
+            </div>
+          </span>
+        </div>
+      : params === '/foster' ?
+        <div className='header-container'>
+          <span className='user-header-name'>
+            <h1>HOW DO I BECOME A FOSTER?</h1>
+          </span>
+        </div>
+      : params === '/sponsor' ?
+        <div className='header-container'>
+          <span className='user-header-name'>
+            <h1>HOW DO I BECOME A SPONSOR?</h1>
+          </span>
+        </div>
+      : params === '/about' ?
+        <div className='header-container'>
+          <span className='user-header-name'>
+            <h1>OUR MISSION AT BESTIE</h1>
+          </span>
         </div>
       : params === '/adopt' ?
         <div className='user-header-container'>

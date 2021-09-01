@@ -18,6 +18,7 @@ import { fetchAllListings } from './store/listings';
 import CreateApplication from './components/Applications/CreateApplication';
 import EditApplication from './components/Applications/EditApplication';
 import { fetchAllApplications } from './store/applications';
+import About from './components/About';
 
 
 
@@ -49,7 +50,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/about' exact={true} >
-          <Splash />
+          <About />
         </Route>
         <Route path='/adopt' exact={true} >
           <Listings />
