@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { createApplicationThunk } from '../../store/applications';
 import Footer from "../Footer";
 import Header from "../Header";
-
+import "./Applications.css"
 
 const CreateApplication = () => {
 
@@ -119,8 +119,8 @@ const CreateApplication = () => {
         <div className='form-container'>
           <form onSubmit={onSubmit}>
             <h1 className='form-header'>ADOPTION FORM</h1>
-            <hr className='hr1'></hr>
-            <hr className='hr1'></hr>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-name'>
               <label>NAME</label>
               <input
@@ -142,8 +142,8 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr2'></hr>
-            <hr className='hr2'></hr>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-email'>
               {errors.email ? <h4>{errors.email}</h4> : null}
               <label>EMAIL</label>
@@ -166,20 +166,8 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr2'></hr>
-            <hr className='hr2'></hr>
-            <div className='form-description'>
-              <label>PETS</label>
-              <textarea
-                type='text'
-                name='description'
-                onChange={updatePets}
-                value={pets}
-                required={true}
-              ></textarea>
-            </div>
-            <hr className='hr3'></hr>
-            <hr className='hr3'></hr>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-address'>
               <label>ADDRESS</label>
               <input
@@ -190,8 +178,8 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr3'></hr>
-            <hr className='hr3'></hr>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-city'>
               <label>CITY</label>
               <input
@@ -259,6 +247,8 @@ const CreateApplication = () => {
                 <option value="WY">Wyoming</option>
             </select>
             </div>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-zipcode'>
               {errors.zipcode ? <h4>{errors.zipcode}</h4> : null}
               <label>ZIPCODE</label>
@@ -282,8 +272,8 @@ const CreateApplication = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            {/* <hr className='hr2'></hr> */}
-            {/* <hr className='hr2'></hr> */}
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-household'>
               <label>HOUSEHOLD</label>
               <textarea
@@ -294,10 +284,22 @@ const CreateApplication = () => {
                 required={true}
               ></textarea>
             </div>
-            {/* <hr className='hr2'></hr> */}
-            {/* <hr className='hr2'></hr> */}
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
+            <div className='form-pets'>
+              <label>PETS</label>
+              <textarea
+                type='text'
+                name='description'
+                onChange={updatePets}
+                value={pets}
+                required={true}
+              ></textarea>
+            </div>
+            {/* <hr className='hr2'></hr>
+            <hr className='hr2'></hr> */}
             <div className='form-vet-name'>
-              <label>VETERINARIAN'S NAME</label>
+              <label>VET'S NAME</label>
               <input
                 type='text'
                 name='vetName'
@@ -306,9 +308,9 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            <div className='form-vet-phone'>
+            <div className='form-vet-cellphone'>
               {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
-              <label>VETERINARIAN'S CELLPHONE</label>
+              <label>VET'S CELLPHONE</label>
               <input
                 type='text'
                 name='vetCellphone'

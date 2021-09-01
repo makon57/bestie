@@ -1,0 +1,94 @@
+.form-container {
+    height: fit-content;
+    top: 80%;
+}
+
+.filler {
+    width: 80%;
+    height: 125%;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    z-index: auto;
+    background-color: rgb(255, 89, 74);
+}
+
+.footer {
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+    position: absolute;
+    top: 190%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+textarea,
+input {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+
+.form-container form {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "header header"
+        /* "hr2 hr2" */
+        "name age"
+        /* "hr2 hr2" */
+        "email cellphone"
+        /* "hr2 hr2" */
+        "address address"
+        /* "hr2 hr2" */
+        "city state"
+        /* "hr2 hr2" */
+        "zipcode hometype"
+        "vet-name vet-cellphone"
+        /* "hr2 hr2" */
+        "household household"
+        /* "hr2 hr2" */
+        "pets pets"
+        "submit submit"
+    ;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.form-email {
+    grid-area: email;
+}
+.form-cellphone {
+    grid-area: cellphone;
+}
+.form-address {
+    grid-area: address;
+}
+.form-city {
+    grid-area: city;
+}
+.form-state {
+    grid-area: state;
+}
+.form-zipcode {
+    grid-area: zipcode;
+}
+.form-hometype {
+    grid-area: hometype;
+}
+.form-household {
+    grid-area: household;
+}
+.form-pets {
+    grid-area: pets;
+}
+.form-submit-btn {
+    grid-area: submit;
+}
+.form-vet-name {
+    grid-area: vet-name;
+}
+.form-vet-cellphone {
+    grid-area: vet-cellphone;
+}
