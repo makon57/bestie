@@ -105,3 +105,11 @@ hr {
     margin-top: 3%;
     font-size: 50px;
 }
+
+span.nobreak {
+    white-space: nowrap;
+}
+
+.listing-list span {
+    display: inline;
+}

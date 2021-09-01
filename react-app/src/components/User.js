@@ -73,34 +73,34 @@ function User() {
         </span>
       </div>
       <div className='user-body'>
-        <h1>Applications</h1>
+      {applications.length > 0 ? <h1>My Applications</h1> : null}
         <div className='applications-container'>
           <ul className='applications-list'>
-            {applications?.map((application) => (
-              <div key={application.id}>
+            {applications?.map((application, i) => (
+              <div key={i}>
                 <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
               </div>
             ))}
           </ul>
         </div>
-        {listings ? <h1>Listings</h1> : null}
+        {listings ? <h1>My Listings</h1> : null}
         <div className='list-container'>
           <ul className="listing-list">
-            {listings?.map((listing)=> (
-              <>
+            {listings?.map((listing, i)=> (
+              <React.Fragment key={i} >
                 <div key={listing.id} className="container">
                   <ListApp listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} stuffs={stuffs} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal}/>
                 </div>
                 <div className='application-list-container'>
                     <ul className='applications-one-list'>
-                        {(stuffs?.filter(app => (app.listing_id === listing.id)))?.map(application => (
+                        {(stuffs?.filter(app => (app.listing_id === listing.id)))?.map((application) => (
                         <div key={application.id}>
                             <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
                         </div>
                         ))}
                     </ul>
                 </div>
-              </>
+            </React.Fragment>
             ))}
           </ul>
         </div>

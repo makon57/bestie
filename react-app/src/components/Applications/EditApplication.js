@@ -69,7 +69,9 @@ const EditApplication = () => {
     if (data) {
       setErrors(data);
     }
-    history.push(`/users/${userId}`)
+    if (data.ok) {
+      history.push(`/users/${userId}`)
+    }
   };
 
 
@@ -152,6 +154,7 @@ const EditApplication = () => {
                 value={age}
                 required={true}
               ></input>
+              {errors.age ? <h4>{errors.age}</h4> : null}
             </div>
             <div className='form-email'>
               <label>EMAIL</label>
@@ -162,6 +165,7 @@ const EditApplication = () => {
                 value={email}
                 required={true}
               ></input>
+              {errors.email ? <h4>{errors.email}</h4> : null}
             </div>
             <div className='form-cellphone'>
               <label>CELL PHONE</label>
@@ -172,6 +176,7 @@ const EditApplication = () => {
                 value={cellphone}
                 required={true}
               ></input>
+              {errors.cellphone ? <h4>{errors.cellphone}</h4> : null}
             </div>
             <div className='form-address'>
               <label>ADDRESS</label>
@@ -196,6 +201,7 @@ const EditApplication = () => {
             <div className='form-state'>
               <label>STATE</label>
               <select name='state' onChange={updateState} value={state} required={true}>
+                <option value=""></option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -248,6 +254,7 @@ const EditApplication = () => {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+            {errors.state ? <h4>{errors.state}</h4> : null}
             </div>
             <div className='form-zipcode'>
               <label>ZIPCODE</label>
@@ -258,10 +265,12 @@ const EditApplication = () => {
                 value={zipcode}
                 required={true}
               ></input>
+              {errors.zipcode ? <h4>{errors.zipcode}</h4> : null}
             </div>
             <div className='form-home-type'>
               <label>HOME TYPE</label>
               <select name="homeType" onChange={updateHomeType} value={homeType} required={true}>
+                <option value=""></option>
                 <option value="House">House</option>
                 <option value="Apartment">Apartment</option>
                 <option value="Condo">Condo</option>
@@ -297,7 +306,7 @@ const EditApplication = () => {
               ></textarea>
             </div>
             <div className='form-vet-name'>
-              <label>VETERINARIAN'S NAME</label>
+              <label>VET'S NAME</label>
               <input
                 type='text'
                 name='vetName'
@@ -307,7 +316,7 @@ const EditApplication = () => {
               ></input>
             </div>
             <div className='form-vet-cellphone'>
-              <label>VETERINARIAN'S CELLPHONE</label>
+              <label>VET'S CELLPHONE</label>
               <input
                 type='text'
                 name='vetCellphone'
@@ -315,6 +324,7 @@ const EditApplication = () => {
                 value={vetCellphone}
                 required={true}
               ></input>
+              {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
             </div>
             <div className='form-submit-btn delete-edit'>
               <button className='edit-btn' type='submit' >EDIT</button>

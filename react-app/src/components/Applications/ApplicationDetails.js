@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { fetchDeleteApplication } from "../../store/applications";
 import "../Listings/DeleteListingModal/DeleteModal.css"
-
+import './Applications.css'
 
 const ApplicationDetails = ({ application, showApplicationModal, setShowApplicationModal }) => {
 
@@ -35,17 +35,22 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
         <div>
           <div className="application-info-container" >
             <div className='applicationInfo' onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
-              <p>NAME: {application.name}</p>
-              <p>CELLPHONE: {application.cellphone}</p>
-              <p>BESTIE ID: {application.listing_id}</p>
-              <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
+              <h2>ADOPTION FORM</h2>
+              <div className='name-cellphone'>
+                <p>NAME: {application.name}</p>
+                <p>CELLPHONE: {application.cellphone}</p>
+              </div>
+              <div className='bestieid-bestiename'>
+                <p>BESTIE ID: {application.listing_id}</p>
+                <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
+              </div>
+              {application.user_id === userId ?
+                <div className="application-edit-delete">
+                  <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
+                  <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
+                </div>
+              : null }
             </div>
-            {application.user_id === userId ?
-              <>
-                <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
-                <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
-              </>
-            : null }
            </div>
           {showApplicationDelete &&  (
             <Modal>
@@ -62,10 +67,26 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
         <Modal onClose={() => {setShowApplicationModal(false); setModalData(null)}}>
           <div className='petInfo'>
           <form>
-          <h1 className='form-header'>ADOPTION FORM</h1>
+            <h2 className='form-bestie-header'>ADOPTION FORM</h2>
+            <div className='form-bestie-id'>
+              <label>BESTIE ID</label>
+              <input
+                type='text'
+                name='name'
+                value={application.listing_id}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-bestie-name'>
+              <label>BESTIE NAME</label>
+              <input
+                type='text'
+                name='name'
+                value={listings[application.listing_id - 1].name}
+                disabled={true}
+              ></input>
+            </div>
             <div className='form-name'>
-              <p>BESTIE ID: {application.listing_id}</p>
-              <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
               <label>NAME</label>
               <input
                 type='text'
@@ -191,9 +212,9 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
               ></input>
             </div>
             { modalData.user_id === userId ?
-            <div className='edit-delete-btns' >
-              <button className='delete-btns' onClick={() => setShowDeleteModal(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
-              <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
+            <div className='form-submit-btn delete-edit'>
+              <button className='edit-btn' type='submit' onClick={() => editApplication(application.id)}>EDIT</button>
+              <button className='delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
             </div>
             : null }
           </form>

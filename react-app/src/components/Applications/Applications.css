@@ -157,6 +157,28 @@ ul {
 
 .applicationInfo {
     padding: 5px 10px 5px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'header buttons'
+        'name-cell id-name'
+    ;
+}
+
+.applicationInfo h2 {
+    grid-area: header;
+}
+
+.name-cellphone {
+    grid-area: name-cell;
+}
+
+.bestieid-bestiename {
+    grid-area: id-name;
+}
+
+.application-edit-delete button {
+    grid-area: buttons;
 }
 
 .applicationInfo p {
@@ -197,4 +219,74 @@ ul {
     height: 80px;
     font-size: 50px;
     grid-area: delete;
+}
+
+.petInfo {
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    margin-bottom: 10%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.petInfo form {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "bestie-head bestie-head"
+        "bid bname"
+        "name age"
+        "email cellphone"
+        "address address"
+        "city state"
+        "zipcode hometype"
+        "vet-name vet-cellphone"
+        "pets pets"
+        "household household"
+        "submit submit"
+    ;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.form-bestie-header {
+    grid-area: bestie-head;
+}
+
+.form-bestie-id {
+    grid-area: bid;
+}
+.form-bestie-name {
+    grid-area: bname;
+}
+
+.petInfo label,
+.petInfo input,
+.petInfo select,
+.petInfo textarea {
+    width: 95%;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.petInfo textarea {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+    height: 200px;
+    font-size: 25px;
+}
+.petInfo input {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+
+.petInfo label {
+    margin-top: 15px;
+}
+
+.petInfo p {
+    font-size: 18px;
 }

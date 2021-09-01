@@ -46,7 +46,7 @@ def create_application():
         db.session.commit()
         return new_application.to_dict()
     else:
-        return {'errors': form.errors}, 401
+        return {'errors': form.errors}, 500
 
 
 @applications_routes.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])

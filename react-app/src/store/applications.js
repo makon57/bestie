@@ -35,7 +35,7 @@ const deleteApplication = (applicationId) => ({
 export const fetchAllApplications = () => async (dispatch) => {
     const response = await fetch('/api/applications/');
     const data = await response.json();
-    console.log(data)
+    
     if (response.ok) {
         dispatch(getAllApplications(data));
         return data
@@ -92,7 +92,7 @@ export const createApplicationThunk = (
         const data = await response.json();
         dispatch(createApplication(data))
         return response;
-    } else if (response.status < 500) {
+    } else if (response.status === 500) {
         const data = await response.json();
         if (data.errors) {
             return data.errors;
@@ -152,13 +152,17 @@ export const fetchEditApplication = (
             vetCellphone,
         })
     })
-    const data = await response.json()
     if (response.ok) {
+        const data = await response.json();
         dispatch(editApplication(data))
-        return data
-    }
-    if (data.errors) {
-        return data
+        return response;
+    } else if (response.status === 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 
 }
