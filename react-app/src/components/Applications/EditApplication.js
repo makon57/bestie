@@ -14,7 +14,7 @@ const EditApplication = () => {
   const history = useHistory()
   const userId = useSelector(state => state.session.user.id)
   const application = useSelector(state => state.applications[params.id])
-  
+
   const [errors, setErrors] = useState([])
   const [name, setName] = useState(application.name)
   const [age, setAge] = useState(application.age)
@@ -31,6 +31,10 @@ const EditApplication = () => {
   const [vetCellphone, setVetCellphone] = useState(application.vet_cellphone)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   // const [editMode, setEditMode] = useState(false)
+
+  useEffect(() => (
+    dispatch(fetchAllApplications())
+  ), [dispatch])
 
   const deleteApplication = async (e) => {
     e.preventDefault();
@@ -66,6 +70,7 @@ const EditApplication = () => {
     }
     history.push(`/users/${userId}`)
   };
+
 
 
 

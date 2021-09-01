@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { fetchAllApplications, fetchDeleteApplication } from "../../store/applications";
-import EditApplication from "./EditApplication";
+// import EditApplication from "./EditApplication";
 
 
 const ApplicationDetails = ({ application, showApplicationModal, setShowApplicationModal }) => {

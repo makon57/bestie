@@ -28,8 +28,8 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(fetchAllListings());
       await dispatch(fetchAllApplications());
+      await dispatch(fetchAllListings());
       setLoaded(true);
     })();
   }, [dispatch]);

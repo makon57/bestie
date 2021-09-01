@@ -5,8 +5,8 @@ import '../components/Listings/Listing.css'
 import '../components/Header/Header.css'
 import ListingModal from './Listings/ListingModal';
 import { useDispatch } from 'react-redux';
-import { getUserApplicationsThunk } from '../store/applications';
 import ApplicationDetails from './Applications/ApplicationDetails';
+import { fetchAllApplications } from '../store/applications';
 
 
 
@@ -16,14 +16,13 @@ function User() {
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
   const things = Object.values(useSelector(state => state.listings))
-  const applications = Object.values(useSelector(state => state.applications))
+  const stuffs = Object.values(useSelector(state => state.applications))
+
   const [showListModal, setShowListModal] = useState(false)
   const [showApplicationModal, setShowApplicationModal] = useState(false)
-  const listings = things.filter(things => things.user_id === userId)
+  const listings = things.filter(thing => thing.user_id === userId)
+  const applications = stuffs.filter(stuff => stuff.user_id === userId)
 
-  useEffect(() => {
-    dispatch(getUserApplicationsThunk(userId))
-  },[dispatch, userId])
 
   useEffect(() => {
     if (!userId) {
@@ -33,6 +32,15 @@ function User() {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
       setUser(user);
+    })();
+  }, [userId]);
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    (async () => {
+      dispatch(fetchAllApplications())
     })();
   }, [userId]);
 

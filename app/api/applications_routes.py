@@ -1,5 +1,4 @@
 from flask_login.utils import login_required
-from app.models.application import Application
 from flask import Blueprint, request
 from app.models import Application, db
 from datetime import datetime
@@ -9,10 +8,14 @@ from app.forms import EditApplicationForm
 applications_routes = Blueprint('applications', __name__)
 
 @applications_routes.route('/')
-def listing_applications():
+def applications():
     applications = Application.query.all()
-    return {application.to_dict()['id']: application.to_dict() for application in applications}
-
+    print('----------------')
+    print(applications)
+    data = {application.to_dict()['id']: application.to_dict() for application in applications}
+    print('----------------')
+    print(data)
+    return data
 
 @applications_routes.route("/create", methods=['POST'])
 @login_required

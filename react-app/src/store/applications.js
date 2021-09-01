@@ -1,6 +1,6 @@
 
 const CREATE_APPLICATION = 'applications/CREATE_APPLICATION'
-const ALL_APPLICATIONS = 'applications/GET_APPLICATIONS'
+const ALL_APPLICATIONS = 'applications/ALL_APPLICATIONS'
 const GET_USER_APPLICATIONS = 'applications/GET_USER_APPLICATIONS'
 const DELETE_APPLICATION = 'applications/DELETE_APPLICATION'
 const EDIT_APPLICATION = 'applications/EDIT_APPLICATION'
@@ -34,14 +34,14 @@ const deleteApplication = (applicationId) => ({
 
 export const fetchAllApplications = () => async (dispatch) => {
     const response = await fetch('/api/applications/');
+    const data = await response.json();
     if (response.ok) {
-        const data = await response.json();
-        if (data.errors) {
-            return;
-        }
-
+        console.log(data)
         dispatch(getAllApplications(data));
         return data
+    }
+    if (data.errors) {
+        return;
     }
 }
 
@@ -188,9 +188,10 @@ export default function reducer(state =  initialState, action) {
     let newState = { ...state }
     switch (action.type) {
         case ALL_APPLICATIONS:
-            return { ...state, ...action.applications }
+            newState = { ...action.applications}
+            return newState
         case GET_USER_APPLICATIONS:
-            newState = {...action.applications }
+            newState = {...newState, ...action.applications }
             return newState
         case CREATE_APPLICATION:
             newState[action.application.id] = action.application
