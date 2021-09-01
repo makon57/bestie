@@ -7,7 +7,7 @@ const UploadPicture = (props) => {
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([])
     const [url, setUrl] = useState(props.listImage ? props.listImage : 'https://i.imgur.com/BPOYKBx.png')
-    // const [disableState, setDisableState] = useState(false)
+    const [disableState, setDisableState] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ const UploadPicture = (props) => {
         if (res.ok) {
             await res.json();
             setImageLoading(false);
-            // setDisableState(true);
+            setDisableState(true);
         }
         else {
             setImageLoading(false);
@@ -61,6 +61,7 @@ const UploadPicture = (props) => {
                 id="imgInp"
                 onChange={updateImage}
                 placeholder={image}
+                disabled={disableState}
                 />
                 <p>{errors?.filetype}</p>
                 { url === 'https://i.imgur.com/BPOYKBx.png' || url === props?.listImage ?
