@@ -70,11 +70,11 @@ const CreateListingForm = () => {
         <div>
           <UploadPicture />
         </div>
-        <div className='form-container'>
+        <div className='form-listing-container'>
           <form onSubmit={onSubmit}>
-            <h1 className='form-header'>BESTIE FORM</h1>
+            <h1 className='form-listing-header'>BESTIE FORM</h1>
             <hr className='hr1'></hr>
-            <div className='form-name'>
+            <div className='form-listing-name'>
               <label>NAME</label>
               <input
                 type='text'
@@ -84,7 +84,7 @@ const CreateListingForm = () => {
                 required={true}
               ></input>
             </div>
-            <div className='form-age'>
+            <div className='form-listing-age'>
               <label>AGE</label>
               <input
                 type='text'
@@ -95,14 +95,14 @@ const CreateListingForm = () => {
               ></input>
             </div>
             <hr className='hr2'></hr>
-            <div className='form-gender'>
+            <div className='form-listing-gender'>
               <label>GENDER</label>
               <select name='gender' onChange={updateGender} value={gender} required={true}>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
               </select>
             </div>
-            <div className='form-pet-type'>
+            <div className='form-listing-pet-type'>
               <label>PET TYPE</label>
               <select name="petType" onChange={updatePetType} value={petType} required={true}>
                 <option value="Dog">Dog</option>
@@ -116,7 +116,7 @@ const CreateListingForm = () => {
             <hr className='hr3'></hr>
             <hr className='hr2'></hr>
             <hr className='hr2'></hr>
-            <div className='form-description'>
+            <div className='form-listing-description'>
               <label>DESCRIPTION</label>
               <textarea
                 type='text'
@@ -127,7 +127,7 @@ const CreateListingForm = () => {
               ></textarea>
             </div>
             <hr className='hr2'></hr>
-            <div className='form-submit-btn'>
+            <div className='form-listing-submit-btn'>
               <button className='signup-btn' type='submit' >SUBMIT</button>
             </div>
           </form>

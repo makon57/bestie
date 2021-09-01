@@ -3,6 +3,7 @@ import "../Splash/Splash.css";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Header from "../Header";
 
 
 const Sponsor = () => {
@@ -14,10 +15,11 @@ const Sponsor = () => {
   return (
     <>
     <div className='splash-container'>
+        <Header />
         <div>
             <div className='intro'>
-                <h1 className='how-to'>HOW CAN I BECOME A SPONSOR?</h1>
-                <h1>Sponsor us! Or a pet! Or three or four pets!</h1>
+                <h2 className='how-to'>How can I become a sponsor?</h2>
+                <h3>Sponsor us! Or a pet! Or three or four pets!</h3>
                 <p>
                     First off, what's a sponsor? Well, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

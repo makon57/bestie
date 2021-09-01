@@ -61,3 +61,55 @@ button:hover, button:focus, button:active {
 hr {
     width: 85%;
 }
+
+
+.delete-modal-confirmation {
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "question question"
+        "yes no"
+    ;
+}
+
+.delete-modal-question {
+    grid-area: question;
+    text-align: center;
+    width: 100%;
+    padding: 10px 10px 10px 10p;
+}
+
+.delete-modal-yes {
+    background-color: rgb(255, 89, 74);
+    border: none;
+    color: white;
+    font-size: 40px;
+    grid-area: yes;
+    margin: auto;
+    width: 80px;
+}
+
+.delete-modal-no {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 40px;
+    grid-area: no;
+    margin: auto;
+    width: 80px;
+}
+
+
+.user-body h1 {
+    margin-top: 3%;
+    font-size: 50px;
+}
+
+span.nobreak {
+    white-space: nowrap;
+}
+
+.listing-list span {
+    display: inline;
+}

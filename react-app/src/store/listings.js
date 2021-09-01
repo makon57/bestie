@@ -27,6 +27,7 @@ export const fetchAllListings = () => async (dispatch) => {
     const response = await fetch('/api/listings/');
     if (response.ok) {
         const data = await response.json();
+        
         if (data.errors) {
             return;
         }

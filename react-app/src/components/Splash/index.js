@@ -17,21 +17,7 @@ const Splash = () => {
     return (
     <>
     <div className='splash-container'>
-        { params === '/about' ? null : <Header /> }
-        {/* <div className='options-container'>
-            <div>
-                <h1>ADOPT</h1>
-            </div>
-            <div>
-                <h1>DONATE</h1>
-            </div>
-            <div>
-                <h1>FOSTER</h1>
-            </div>
-            <div>
-                <h1>VOLUNTEER</h1>
-            </div>
-        </div> */}
+        <Header />
         <div>
             <div className='intro'>
                 <h1 className='how-to'>How To Adopt A Bestie:</h1>

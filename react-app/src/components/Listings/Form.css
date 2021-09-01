@@ -72,7 +72,7 @@ body {
     z-index: auto;
 }
 
-.form-container {
+.form-listing-container {
     background-color: white;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
     width: 60%;
@@ -85,13 +85,12 @@ body {
     margin: auto;
     position: absolute;
     z-index: 2;
-    top: 140%;
+    top: 145%;
     left: 20%;
     overflow-y: scroll;
-
 }
 
-.form-container form {
+.form-listing-container form {
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -110,15 +109,15 @@ body {
     margin-right: 8%;
 }
 
-.form-container img {
+.form-listing-container img {
     grid-area: image;
     margin: auto;
 }
 
-.form-container label,
-.form-container input,
-.form-container select,
-.form-container textarea {
+.form-listing-container label,
+.form-listing-container input,
+.form-listing-container select,
+.form-listing-container textarea {
     width: 95%;
     font-size: 30px;
     display: flex;
@@ -126,12 +125,12 @@ body {
     /* margin-left: 8%; */
 }
 
-.form-container h1 {
+.form-listing-container h1 {
     font-family: 'Impact';
     font-size: 60px;
 }
 
-.form-container textarea[name='description'] {
+.form-listing-container textarea[name='description'] {
     height: 200px;
     border: 0.5px solid rgba(153, 153, 153, 0.9);
     width: 100%;
@@ -139,37 +138,37 @@ body {
     margin-right: 0%;
 }
 
-.form-name {
+.form-listing-name {
     grid-area: name;
 }
-.form-age {
+.form-listing-age {
     grid-area: age;
 }
-.form-gender {
+.form-listing-gender {
     grid-area: gender;
 }
-.form-pet-type {
+.form-listing-pet-type {
     grid-area: pet-type;
 }
-.form-description {
+.form-listing-description {
     grid-area: description;
 }
-.form-header {
+.form-listing-header {
     grid-area: header
 }
-.form-submit-btn {
+.form-listing-submit-btn {
     grid-area: submit;
     margin: auto;
     margin-top: 20px;
 }
 
-.form-submit-btn button {
+.form-listing-submit-btn button {
     width: 400px;
     height: 80px;
     font-size: 50px;
 }
 
-.form-container hr {
+.form-listing-container hr {
     width: 100%;
     margin-top: 5%;
 }
@@ -195,7 +194,7 @@ body {
     z-index: 1;
 }
 
-.delete-edit button {
+.listing-delete-edit button {
     height: 60px;
     width: 200px;
     margin: 15px 15px 15px 15px;
@@ -203,12 +202,12 @@ body {
     border-radius: 4px;
 }
 
-.edit-btn {
+.listing-edit-btn {
     background-color: rgb(0, 107, 0);
     color: white;
 }
 
-.delete-btn {
+.listing-delete-btn {
     background-color: rgb(138, 0, 0);
     color: white;
 }

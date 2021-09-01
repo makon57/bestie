@@ -34,7 +34,6 @@ const EditListingForm = () => {
     if (data) {
       setErrors(data);
     }
-    // await dispatch(fetchAllListings());
     history.push(`/users/${user.id}`)
   };
 
@@ -78,6 +77,7 @@ const EditListingForm = () => {
   };
 
 
+
   return (
     <>
       <Header />
@@ -85,11 +85,11 @@ const EditListingForm = () => {
         <div>
           <UploadPicture listImage={listing.images.images[listing.images.images.length - 1]}/>
         </div>
-        <div className='form-container'>
+        <div className='form-listing-container'>
           <form onSubmit={onSubmit}>
-            <h1 className='form-header'>BESTIE FORM</h1>
+            <h1 className='form-listing-header'>BESTIE FORM</h1>
             <hr className='hr1'></hr>
-            <div className='form-name'>
+            <div className='form-listing-name'>
               <label>NAME</label>
               <input
                 type='text'
@@ -99,7 +99,7 @@ const EditListingForm = () => {
                 required={true}
               ></input>
             </div>
-            <div className='form-age'>
+            <div className='form-listing-age'>
               <label>AGE</label>
               <input
                 type='text'
@@ -110,14 +110,14 @@ const EditListingForm = () => {
               ></input>
             </div>
             <hr className='hr2'></hr>
-            <div className='form-gender'>
+            <div className='form-listing-gender'>
               <label>GENDER</label>
               <select name='gender' onChange={updateGender} value={gender} required={true}>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
               </select>
             </div>
-            <div className='form-pet-type'>
+            <div className='form-listing-pet-type'>
               <label>PET TYPE</label>
               <select name="petType" onChange={updatePetType} value={petType} required={true}>
                 <option value="Dog">Dog</option>
@@ -131,7 +131,7 @@ const EditListingForm = () => {
             <hr className='hr3'></hr>
             <hr className='hr2'></hr>
             <hr className='hr2'></hr>
-            <div className='form-description'>
+            <div className='form-listing-description'>
               <label>DESCRIPTION</label>
               <textarea
                 type='text'
@@ -142,17 +142,19 @@ const EditListingForm = () => {
               ></textarea>
             </div>
             <hr className='hr2'></hr>
-            <div className='form-submit-btn delete-edit'>
-              <button className='edit-btn' type='submit' >EDIT</button>
-              <button className='delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
+            <div className='form-listing-submit-btn listing-delete-edit'>
+              <button className='listing-edit-btn' type='submit' >EDIT</button>
+              <button className='listing-delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
             </div>
           </form>
         </div>
         {showDeleteModal &&  (
           <Modal>
-            <div>Are you sure you want to delete this listing?</div>
-            <button onClick={deleteListing}>Yes</button>
-            <button onClick={() => setShowDeleteModal(false)}>No</button>
+            <div className="delete-modal-confirmation">
+              <h1 className="delete-modal-question">Are you sure you want to delete this listing?</h1>
+              <button className="delete-modal-yes" onClick={deleteListing}>Yes</button>
+              <button className="delete-modal-yes" onClick={() => setShowDeleteModal(false)}>No</button>
+            </div>
           </Modal>
         )}
         <div className='filler'>

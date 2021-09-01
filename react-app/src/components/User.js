@@ -3,23 +3,28 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../components/Listings/Listing.css'
 import '../components/Header/Header.css'
-import ListingModal from './Listings/ListingModal';
-// import { useDispatch } from 'react-redux';
+import ListApp from './Listings/ListingModal/ListApp';
+import { useDispatch } from 'react-redux';
+import ApplicationDetails from './Applications/ApplicationDetails';
+import { fetchAllApplications } from '../store/applications';
+import Footer from './Footer';
+
+
 
 function User() {
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const userId = useSelector(state => state.session.user.id)
   const things = Object.values(useSelector(state => state.listings))
+  const stuffs = Object.values(useSelector(state => state.applications))
 
   const [showListModal, setShowListModal] = useState(false)
-  // const [things, setThings] = useState(Object.values(useSelector(state => state.listings)))
-  const listings = things.filter(things => things.user_id === userId)
+  const [showApplicationModal, setShowApplicationModal] = useState(false)
+  const listings = things.filter(thing => thing.user_id === userId)
+  const applications = stuffs.filter(stuff => stuff.user_id === userId)
 
-  // useEffect(() => {
-  //   setThings(dispatch(fetchAllListings()));
-  // }, [dispatch]);
+
 
   useEffect(() => {
     if (!userId) {
@@ -32,12 +37,16 @@ function User() {
     })();
   }, [userId]);
 
+  useEffect(() => (
+    dispatch(fetchAllApplications())
+  ), [dispatch])
+
   if (!user) {
     return null;
   }
 
   return (
-    <>
+    <div className='user-entire-container'>
       <div className='user-header-container'>
         <span className='user-header-name'>
           <p>Hi {user.name ? user.name.split(' ')[0] : 'Bestie'}!</p>
@@ -56,22 +65,48 @@ function User() {
                 <li className='user-create'>
                   <button><Link to='/create-listing' >Create A Listing</Link></button>
                 </li>
-              : null }
+              : <li className='user-create'>
+                  <button><Link to='/foster'>Become a foster</Link></button>
+                </li>}
             </ul>
           </div>
         </span>
       </div>
-
-      <div className='list-container'>
-        <ul className="listing-list">
-          {listings?.map((listing)=> (
-            <div key={listing.id} className="container">
-              <ListingModal listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} />
-            </div>
-          ))}
-        </ul>
+      <div className='user-body'>
+      {applications.length > 0 ? <h1>My Applications</h1> : null}
+        <div className='applications-container'>
+          <ul className='applications-list'>
+            {applications?.map((application, i) => (
+              <div key={i}>
+                <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
+              </div>
+            ))}
+          </ul>
+        </div>
+        {listings.length > 0 ? <h1>My Listings</h1> : null}
+        <div className='list-container'>
+          <ul className="listing-list">
+            {listings?.map((listing, i)=> (
+              <React.Fragment key={i} >
+                <div key={listing.id} className="container">
+                  <ListApp listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} stuffs={stuffs} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal}/>
+                </div>
+                <div className='application-list-container'>
+                    <ul className='applications-one-list'>
+                        {(stuffs?.filter(app => (app.listing_id === listing.id)))?.map((application) => (
+                        <div key={application.id}>
+                            <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
+                        </div>
+                        ))}
+                    </ul>
+                </div>
+            </React.Fragment>
+            ))}
+          </ul>
+        </div>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }
 export default User;

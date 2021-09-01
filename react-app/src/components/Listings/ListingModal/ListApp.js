@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import DeleteListingModal from '../DeleteListingModal';
 import { fetchDeleteListing } from '../../../store/listings';
 import '../ListingModal/ListingModal.css'
+import ApplicationDetails from '../../Applications/ApplicationDetails';
 
-const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
+
+const ListApp = ({ listing, showListModal, setShowListModal, stuffs, showApplicationModal, setShowApplicationModal}) =>{
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -15,6 +17,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
     const userId = useSelector(state => state.session.user?.id)
     const [showDeleteModal, setShowDeleteModal] = useState(false)
     const [showListDelete, setShowListDelete] = useState(false)
+    const applications = stuffs.filter(stuff => listing.id === stuff.listing_id)
 
     const editListing = (listingId) => {
         history.push(`/listings/${listingId}/edit`)
@@ -44,13 +47,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                         <button className='edit-btns' onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                         <button className='delete-btns' onClick={() => setShowListDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
                     </>
-                    :
-                    <div className='adopt-btn-container'>
-                        <button className='adopt-btn'>
-                            <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
-                        </button>
-                    </div>
-                    }
+                    : null }
                     {showListDelete &&  (
                         <Modal>
                             <div className="delete-modal-confirmation">
@@ -86,7 +83,6 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                             </button>
                         </div>
                         }
-
                     </div>
                     {showDeleteModal &&  (
                         <DeleteListingModal listing={listing} setShowDeleteModal={setShowDeleteModal} setShowListModal={setShowListModal}/>
@@ -98,4 +94,4 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
 }
 
 
-export default ListingModal
+export default ListApp

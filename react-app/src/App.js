@@ -15,6 +15,10 @@ import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
 import Foster from './components/Foster';
 import { fetchAllListings } from './store/listings';
+import CreateApplication from './components/Applications/CreateApplication';
+import EditApplication from './components/Applications/EditApplication';
+import { fetchAllApplications } from './store/applications';
+import About from './components/About';
 
 
 
@@ -25,7 +29,8 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(fetchAllListings())
+      await dispatch(fetchAllApplications());
+      await dispatch(fetchAllListings());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -45,7 +50,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/about' exact={true} >
-          <Splash />
+          <About />
         </Route>
         <Route path='/adopt' exact={true} >
           <Listings />
@@ -70,6 +75,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/listings/:id/edit' exact={true} >
           <EditListingForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/applications/:id/create' exact={true} >
+          <CreateApplication />
+        </ProtectedRoute>
+        <ProtectedRoute path='/applications/:id/edit' exact={true} >
+          <EditApplication />
         </ProtectedRoute>
         <Route>
           404 page not found

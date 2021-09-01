@@ -33,12 +33,7 @@ const SignUpForm = () => {
         setErrors(data)
       }
     } else if (password !== repeatPassword) {
-      const data = await dispatch(signUp(name, email, password, foster));
-      if (data) {
-        setErrors({...data, passMatch: "Passwords do not match."})
-      } else {
-        setErrors({passMatch: 'Passwords do not match.'})
-      }
+      setErrors({passMatch: 'Passwords do not match.'})
     }
   };
 
@@ -119,7 +114,7 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <hr></hr>
+          {/* <hr></hr>
           <div className='foster-container'>
             <label className='foster-label'>Are you signing up as foster?</label>
             <input
@@ -129,7 +124,7 @@ const SignUpForm = () => {
               onClick={updateFoster}
               value={foster}
             ></input>
-          </div>
+          </div> */}
           <hr></hr>
           <div className='signup-btn-container'>
             <button className='signup-btn' type='submit'>SIGN UP</button>

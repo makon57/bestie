@@ -4,10 +4,9 @@ from app.models import Listing, Image, db
 from datetime import datetime
 from app.forms import ListingCreateForm, ListingEditForm
 from app.AWS import (upload_file_to_s3, allowed_file, get_unique_filename)
-
+from app.models.application import Application
 
 listings_routes = Blueprint('listings', __name__)
-
 
 
 @listings_routes.route('/')
@@ -89,3 +88,10 @@ def edit_image(data):
         .update({Image.listing_id: data['id']})
     db.session.commit()
     return
+
+
+@listings_routes.route("/<int:id>/applications")
+@login_required
+def listing_applications(id):
+    applications = Application.query.filter(Application.listing_id == id).all()
+    return {application.to_dict()['id']: application.to_dict() for application in applications}

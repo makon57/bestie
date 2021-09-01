@@ -11,12 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const [setMessage] = useState('false')
-
-  const handleClick = async(e) => {
-    e.preventDefault();
-    setMessage('true')
-  }
+ 
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -72,10 +67,13 @@ const LoginForm = () => {
             <button className='login-btn' type='submit'>LOGIN</button>
           </div>
           <div className='demo-btn-container' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
-            <button className='demo-btn' type='button' >DEMO</button>
+            <button className='demo-btn' type='button'>DEMO</button>
+          </div>
+          <div className='foster-btn-container' onClick={() => dispatch(login('foster@aa.io', 'password'))}>
+            <button className='foster-btn' type='button'>FOSTER DEMO</button>
           </div>
         </div>
-        <div className='already-user' onClick={handleClick}>
+        <div className='already-user'>
           <Link to='/sign-up'><label>Not a user? Sign Up!</label></Link>
         </div>
       </form>

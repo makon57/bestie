@@ -1,0 +1,302 @@
+.form-container {
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    width: 60%;
+    height: 1400px;
+    margin-bottom: 10%;
+    grid-area: form;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin: 10% 5% 0 5%;
+    margin: auto;
+    position: absolute;
+    z-index: 2;
+    top: 80%;
+    left: 20%;
+    overflow-y: scroll;
+}
+
+.filler {
+    width: 80%;
+    height: 145%;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    z-index: auto;
+    background-color: rgb(255, 89, 74);
+}
+
+.footer {
+    width: 100%;
+    height: 750px;
+    margin: 0 auto;
+    position: absolute;
+    top: 190%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.form-container textarea {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+    height: 200px;
+    font-size: 25px;
+}
+.form-container input {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+
+.form-container label {
+    margin-top: 15px;
+}
+
+.form-container p {
+    font-size: 18px;
+}
+
+.form-container label,
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 95%;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 8%; */
+}
+
+
+
+.form-container h1 {
+    font-family: 'Impact';
+    font-size: 60px;
+    grid-area: header;
+}
+
+.form-container form {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "header header"
+        "name age"
+        "email cellphone"
+        "address address"
+        "city state"
+        "zipcode hometype"
+        "vet-name vet-cellphone"
+        "pets pets"
+        "household household"
+        "submit submit"
+    ;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.form-email {
+    grid-area: email;
+}
+.form-cellphone {
+    grid-area: cellphone;
+}
+.form-address {
+    grid-area: address;
+}
+.form-city {
+    grid-area: city;
+}
+.form-state {
+    grid-area: state;
+}
+.form-zipcode {
+    grid-area: zipcode;
+}
+.form-hometype {
+    grid-area: hometype;
+}
+.form-household {
+    grid-area: household;
+}
+.form-pets {
+    grid-area: pets;
+}
+.form-submit-btn button {
+    grid-area: submit;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+}
+.form-vet-name {
+    grid-area: vet-name;
+}
+.form-vet-cellphone {
+    grid-area: vet-cellphone;
+}
+
+.application-info-container {
+    max-width: 800px;
+    width: 40vw;
+    height: 200px;
+    margin: 2% 2% 2% 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.applications-container {
+    display: flex;
+    justify-content: center;
+}
+
+.applications-container li{
+    margin-top: 2%;
+}
+
+.appInfo-buttons {
+    padding: 5px 10px 5px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'header buttons'
+        "app app"
+    ;
+}
+
+.applicationInfo {
+    padding: 5px 10px 5px 10px;
+    grid-area: app;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'name-cell id-name'
+    ;
+}
+
+.appInfo-buttons h2 {
+    grid-area: header;
+}
+
+.name-cellphone {
+    grid-area: name-cell;
+}
+
+.bestieid-bestiename {
+    grid-area: id-name;
+}
+
+.appInfo-buttons button {
+    grid-area: buttons;
+}
+
+.applicationInfo p {
+    font-size: 25px;
+}
+
+.delete-edit button {
+    height: 60px;
+    width: 200px;
+    margin: 15px 15px 15px 15px;
+    border: none;
+    border-radius: 4px;
+    flex-direction: row;
+}
+
+.delete-edit {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "edit delete"
+    ;
+    grid-area: submit;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: rgb(0, 107, 0);
+    color: white;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+    grid-area: edit;
+}
+
+.delete-btn {
+    background-color: rgb(138, 0, 0);
+    color: white;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+    grid-area: delete;
+}
+
+.petInfo {
+    background-color: white;
+    width: 60%;
+    height: 100%;
+    margin-bottom: 10%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.petInfo form {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "bestie-head bestie-head"
+        "bid bname"
+        "name age"
+        "email cellphone"
+        "address address"
+        "city state"
+        "zipcode hometype"
+        "vet-name vet-cellphone"
+        "pets pets"
+        "household household"
+        "submit submit"
+    ;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+.form-bestie-header {
+    grid-area: bestie-head;
+}
+
+.form-bestie-id {
+    grid-area: bid;
+}
+.form-bestie-name {
+    grid-area: bname;
+}
+
+.petInfo label,
+.petInfo input,
+.petInfo select,
+.petInfo textarea {
+    width: 95%;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.petInfo textarea {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+    height: 200px;
+    font-size: 25px;
+}
+.petInfo input {
+    border: 0.5px solid rgba(153, 153, 153, 0.9);
+}
+
+.petInfo label {
+    margin-top: 15px;
+}
+
+.petInfo p {
+    font-size: 18px;
+}
