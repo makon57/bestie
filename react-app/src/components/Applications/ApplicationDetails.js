@@ -33,10 +33,10 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
     <>
       <li key={application.id}>
         <div>
-          <div className="application-info-container" onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
-            <div className='applicationInfo'>
+          <div className="application-info-container" >
+            <div className='applicationInfo' onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
               <p>NAME: {application.name}</p>
-              <p>AGE: {application.age}</p>
+              <p>CELLPHONE: {application.cellphone}</p>
               <p>BESTIE ID: {application.listing_id}</p>
               <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
             </div>
@@ -61,26 +61,142 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
       {showApplicationModal && modalData && (
         <Modal onClose={() => {setShowApplicationModal(false); setModalData(null)}}>
           <div className='petInfo'>
-            <h1>{application.name}</h1>
-            <p>BESTIE ID: {application.listing_id}</p>
-            <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
-            <p>AGE: {application.age}</p>
-            <p>ADDRESS: {application.address}</p>
-            <p>HOME TYPE: {application.home_type}</p>
-            <br></br>
-            <p>HOUSEHOLD</p>
-            <p>{application.household}</p>
-            <br></br>
-            <p>PETS</p>
-            <p>{application.pets}</p>
-            <p>VET NAME: {application.vet_name}</p>
-            <p>VET CELLPHONE: {application.vet_cellphone}</p>
+          <form>
+          <h1 className='form-header'>ADOPTION FORM</h1>
+            <div className='form-name'>
+              <p>BESTIE ID: {application.listing_id}</p>
+              <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
+              <label>NAME</label>
+              <input
+                type='text'
+                name='name'
+                value={application.name}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-age'>
+              <label>AGE</label>
+              <input
+                type='text'
+                name='age'
+                value={application.age}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-email'>
+              <label>EMAIL</label>
+              <input
+                type='text'
+                name='email'
+                value={application.email}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-cellphone'>
+              <label>CELL PHONE</label>
+              <input
+                type='text'
+                name='cellphone'
+                value={application.cellphone}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-address'>
+              <label>ADDRESS</label>
+              <input
+                type='text'
+                name='address'
+                value={application.address}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-city'>
+              <label>CITY</label>
+              <input
+                type='text'
+                name='city'
+                value={application.city}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-state'>
+              <label>STATE</label>
+              <input
+                type='text'
+                name='state'
+                value={application.state}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-zipcode'>
+              <label>ZIPCODE</label>
+              <input
+                type='text'
+                name='zipcode'
+                value={application.zipcode}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-home-type'>
+              <label>HOME TYPE</label>
+              <select name="homeType" value={application.home_type} disabled={true}>
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Trailer">Trailer</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div className='form-pets'>
+              <label>PETS</label>
+              <p>Please tell use if you own any other pets or animals, and if so please specify
+                the species and how many you own and their general temperment.</p>
+              <textarea
+                type='text'
+                name='pets'
+                value={application.pets}
+                disabled={true}
+              ></textarea>
+            </div>
+            <div className='form-household'>
+              <label>HOUSEHOLD</label>
+              <p>Please tell use a bit about your household like the number of adults, teens,
+                children, or seniors that live with you. As well as a quick description of
+                the dynamic of your house (calm, busy, etc). Any other additional information
+                you'd like for us to know can be shared here as well!</p>
+              <textarea
+                type='text'
+                name='household'
+                value={application.household}
+                disabled={true}
+              ></textarea>
+            </div>
+            <div className='form-vet-name'>
+              <label>VETERINARIAN'S NAME</label>
+              <input
+                type='text'
+                name='vetName'
+                value={application.vet_name}
+                disabled={true}
+              ></input>
+            </div>
+            <div className='form-vet-cellphone'>
+              <label>VETERINARIAN'S CELLPHONE</label>
+              <input
+                type='text'
+                name='vetCellphone'
+                value={application.vet_cellphone}
+                disabled={true}
+              ></input>
+            </div>
             { modalData.user_id === userId ?
             <div className='edit-delete-btns' >
               <button className='delete-btns' onClick={() => setShowDeleteModal(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
               <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
             </div>
             : null }
+          </form>
           </div>
           {showDeleteModal &&  (
             <Modal>

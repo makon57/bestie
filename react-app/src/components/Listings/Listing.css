@@ -90,6 +90,29 @@ button i {
     overflow-y: scroll;
 }
 
+/* .application-list-container {
+    max-width: 400px;
+    width: 400px;
+    height: 600px;
+    margin: 2% 2% 2% 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+    background-color: rgb(255, 89, 74);
+} */
+
+.list-apps {
+    margin-top: 2%;
+}
+
+.application-list-container {
+    margin-top: 1%;
+}
+
+/* .applications-one-list {
+    background-color: white;
+    width: 600px;
+} */
+
 div .petInfo {
     margin-left: 10px;
     width: 100%;

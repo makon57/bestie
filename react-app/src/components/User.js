@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../components/Listings/Listing.css'
 import '../components/Header/Header.css'
-import ListingModal from './Listings/ListingModal';
+import ListApp from './Listings/ListingModal/ListApp';
 import { useDispatch } from 'react-redux';
 import ApplicationDetails from './Applications/ApplicationDetails';
 import { fetchAllApplications } from '../store/applications';
@@ -23,6 +23,7 @@ function User() {
   const [showApplicationModal, setShowApplicationModal] = useState(false)
   const listings = things.filter(thing => thing.user_id === userId)
   const applications = stuffs.filter(stuff => stuff.user_id === userId)
+
 
 
   useEffect(() => {
@@ -82,13 +83,24 @@ function User() {
             ))}
           </ul>
         </div>
-        <h1>Listings</h1>
+        {listings ? <h1>Listings</h1> : null}
         <div className='list-container'>
           <ul className="listing-list">
             {listings?.map((listing)=> (
-              <div key={listing.id} className="container">
-                <ListingModal listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} />
-              </div>
+              <>
+                <div key={listing.id} className="container">
+                  <ListApp listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} stuffs={stuffs} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal}/>
+                </div>
+                <div className='application-list-container'>
+                    <ul className='applications-one-list'>
+                        {(stuffs?.filter(app => (app.listing_id === listing.id)))?.map(application => (
+                        <div key={application.id}>
+                            <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
+                        </div>
+                        ))}
+                    </ul>
+                </div>
+              </>
             ))}
           </ul>
         </div>

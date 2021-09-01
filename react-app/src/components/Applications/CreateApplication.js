@@ -310,7 +310,7 @@ const CreateApplication = () => {
               ></input>
               {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
             </div>
-            <div className='form-submit-btn'>
+            <div className='form-submit-btn delete-edit'>
               <button className='signup-btn' type='submit' >SUBMIT</button>
             </div>
           </form>

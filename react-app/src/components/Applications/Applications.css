@@ -1,11 +1,24 @@
 .form-container {
-    height: fit-content;
+    background-color: white;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    width: 60%;
+    height: 1400px;
+    margin-bottom: 10%;
+    grid-area: form;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    margin: 10% 5% 0 5%;
+    margin: auto;
+    position: absolute;
+    z-index: 2;
     top: 80%;
+    left: 20%;
+    overflow-y: scroll;
 }
 
 .filler {
     width: 80%;
-    height: 165%;
+    height: 145%;
     margin: 0 auto;
     position: absolute;
     top: 100%;
@@ -16,7 +29,7 @@
 
 .footer {
     width: 100%;
-    height: 850px;
+    height: 750px;
     margin: 0 auto;
     position: absolute;
     top: 190%;
@@ -39,6 +52,25 @@
 
 .form-container p {
     font-size: 18px;
+}
+
+.form-container label,
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 95%;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-left: 8%; */
+}
+
+
+
+.form-container h1 {
+    font-family: 'Impact';
+    font-size: 60px;
+    grid-area: header;
 }
 
 .form-container form {
@@ -88,8 +120,11 @@
 .form-pets {
     grid-area: pets;
 }
-.form-submit-btn {
+.form-submit-btn button {
     grid-area: submit;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
 }
 .form-vet-name {
     grid-area: vet-name;
@@ -99,8 +134,8 @@
 }
 
 .application-info-container {
-    max-width: 600px;
-    width: 600px;
+    max-width: 800px;
+    width: 40vw;
     height: 200px;
     margin: 2% 2% 2% 2%;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
@@ -126,4 +161,40 @@ ul {
 
 .applicationInfo p {
     font-size: 25px;
+}
+
+.delete-edit button {
+    height: 60px;
+    width: 200px;
+    margin: 15px 15px 15px 15px;
+    border: none;
+    border-radius: 4px;
+    flex-direction: row;
+}
+
+.delete-edit {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "edit delete"
+    ;
+    grid-area: submit;
+    text-align: center;
+}
+
+.edit-btn {
+    background-color: rgb(0, 107, 0);
+    color: white;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+    grid-area: edit;
+}
+
+.delete-btn {
+    background-color: rgb(138, 0, 0);
+    color: white;
+    width: 400px;
+    height: 80px;
+    font-size: 50px;
+    grid-area: delete;
 }
