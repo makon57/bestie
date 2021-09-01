@@ -34,22 +34,24 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
       <li key={application.id}>
         <div>
           <div className="application-info-container" >
-            <div className='applicationInfo' onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
+            <div className="appInfo-buttons">
               <h2>ADOPTION FORM</h2>
-              <div className='name-cellphone'>
-                <p>NAME: {application.name}</p>
-                <p>CELLPHONE: {application.cellphone}</p>
-              </div>
-              <div className='bestieid-bestiename'>
-                <p>BESTIE ID: {application.listing_id}</p>
-                <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
-              </div>
               {application.user_id === userId ?
                 <div className="application-edit-delete">
                   <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                   <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
                 </div>
               : null }
+              <div className='applicationInfo' onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
+                <div className='name-cellphone'>
+                  <p>NAME: {application.name}</p>
+                  <p>CELLPHONE: {application.cellphone}</p>
+                </div>
+                <div className='bestieid-bestiename'>
+                  <p>BESTIE ID: {application.listing_id}</p>
+                  <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
+                </div>
+              </div>
             </div>
            </div>
           {showApplicationDelete &&  (
