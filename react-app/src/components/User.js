@@ -83,7 +83,7 @@ function User() {
             ))}
           </ul>
         </div>
-        {listings ? <h1>My Listings</h1> : null}
+        {listings.length > 0 ? <h1>My Listings</h1> : null}
         <div className='list-container'>
           <ul className="listing-list">
             {listings?.map((listing, i)=> (
