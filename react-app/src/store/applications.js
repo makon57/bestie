@@ -11,9 +11,9 @@ const createApplication = (application) => ({
     application,
 })
 
-const getAllApplications = (listings) => ({
+const getAllApplications = (applications) => ({
     type: ALL_APPLICATIONS,
-    listings,
+    applications,
 })
 
 const editApplication = (application) => ({
@@ -35,8 +35,8 @@ const deleteApplication = (applicationId) => ({
 export const fetchAllApplications = () => async (dispatch) => {
     const response = await fetch('/api/applications/');
     const data = await response.json();
+    console.log(data)
     if (response.ok) {
-        console.log(data)
         dispatch(getAllApplications(data));
         return data
     }
@@ -188,8 +188,7 @@ export default function reducer(state =  initialState, action) {
     let newState = { ...state }
     switch (action.type) {
         case ALL_APPLICATIONS:
-            newState = { ...action.applications}
-            return newState
+            return {...newState, ...action.applications}
         case GET_USER_APPLICATIONS:
             newState = {...newState, ...action.applications }
             return newState

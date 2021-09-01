@@ -10,11 +10,7 @@ applications_routes = Blueprint('applications', __name__)
 @applications_routes.route('/')
 def applications():
     applications = Application.query.all()
-    print('----------------')
-    print(applications)
     data = {application.to_dict()['id']: application.to_dict() for application in applications}
-    print('----------------')
-    print(data)
     return data
 
 @applications_routes.route("/create", methods=['POST'])

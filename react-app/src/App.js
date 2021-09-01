@@ -15,7 +15,7 @@ import EditListingForm from './components/Listings/EditListingForm';
 import Sponsor from './components/Sponsor';
 import Foster from './components/Foster';
 import { fetchAllListings } from './store/listings';
-import CreateApplication from './components/Applications';
+import CreateApplication from './components/Applications/CreateApplication';
 import EditApplication from './components/Applications/EditApplication';
 import { fetchAllApplications } from './store/applications';
 

@@ -35,14 +35,18 @@ function User() {
     })();
   }, [userId]);
 
-  useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      dispatch(fetchAllApplications())
-    })();
-  }, [userId]);
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return;
+  //   }
+  //   (async () => {
+  //     dispatch(fetchAllApplications())
+  //   })();
+  // }, [userId]);
+
+  useEffect(() => (
+    dispatch(fetchAllApplications())
+  ), [dispatch])
 
   if (!user) {
     return null;

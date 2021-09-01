@@ -28,10 +28,6 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
     setShowApplicationModal(false)
   }
 
-  useEffect(() => (
-    dispatch(fetchAllApplications())
-  ), [dispatch])
-
 
   return (
     <>
@@ -42,7 +38,7 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
               <p>NAME: {application.name}</p>
               <p>AGE: {application.age}</p>
               <p>BESTIE ID: {application.listing_id}</p>
-              <p>BESTIE NAME: {listings[application.listing_id].name}</p>
+              <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
             </div>
           </div>
           {application.user_id === userId ?
@@ -65,7 +61,7 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
           <div className='petInfo'>
             <h1>{application.name}</h1>
             <p>BESTIE ID: {application.listing_id}</p>
-            <p>BESTIE NAME: {listings[application.listing_id].name}</p>
+            <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
             <p>AGE: {application.age}</p>
             <p>ADDRESS: {application.address}</p>
             <p>HOME TYPE: {application.home_type}</p>
