@@ -97,3 +97,33 @@
 .form-vet-cellphone {
     grid-area: vet-cellphone;
 }
+
+.application-info-container {
+    max-width: 600px;
+    width: 600px;
+    height: 200px;
+    margin: 2% 2% 2% 2%;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.applications-container {
+    display: flex;
+    justify-content: center;
+}
+
+.applications-container li{
+    margin-top: 2%;
+}
+
+.applicationInfo {
+    padding: 5px 10px 5px 10px;
+}
+
+.applicationInfo p {
+    font-size: 25px;
+}

@@ -7,6 +7,7 @@ import ListingModal from './Listings/ListingModal';
 import { useDispatch } from 'react-redux';
 import ApplicationDetails from './Applications/ApplicationDetails';
 import { fetchAllApplications } from '../store/applications';
+import Footer from './Footer';
 
 
 
@@ -44,7 +45,7 @@ function User() {
   }
 
   return (
-    <>
+    <div className='user-entire-container'>
       <div className='user-header-container'>
         <span className='user-header-name'>
           <p>Hi {user.name ? user.name.split(' ')[0] : 'Bestie'}!</p>
@@ -70,25 +71,30 @@ function User() {
           </div>
         </span>
       </div>
-      <div className='applications-container'>
-        <ul className='applications-list'>
-          {applications?.map((application) => (
-            <div key={application.id}>
-              <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
-            </div>
-          ))}
-        </ul>
+      <div className='user-body'>
+        <h1>Applications</h1>
+        <div className='applications-container'>
+          <ul className='applications-list'>
+            {applications?.map((application) => (
+              <div key={application.id}>
+                <ApplicationDetails application={application} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal} />
+              </div>
+            ))}
+          </ul>
+        </div>
+        <h1>Listings</h1>
+        <div className='list-container'>
+          <ul className="listing-list">
+            {listings?.map((listing)=> (
+              <div key={listing.id} className="container">
+                <ListingModal listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} />
+              </div>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className='list-container'>
-        <ul className="listing-list">
-          {listings?.map((listing)=> (
-            <div key={listing.id} className="container">
-              <ListingModal listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} />
-            </div>
-          ))}
-        </ul>
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 }
 export default User;

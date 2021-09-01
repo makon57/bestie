@@ -33,20 +33,20 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
     <>
       <li key={application.id}>
         <div>
-          <div onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
+          <div className="application-info-container" onClick={() => {setShowApplicationModal(true); setModalData(application)}}>
             <div className='applicationInfo'>
               <p>NAME: {application.name}</p>
               <p>AGE: {application.age}</p>
               <p>BESTIE ID: {application.listing_id}</p>
               <p>BESTIE NAME: {listings[application.listing_id - 1].name}</p>
             </div>
-          </div>
-          {application.user_id === userId ?
-            <>
-              <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
-              <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
-            </>
-          : null }
+            {application.user_id === userId ?
+              <>
+                <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
+                <button className='delete-btns' onClick={() => setShowApplicationDelete(true)}><img src='https://i.imgur.com/XEqfNqp.png' alt='trash'></img></button>
+              </>
+            : null }
+           </div>
           {showApplicationDelete &&  (
             <Modal>
               <div className="delete-modal-confirmation">

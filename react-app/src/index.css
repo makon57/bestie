@@ -99,3 +99,10 @@ hr {
     margin: auto;
     width: 80px;
 }
+
+
+.user-body h1 {
+    margin-top: 3%;
+    font-size: 50px;
+}
+
