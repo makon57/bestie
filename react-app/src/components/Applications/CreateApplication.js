@@ -10,15 +10,15 @@ const CreateApplication = () => {
 
   const dispatch = useDispatch()
   const history = useHistory()
-  const userId = useSelector(state => state.session.user.id)
+  const user = useSelector(state => state.session.user)
   const params = useParams()
   // const listing = useSelector(state => state.listings[params.id])
   const listingId = params.id
 
   const [errors, setErrors] = useState({})
-  const [name, setName] = useState('')
+  const [name, setName] = useState(user.name)
   const [age, setAge] = useState(18)
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState(user.email)
   const [cellphone, setCellphone] = useState('')
   const [address, setAddress] = useState('')
   const [city, setCity] = useState('')
@@ -35,10 +35,10 @@ const CreateApplication = () => {
 
     const data = await dispatch(createApplicationThunk(
         listingId,
-        userId,
-        name,
+        user.id,
+        user.name,
         age,
-        email,
+        user.email,
         cellphone,
         address,
         city,
@@ -54,7 +54,7 @@ const CreateApplication = () => {
       setErrors(data);
     }
     if (data.ok) {
-      history.push(`/users/${userId}`)
+      history.push(`/users/${user.id}`)
     }
   };
 
@@ -119,8 +119,6 @@ const CreateApplication = () => {
         <div className='form-container'>
           <form onSubmit={onSubmit}>
             <h1 className='form-header'>ADOPTION FORM</h1>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-name'>
               <label>NAME</label>
               <input
@@ -132,7 +130,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-age'>
-              {errors.age ? <h4>{errors.age}</h4> : null}
               <label>AGE</label>
               <input
                 type='text'
@@ -141,11 +138,9 @@ const CreateApplication = () => {
                 value={age}
                 required={true}
               ></input>
+              {errors.age ? <h4>{errors.age}</h4> : null}
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-email'>
-              {errors.email ? <h4>{errors.email}</h4> : null}
               <label>EMAIL</label>
               <input
                 type='text'
@@ -154,9 +149,9 @@ const CreateApplication = () => {
                 value={email}
                 required={true}
               ></input>
+              {errors.email ? <h4>{errors.email}</h4> : null}
             </div>
             <div className='form-cellphone'>
-              {errors.cellphone ? <h4>{errors.cellphone}</h4> : null}
               <label>CELL PHONE</label>
               <input
                 type='text'
@@ -165,9 +160,8 @@ const CreateApplication = () => {
                 value={cellphone}
                 required={true}
               ></input>
+              {errors.cellphone ? <h4>{errors.cellphone}</h4> : null}
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-address'>
               <label>ADDRESS</label>
               <input
@@ -178,8 +172,6 @@ const CreateApplication = () => {
                 required={true}
               ></input>
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-city'>
               <label>CITY</label>
               <input
@@ -246,11 +238,9 @@ const CreateApplication = () => {
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+            {errors.state ? <h4>{errors.state}</h4> : null}
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-zipcode'>
-              {errors.zipcode ? <h4>{errors.zipcode}</h4> : null}
               <label>ZIPCODE</label>
               <input
                 type='text'
@@ -259,6 +249,7 @@ const CreateApplication = () => {
                 value={zipcode}
                 required={true}
               ></input>
+              {errors.zipcode ? <h4>{errors.zipcode}</h4> : null}
             </div>
             <div className='form-home-type'>
               <label>HOME TYPE</label>
@@ -272,10 +263,24 @@ const CreateApplication = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
+            <div className='form-pets'>
+              <label>PETS</label>
+              <p>Please tell use if you own any other pets or animals, and if so please specify
+                the species and how many you own and their general temperment.</p>
+              <textarea
+                type='text'
+                name='pets'
+                onChange={updatePets}
+                value={pets}
+                required={true}
+              ></textarea>
+            </div>
             <div className='form-household'>
               <label>HOUSEHOLD</label>
+              <p>Please tell use a bit about your household like the number of adults, teens,
+                children, or seniors that live with you. As well as a quick description of
+                the dynamic of your house (calm, busy, etc). Any other additional information
+                you'd like for us to know can be shared here as well!</p>
               <textarea
                 type='text'
                 name='household'
@@ -284,20 +289,6 @@ const CreateApplication = () => {
                 required={true}
               ></textarea>
             </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
-            <div className='form-pets'>
-              <label>PETS</label>
-              <textarea
-                type='text'
-                name='description'
-                onChange={updatePets}
-                value={pets}
-                required={true}
-              ></textarea>
-            </div>
-            {/* <hr className='hr2'></hr>
-            <hr className='hr2'></hr> */}
             <div className='form-vet-name'>
               <label>VET'S NAME</label>
               <input
@@ -309,7 +300,6 @@ const CreateApplication = () => {
               ></input>
             </div>
             <div className='form-vet-cellphone'>
-              {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
               <label>VET'S CELLPHONE</label>
               <input
                 type='text'
@@ -318,6 +308,7 @@ const CreateApplication = () => {
                 value={vetCellphone}
                 required={true}
               ></input>
+              {errors.vetCellphone ? <h4>{errors.vetCellphone}</h4> : null}
             </div>
             <div className='form-submit-btn'>
               <button className='signup-btn' type='submit' >SUBMIT</button>

@@ -5,7 +5,8 @@ import { Modal } from '../../context/Modal';
 import { fetchAllApplications, fetchDeleteApplication, fetchEditApplication } from '../../store/applications';
 import Footer from "../Footer";
 import Header from "../Header";
-
+import "./Applications.css"
+import "../Listings/DeleteListingModal/DeleteModal.css"
 
 const EditApplication = () => {
 
@@ -30,7 +31,7 @@ const EditApplication = () => {
   const [vetName, setVetName] = useState(application.vet_name)
   const [vetCellphone, setVetCellphone] = useState(application.vet_cellphone)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
-  // const [editMode, setEditMode] = useState(false)
+
 
   useEffect(() => (
     dispatch(fetchAllApplications())
@@ -70,8 +71,6 @@ const EditApplication = () => {
     }
     history.push(`/users/${userId}`)
   };
-
-
 
 
   const updateName = (e) => {
@@ -134,8 +133,6 @@ const EditApplication = () => {
         <div className='form-container'>
           <form onSubmit={onSubmit}>
             <h1 className='form-header'>ADOPTION FORM</h1>
-            <hr className='hr1'></hr>
-            <hr className='hr1'></hr>
             <div className='form-name'>
               <label>NAME</label>
               <input
@@ -156,8 +153,6 @@ const EditApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr2'></hr>
-            <hr className='hr2'></hr>
             <div className='form-email'>
               <label>EMAIL</label>
               <input
@@ -178,20 +173,6 @@ const EditApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr2'></hr>
-            <hr className='hr2'></hr>
-            <div className='form-description'>
-              <label>PETS</label>
-              <textarea
-                type='text'
-                name='description'
-                onChange={updatePets}
-                value={pets}
-                required={true}
-              ></textarea>
-            </div>
-            <hr className='hr3'></hr>
-            <hr className='hr3'></hr>
             <div className='form-address'>
               <label>ADDRESS</label>
               <input
@@ -202,8 +183,6 @@ const EditApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr3'></hr>
-            <hr className='hr3'></hr>
             <div className='form-city'>
               <label>CITY</label>
               <input
@@ -291,10 +270,24 @@ const EditApplication = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            {/* <hr className='hr2'></hr> */}
-            {/* <hr className='hr2'></hr> */}
+            <div className='form-pets'>
+              <label>PETS</label>
+              <p>Please tell use if you own any other pets or animals, and if so please specify
+                the species and how many you own and their general temperment.</p>
+              <textarea
+                type='text'
+                name='pets'
+                onChange={updatePets}
+                value={pets}
+                required={true}
+              ></textarea>
+            </div>
             <div className='form-household'>
               <label>HOUSEHOLD</label>
+              <p>Please tell use a bit about your household like the number of adults, teens,
+                children, or seniors that live with you. As well as a quick description of
+                the dynamic of your house (calm, busy, etc). Any other additional information
+                you'd like for us to know can be shared here as well!</p>
               <textarea
                 type='text'
                 name='household'
@@ -303,8 +296,6 @@ const EditApplication = () => {
                 required={true}
               ></textarea>
             </div>
-            {/* <hr className='hr2'></hr> */}
-            {/* <hr className='hr2'></hr> */}
             <div className='form-vet-name'>
               <label>VETERINARIAN'S NAME</label>
               <input
@@ -315,7 +306,7 @@ const EditApplication = () => {
                 required={true}
               ></input>
             </div>
-            <div className='form-vet-phone'>
+            <div className='form-vet-cellphone'>
               <label>VETERINARIAN'S CELLPHONE</label>
               <input
                 type='text'
@@ -325,7 +316,6 @@ const EditApplication = () => {
                 required={true}
               ></input>
             </div>
-            <hr className='hr2'></hr>
             <div className='form-submit-btn delete-edit'>
               <button className='edit-btn' type='submit' >EDIT</button>
               <button className='delete-btn' type='button' onClick={() => setShowDeleteModal(true)}>DELETE</button>
@@ -338,9 +328,11 @@ const EditApplication = () => {
       <div className='footer'><Footer /></div>
       {showDeleteModal &&  (
         <Modal>
-          <div>Are you sure you want to delete this application?</div>
-          <button onClick={deleteApplication}>Yes</button>
-          <button onClick={() => setShowDeleteModal(false)}>No</button>
+          <div className="delete-modal-confirmation">
+            <h1 className="delete-modal-question">Are you sure you want to delete this application?</h1>
+            <button className="delete-modal-yes" onClick={deleteApplication}>Yes</button>
+            <button className="delete-modal-no" onClick={() => setShowDeleteModal(false)}>No</button>
+          </div>
         </Modal>
       )}
     </>

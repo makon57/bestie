@@ -53,9 +53,11 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                     }
                     {showListDelete &&  (
                         <Modal>
-                            <div>Are you sure you want to delete this listing?</div>
-                            <button onClick={() => deleteListing(listing.id)}>Yes</button>
-                            <button onClick={() => setShowListDelete(false)}>No</button>
+                            <div className="delete-modal-confirmation">
+                                <h1 className="delete-modal-question">Are you sure you want to delete this listing?</h1>
+                                <button className="delete-modal-yes" onClick={() => deleteListing(listing.id)}>Yes</button>
+                                <button className="delete-modal-no" onClick={() => setShowListDelete(false)}>No</button>
+                            </div>
                         </Modal>
                     )}
                 </div>

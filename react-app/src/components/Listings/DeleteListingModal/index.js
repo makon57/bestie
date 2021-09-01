@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeleteListing } from '../../../store/listings'
 import { Modal } from '../../../context/Modal';
+import "./DeleteModal.css"
 
 const DeleteListingModal = ({ listing, setShowDeleteModal, setShowListModal }) =>{
 
@@ -28,9 +29,11 @@ const DeleteListingModal = ({ listing, setShowDeleteModal, setShowListModal }) =
 
     return (
         <Modal>
-            <div>Are you sure you want to delete this listing?</div>
-            <button onClick={() => deleteListing(listing.id)}>Yes</button>
-            <button onClick={() => setShowDeleteModal(false)}>No</button>
+            <div className="delete-modal-confirmation">
+                <h1 className="delete-modal-question">Are you sure you want to delete this listing?</h1>
+                <button className="delete-modal-yes" onClick={() => deleteListing(listing.id)}>Yes</button>
+                <button className="delete-modal-no" onClick={() => setShowDeleteModal(false)}>No</button>
+            </div>
         </Modal>
     )
 }

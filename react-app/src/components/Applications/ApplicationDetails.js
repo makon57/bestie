@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
-import { fetchAllApplications, fetchDeleteApplication } from "../../store/applications";
-// import EditApplication from "./EditApplication";
+import { fetchDeleteApplication } from "../../store/applications";
+import "../Listings/DeleteListingModal/DeleteModal.css"
 
 
 const ApplicationDetails = ({ application, showApplicationModal, setShowApplicationModal }) => {
@@ -49,9 +49,11 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
           : null }
           {showApplicationDelete &&  (
             <Modal>
-              <div>Are you sure you want to delete this application?</div>
-              <button onClick={() => deleteApplication(application.id)}>Yes</button>
-              <button onClick={() => setShowApplicationDelete(false)}>No</button>
+              <div className="delete-modal-confirmation">
+                <h1 className="delete-modal-question">Are you sure you want to delete this application?</h1>
+                <button className="delete-modal-yes" onClick={() => deleteApplication(application.id)}>Yes</button>
+                <button className="delete-modal-no" onClick={() => setShowApplicationDelete(false)}>No</button>
+              </div>
             </Modal>
           )}
         </div>
@@ -82,9 +84,11 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
           </div>
           {showDeleteModal &&  (
             <Modal>
-              <div>Are you sure you want to delete this application?</div>
-              <button onClick={() => deleteApplication(application.id)}>Yes</button>
-              <button onClick={() => setShowDeleteModal(false)}>No</button>
+              <div className="delete-modal-confirmation">
+                <h1 className="delete-modal-question">Are you sure you want to delete this application?</h1>
+                <button className="delete-modal-yes" onClick={() => deleteApplication(application.id)}>Yes</button>
+                <button className="delete-modal-no" onClick={() => setShowDeleteModal(false)}>No</button>
+              </div>
             </Modal>
           )}
         </Modal>
