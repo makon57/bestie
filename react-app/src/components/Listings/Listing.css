@@ -61,6 +61,7 @@ button i {
     justify-content: center;
     margin: 0 4% 0 4%;
     padding: 0 0 0 0;
+    overflow-y: hidden;
 }
 
 .list-container {
@@ -73,7 +74,7 @@ button i {
 }
 
 .listing-item {
-    width: 30%;
+    width: 100%;
     margin: none;
 }
 
@@ -133,4 +134,9 @@ div .petInfo {
 .container button img {
     background-color: transparent;
     width: 40px;
+}
+
+.hover-petInfo {
+    width: 100%;
+    font-size: 40px;
 }

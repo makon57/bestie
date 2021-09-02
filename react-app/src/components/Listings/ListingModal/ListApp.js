@@ -35,10 +35,23 @@ const ListApp = ({ listing, showListModal, setShowListModal, stuffs, showApplica
                 <div>
                     <div onClick={() => {setShowListModal(true); setModalData(listing)}}>
                         {listing.images.images[listing.images.images.length - 1] ? <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
-                        <div className='petInfo'>
-                            <p>NAME: {listing.name}</p>
-                            <p>GENDER: {listing.gender}</p>
-                            <p>PET TYPE: {listing.pet_type}</p>
+                        <div className='petInfo-list'>
+                            <div className="petInfo-name">
+                                <label >NAME</label>
+                                <p>{listing.name}</p>
+                            </div>
+                            <div className="petInfo-age">
+                                <label >AGE</label>
+                                <p>{listing.age}</p>
+                            </div>
+                            <div className="petIndo-gender">
+                                <label >GENDER</label>
+                                <p>{listing.gender}</p>
+                            </div>
+                            <div className="petInfo-pet-type">
+                                <label >PET TYPE</label>
+                                <p>{listing.pet_type}</p>
+                            </div>
                         </div>
                     </div>
                     { listing.user_id === userId ?

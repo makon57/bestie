@@ -44,7 +44,7 @@
     margin-bottom: 10%;
     color: white;
     font-size: 30px;
-    left: 42%;
+    left: 10%;
 }
 
 .adopt-btn-modal button {
@@ -63,4 +63,36 @@
 
 .hover-petInfo:hover {
     cursor: pointer;
+}
+
+.petInfo-list {
+    margin-left: 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'name age'
+        'gender pet-type'
+    ;
+}
+
+.petInfo-list-name {
+    grid-area: name;
+}
+.petInfo-list-age {
+    grid-area: age;
+}
+.petInfo-list-gender {
+    grid-area: gender;
+}
+.petInfo-list-pet-type {
+    grid-area: pet-type;
+}
+
+.petInfo-list p {
+    font-size: 25px;
+}
+
+.petInfo-list label {
+    font-size: 28px;
+    color: rgb(255, 89, 74);
 }
