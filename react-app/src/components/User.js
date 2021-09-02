@@ -80,7 +80,7 @@ function User() {
                   <button><Link to='/create-listing' >Create A Listing</Link></button>
                 </li>
               : <li className='user-create'>
-                  <button><Link to='/foster'>Become a foster</Link></button>
+                  <button><Link to='/foster'>How to become a foster?</Link></button>
                 </li>}
             </ul>
           </div>
