@@ -15,7 +15,7 @@ function Footer() {
       <div className='main-footer'>
         <div className="footer-wrap">
           <div className="footer-left-container">
-            <a href='https://github.com/makon57' target="_blank" rel="noreferrer noopener">
+            <a href='https://github.com/makon57/bestie' target="_blank" rel="noreferrer noopener">
                 <p>GITHUB</p>
             </a>
           </div>
