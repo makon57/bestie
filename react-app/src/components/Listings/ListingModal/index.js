@@ -30,7 +30,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
         <>
             <li key={listing.id} className="listing-item">
                 <div>
-                    <div onClick={() => {setShowListModal(true); setModalData(listing)}}>
+                    <div className="hover-petInfo" onClick={() => {setShowListModal(true); setModalData(listing)}}>
                         {listing.images.images[listing.images.images.length - 1] ? <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
                         <div className='petInfo'>
                             <p>BESTIE ID: {listing.id}</p>

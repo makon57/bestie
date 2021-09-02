@@ -35,7 +35,7 @@ const ApplicationDetails = ({ application, showApplicationModal, setShowApplicat
         <div>
           <div className="application-info-container" >
             <div className="appInfo-buttons">
-              <h2>ADOPTION FORM</h2>
+              <h2 onClick={() => {setShowApplicationModal(true); setModalData(application)}}>ADOPTION FORM</h2>
               {application.user_id === userId ?
                 <div className="application-edit-delete">
                   <button className='edit-btns' onClick={() => editApplication(application.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>

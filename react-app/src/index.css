@@ -113,3 +113,9 @@ span.nobreak {
 .listing-list span {
     display: inline;
 }
+
+button:hover,
+a:hover,
+img:hover {
+    cursor: pointer;
+}

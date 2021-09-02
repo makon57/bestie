@@ -153,7 +153,7 @@ const EditListingForm = () => {
             <div className="delete-modal-confirmation">
               <h1 className="delete-modal-question">Are you sure you want to delete this listing?</h1>
               <button className="delete-modal-yes" onClick={deleteListing}>Yes</button>
-              <button className="delete-modal-yes" onClick={() => setShowDeleteModal(false)}>No</button>
+              <button className="delete-modal-no" onClick={() => setShowDeleteModal(false)}>No</button>
             </div>
           </Modal>
         )}

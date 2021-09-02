@@ -60,3 +60,7 @@
     color: white;
     font-size: 30px;
 }
+
+.hover-petInfo:hover {
+    cursor: pointer;
+}
