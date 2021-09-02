@@ -36,7 +36,6 @@ const ListApp = ({ listing, showListModal, setShowListModal, stuffs, showApplica
                     <div onClick={() => {setShowListModal(true); setModalData(listing)}}>
                         {listing.images.images[listing.images.images.length - 1] ? <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
                         <div className='petInfo'>
-                            <p>BESTIE ID: {listing.id}</p>
                             <p>NAME: {listing.name}</p>
                             <p>GENDER: {listing.gender}</p>
                             <p>PET TYPE: {listing.pet_type}</p>
@@ -64,7 +63,6 @@ const ListApp = ({ listing, showListModal, setShowListModal, stuffs, showApplica
                     {modalData.images.images[modalData.images.images.length - 1] ? <img src={modalData.images.images[modalData.images.images.length - 1]} alt='modalData'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
                     <div className='petInfo'>
                         <h1>{listing.name}</h1>
-                        <p>BESTIE ID: {listing.id}</p>
                         <p>PET TYPE: {listing.pet_type}</p>
                         <p>GENDER: {listing.gender}</p>
                         <p>AGE: {listing.age}</p>
