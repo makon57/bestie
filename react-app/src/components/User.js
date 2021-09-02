@@ -38,7 +38,7 @@ function User() {
   }
 
   const sortedListings = listings.sort(sortListing)
-  console.log(sortedListings)
+
 
   useEffect(() => {
     if (!userId) {
