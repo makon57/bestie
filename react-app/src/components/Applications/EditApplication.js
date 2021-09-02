@@ -144,11 +144,12 @@ const EditApplication = () => {
                 value={name}
                 required={true}
               ></input>
+              {errors.name ? <h4>{errors.name}</h4> : null}
             </div>
             <div className='form-age'>
               <label>AGE</label>
               <input
-                type='text'
+                type='number'
                 name='age'
                 onChange={updateAge}
                 value={age}
@@ -187,6 +188,7 @@ const EditApplication = () => {
                 value={address}
                 required={true}
               ></input>
+              {errors.address ? <h4>{errors.address}</h4> : null}
             </div>
             <div className='form-city'>
               <label>CITY</label>
@@ -197,6 +199,7 @@ const EditApplication = () => {
                 value={city}
                 required={true}
               ></input>
+              {errors.city ? <h4>{errors.city}</h4> : null}
             </div>
             <div className='form-state'>
               <label>STATE</label>
@@ -290,6 +293,7 @@ const EditApplication = () => {
                 value={pets}
                 required={true}
               ></textarea>
+              {errors.pets ? <h4>{errors.pets}</h4> : null}
             </div>
             <div className='form-household'>
               <label>HOUSEHOLD</label>
@@ -304,6 +308,7 @@ const EditApplication = () => {
                 value={household}
                 required={true}
               ></textarea>
+              {errors.household ? <h4>{errors.household}</h4> : null}
             </div>
             <div className='form-vet-name'>
               <label>VET'S NAME</label>
@@ -314,6 +319,7 @@ const EditApplication = () => {
                 value={vetName}
                 required={true}
               ></input>
+              {errors.vetName ? <h4>{errors.vetName}</h4> : null}
             </div>
             <div className='form-vet-cellphone'>
               <label>VET'S CELLPHONE</label>

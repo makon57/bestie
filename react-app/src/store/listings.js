@@ -27,7 +27,7 @@ export const fetchAllListings = () => async (dispatch) => {
     const response = await fetch('/api/listings/');
     if (response.ok) {
         const data = await response.json();
-        
+
         if (data.errors) {
             return;
         }
@@ -53,14 +53,19 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
         })
     })
 
-    const firstData = await response.json()
+
 
     if (response.ok) {
-        dispatch(createListing(firstData))
-        return firstData
-    }
-    if (firstData.errors) {
-        return firstData
+        const data = await response.json()
+        dispatch(createListing(data))
+        return
+    } else if (response.status === 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
@@ -77,13 +82,18 @@ export const fetchEditListing = (id, name, gender, age, pet_type, description) =
             description,
         })
     })
-    const data = await response.json()
+    
     if (response.ok) {
-        dispatch(editListing(data))
-        return data
-    }
-    if (data.errors) {
-        return data
+        const data = await response.json()
+        dispatch(createListing(data))
+        return
+    } else if (response.status === 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 
 }

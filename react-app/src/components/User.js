@@ -24,7 +24,21 @@ function User() {
   const listings = things.filter(thing => thing.user_id === userId)
   const applications = stuffs.filter(stuff => stuff.user_id === userId)
 
+  function sortListing (a, b) {
+    let A = a.applications.length;
+    let B = b.applications.length;
+    if (A < B) {
+        return 1;
+    }
+    if (A > B) {
+        return -1;
+    }
 
+    return 0;
+  }
+
+  const sortedListings = listings.sort(sortListing)
+  console.log(sortedListings)
 
   useEffect(() => {
     if (!userId) {
@@ -66,7 +80,7 @@ function User() {
                   <button><Link to='/create-listing' >Create A Listing</Link></button>
                 </li>
               : <li className='user-create'>
-                  <button><Link to='/foster'>Become a foster</Link></button>
+                  <button><Link to='/foster'>How to become a foster?</Link></button>
                 </li>}
             </ul>
           </div>
@@ -86,7 +100,7 @@ function User() {
         {listings.length > 0 ? <h1>My Listings</h1> : null}
         <div className='list-container'>
           <ul className="listing-list">
-            {listings?.map((listing, i)=> (
+            {sortedListings?.map((listing, i)=> (
               <React.Fragment key={i} >
                 <div key={listing.id} className="container">
                   <ListApp listing={listing} showListModal={showListModal} setShowListModal={setShowListModal} stuffs={stuffs} showApplicationModal={showApplicationModal} setShowApplicationModal={setShowApplicationModal}/>

@@ -30,6 +30,7 @@ class Listing(db.Model):
             'pet_type': self.pet_type,
             'description': self.description,
             'images' : self.get_images(),
+            'applications' : self.get_applications(),
             'created_at': str(self.created_at),
             'updated_at': str(self.updated_at)
         }

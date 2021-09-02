@@ -44,7 +44,7 @@ def create_listing():
         edit_image(new_listing.to_dict())
         return new_listing.to_dict()
     else:
-        return {'errors':form.errors},500
+        return {'errors':form.errors}, 500
 
 @listings_routes.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 @login_required
@@ -71,7 +71,7 @@ def edit_listings(id):
             edit_image(listing.to_dict())
             return listing.to_dict()
         else:
-            return {'errors':form.errors},500
+            return {'errors':form.errors}, 500
 
     elif request.method == 'DELETE':
         db.session.delete(listing)

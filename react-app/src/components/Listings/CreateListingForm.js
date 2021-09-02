@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 import { fetchCreateListing } from "../../store/listings";
 import Header from "../Header";
@@ -15,6 +15,7 @@ const CreateListingForm = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const userId = user.id
   const [errors, setErrors] = useState([])
   const [name, setName] = useState('')
   const [gender, setGender] = useState('Female')
@@ -27,19 +28,19 @@ const CreateListingForm = () => {
     e.preventDefault();
 
     const data = await dispatch(fetchCreateListing(
-      user.id,
+      userId,
       name,
       gender,
       age,
       petType,
       description,
-
     ));
 
     if (data) {
-      setErrors(data);
+      setErrors(data)
+    } else {
+      history.push(`/users/${userId}`)
     }
-    history.push(`/users/${user.id}`)
   };
 
 
@@ -83,16 +84,18 @@ const CreateListingForm = () => {
                 value={name}
                 required={true}
               ></input>
+              {errors.name ? <h4>{errors.name}</h4> : null}
             </div>
             <div className='form-listing-age'>
               <label>AGE</label>
               <input
-                type='text'
+                type='number'
                 name='age'
                 onChange={updateAge}
                 value={age}
                 required={true}
               ></input>
+              {errors.age ? <h4>{errors.age}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-gender'>
@@ -125,6 +128,7 @@ const CreateListingForm = () => {
                 value={description}
                 required={true}
               ></textarea>
+              {errors.description ? <h4>{errors.description}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-submit-btn'>
