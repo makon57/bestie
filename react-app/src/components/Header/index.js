@@ -42,8 +42,7 @@ const Header = () => {
       : params === '/adopt' ?
         <div className='user-header-container'>
           <span className='user-header-name'>
-            <h1>Filter your bestie search!</h1>
-            <input type="text" placeholder='Search . . . '></input>
+            <h1>BESTIE LISTING</h1>
           </span>
         </div>
       : params === '/login' ?
