@@ -80,7 +80,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
                             <button className='edit-btns' onClick={() => editListing(listing.id)}><img src='https://i.imgur.com/6kTrPDn.png' alt='trash'></img></button>
                         </div>
                         :
-                        <div className='adopt-btn-container'>
+                        <div className='adopt-btn-modal'>
                             <button className='adopt-btn'>
                                 <Link to={`/applications/${listing.id}/create`}>Adopt {listing.name}</Link>
                             </button>
