@@ -1,7 +1,7 @@
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, IntegerField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms.validators import DataRequired, ValidationError, Length
 import re
 
 def adult_age(form, field):
@@ -31,16 +31,16 @@ def valid_zip(form, field):
         raise ValidationError('Please provide a valid zipcode.')
 
 class EditApplicationForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(min=0, max=50, message="Name must be less than 50 characters.")])
     age = IntegerField('Age', validators=[DataRequired(), adult_age])
-    email = StringField('Email', validators=[DataRequired(), email_valid])
+    email = StringField('Email', validators=[DataRequired(), email_valid, Length(min=0, max=255)])
     cellphone = StringField('Cell Phone', validators=[DataRequired(), valid_cellphone])
-    address = StringField('Address', validators=[DataRequired()])
-    city = StringField('City', validators=[DataRequired()])
+    address = StringField('Address', validators=[DataRequired(), Length(min=0, max=255)])
+    city = StringField('City', validators=[DataRequired(), Length(min=0, max=50)])
     state = StringField('State', validators=[DataRequired()])
     zipcode = StringField('Zip Code', validators=[DataRequired(), valid_zip])
     homeType = StringField('Home-Type', validators=[DataRequired()])
-    pets = TextAreaField('Pets', validators=[DataRequired()])
-    household = TextAreaField('Household', validators=[DataRequired()])
-    vetName = StringField('Vet Name', validators=[DataRequired()])
+    pets = TextAreaField('Pets', validators=[DataRequired(), Length(min=0, max=2000)])
+    household = TextAreaField('Household', validators=[DataRequired(), Length(min=0, max=2000)])
+    vetName = StringField('Vet Name', validators=[DataRequired(), Length(min=0, max=50, message="Name must be less than 50 characters.")])
     vetCellphone = StringField('Vet Cellphone', validators=[DataRequired(), valid_cellphone])

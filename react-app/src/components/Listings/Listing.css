@@ -87,7 +87,7 @@ button i {
     height: 600px;
     margin: 2% 2% 2% 2%;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 /* .application-list-container {

@@ -1,5 +1,5 @@
 body {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .upload-container {
@@ -87,7 +87,7 @@ body {
     z-index: 2;
     top: 145%;
     left: 20%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .form-listing-container form {

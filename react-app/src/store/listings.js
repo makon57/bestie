@@ -25,15 +25,13 @@ const deleteListing = (listingId) => ({
 
 export const fetchAllListings = () => async (dispatch) => {
     const response = await fetch('/api/listings/');
+    const data = await response.json();
     if (response.ok) {
-        const data = await response.json();
-        
-        if (data.errors) {
-            return;
-        }
-
         dispatch(getAllListings(data));
         return data
+    }
+    if (data.errors) {
+        return;
     }
 }
 
@@ -58,9 +56,12 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
     if (response.ok) {
         dispatch(createListing(firstData))
         return firstData
-    }
-    if (firstData.errors) {
-        return firstData
+    } else if (response.status === 500) {
+        if (firstData.errors) {
+            return firstData.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
@@ -81,9 +82,12 @@ export const fetchEditListing = (id, name, gender, age, pet_type, description) =
     if (response.ok) {
         dispatch(editListing(data))
         return data
-    }
-    if (data.errors) {
-        return data
+    } else if (response.status === 500) {
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 
 }

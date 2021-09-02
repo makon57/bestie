@@ -35,11 +35,12 @@ const CreateListingForm = () => {
       description,
 
     ));
-
-    if (data) {
+    if (!data.ok) {
       setErrors(data);
     }
-    history.push(`/users/${user.id}`)
+    if (data.ok) {
+      history.push(`/users/${user.id}`)
+    }
   };
 
 
@@ -83,16 +84,18 @@ const CreateListingForm = () => {
                 value={name}
                 required={true}
               ></input>
+              {errors.name ? <h4>{errors.name}</h4> : null}
             </div>
             <div className='form-listing-age'>
               <label>AGE</label>
               <input
-                type='text'
+                type='number'
                 name='age'
                 onChange={updateAge}
                 value={age}
                 required={true}
               ></input>
+              {errors.age ? <h4>{errors.age}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-gender'>
@@ -125,6 +128,7 @@ const CreateListingForm = () => {
                 value={description}
                 required={true}
               ></textarea>
+              {errors.description ? <h4>{errors.description}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-submit-btn'>

@@ -26,7 +26,7 @@ function Footer() {
             <p>ANGELIST</p>
           </a>
           <div className="footer-right-container">
-            <a href='https://www.linkedin.com/in/manna-kong/profile' target="_blank" rel="noreferrer noopener">
+            <a href='https://www.linkedin.com/in/manna-kong' target="_blank" rel="noreferrer noopener">
               <p>LINKEDIN</p>
             </a>
           </div>

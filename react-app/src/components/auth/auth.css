@@ -8,7 +8,7 @@
     height: 450px;
     margin-top: 8%;
     position: fixed;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 1px;
     right: 10%;
     padding-bottom: 30px;
@@ -23,7 +23,7 @@
     margin-left: 10%;
     margin-top: 5%;
     position: fixed;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 1px;
     padding-bottom: 30px;
 }

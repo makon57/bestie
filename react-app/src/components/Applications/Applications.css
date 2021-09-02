@@ -13,7 +13,7 @@
     z-index: 2;
     top: 80%;
     left: 20%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .filler {
@@ -139,7 +139,7 @@
     height: 200px;
     margin: 2% 2% 2% 2%;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.5);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 ul {
@@ -239,7 +239,7 @@ ul {
     padding-top: 3%;
     padding-bottom: 5%;
     margin: auto;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .petInfo form {

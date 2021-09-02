@@ -39,7 +39,6 @@ const EditListingForm = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
     const data = await dispatch(fetchEditListing(
       listing.id,
       name,
@@ -49,10 +48,14 @@ const EditListingForm = () => {
       description,
       image
     ));
+
     if (data) {
+      console.log(data)
       setErrors(data);
     }
-    history.push(`/users/${user.id}`)
+    if (data.ok) {
+      history.push(`/users/${user.id}`)
+    }
   };
 
 
@@ -98,16 +101,18 @@ const EditListingForm = () => {
                 value={name}
                 required={true}
               ></input>
+              {errors.name ? <h4>{errors.name}</h4> : null}
             </div>
             <div className='form-listing-age'>
               <label>AGE</label>
               <input
-                type='text'
+                type='number'
                 name='age'
                 onChange={updateAge}
                 value={age}
                 required={true}
               ></input>
+              {errors.age ? <h4>{errors.age}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-gender'>
@@ -140,6 +145,7 @@ const EditListingForm = () => {
                 value={description}
                 required={true}
               ></textarea>
+              {errors.description ? <h4>{errors.description}</h4> : null}
             </div>
             <hr className='hr2'></hr>
             <div className='form-listing-submit-btn listing-delete-edit'>

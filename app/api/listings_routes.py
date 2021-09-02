@@ -71,6 +71,8 @@ def edit_listings(id):
             edit_image(listing.to_dict())
             return listing.to_dict()
         else:
+            print('------------------')
+            print(form.errors)
             return {'errors':form.errors},500
 
     elif request.method == 'DELETE':
