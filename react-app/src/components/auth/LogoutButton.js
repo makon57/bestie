@@ -13,7 +13,7 @@ const LogoutButton = () => {
 
   return (
     <div className='auth'>
-      <Link to='/' className="logout-button" onClick={onLogout} exact={true} activeClassName='active'>LOGOUT</Link>
+      <Link to='/' className="logout-button" onClick={onLogout} >LOGOUT</Link>
     </div>
   )
 };
