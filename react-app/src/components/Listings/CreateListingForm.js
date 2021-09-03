@@ -29,6 +29,18 @@ const CreateListingForm = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    let image_url = url;
+    if (url !== 'https://i.imgur.com/BPOYKBx.png') {
+      const formData = new FormData()
+      formData.append('image', image)
+      const res = await fetch('/api/images/', {
+        method: "POST",
+        body: formData,
+      });
+      const x = await res.json()
+      image_url = x['url']
+    }
+
     const data = await dispatch(fetchCreateListing(
       userId,
       name,
@@ -36,24 +48,13 @@ const CreateListingForm = () => {
       age,
       petType,
       description,
+      image_url
     ));
 
-    if (data.errors) {
+    if (data) {
       setErrors(data.errors)
-    }
-
-    if (data.id) {
-      const formData = new FormData()
-      formData.append('image', image)
-      formData.append('listing_id', data['id'])
-      const res = await fetch('/api/images/', {
-        method: "POST",
-        body: formData,
-      });
-      const newData = await res.json()
-      if (newData) {
-        history.push(`/users/${userId}`)
-      }
+    } else {
+      history.push(`/users/${userId}`)
     }
   };
 

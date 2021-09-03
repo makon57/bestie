@@ -34,7 +34,7 @@ def valid_zip(form, field):
 class ApplicationCreateForm(FlaskForm):
     listingId = IntegerField('listingId', validators=[DataRequired()])
     userId = IntegerField('useId', validators=[DataRequired()])
-    name = StringField('Name', validators=[DataRequired(), Length(min=0, max=50, message="Name must be less than 50 characters.")])
+    name = StringField('Name', validators=[DataRequired(), Length(min=0, max=50, message="Name must be less than 50 characters long.")])
     age = IntegerField('Age', validators=[DataRequired(), adult_age])
     email = StringField('Email', validators=[DataRequired(), email_valid, Length(min=0, max=255)])
     cellphone = StringField('Cell Phone', validators=[DataRequired(), valid_cellphone])

@@ -36,9 +36,9 @@ const CreateApplication = () => {
     const data = await dispatch(createApplicationThunk(
         listingId,
         user.id,
-        user.name,
+        name,
         age,
-        user.email,
+        email,
         cellphone,
         address,
         city,

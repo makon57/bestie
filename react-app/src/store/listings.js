@@ -37,7 +37,7 @@ export const fetchAllListings = () => async (dispatch) => {
     }
 }
 
-export const fetchCreateListing = (user_id, name, gender, age, pet_type, description, image) => async (dispatch) => {
+export const fetchCreateListing = (user_id, name, gender, age, pet_type, description, image_url) => async (dispatch) => {
 
     const response = await fetch('/api/listings/create', {
         method: "POST",
@@ -49,7 +49,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
             age,
             pet_type,
             description,
-            image
+            image_url,
         })
     })
 
@@ -57,7 +57,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
     if (response.ok) {
         const data = await response.json()
         dispatch(createListing(data))
-        return data
+        return
     } else if (response.status === 500) {
         const data = await response.json();
         if (data.errors) {
@@ -69,7 +69,7 @@ export const fetchCreateListing = (user_id, name, gender, age, pet_type, descrip
 }
 
 
-export const fetchEditListing = (id, name, gender, age, pet_type, description) => async (dispatch) => {
+export const fetchEditListing = (id, name, gender, age, pet_type, description, image_url) => async (dispatch) => {
     const response = await fetch(`/api/listings/${id}`, {
         method: "PUT",
         headers: { 'Content-Type': "application/json" },
@@ -79,12 +79,13 @@ export const fetchEditListing = (id, name, gender, age, pet_type, description) =
             age,
             pet_type,
             description,
+            image_url
         })
     })
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(createListing(data))
+        dispatch(editListing(data))
         return
     } else if (response.status === 500) {
         const data = await response.json();

@@ -25,8 +25,8 @@ const EditListingForm = () => {
   const [petType, setPetType] = useState(listing.pet_type)
   const [description, setDescription] = useState(listing.description)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
-  const [image, setImage] = useState(listing.images);
-  const [url, setUrl] = useState('https://i.imgur.com/BPOYKBx.png')
+  const [image, setImage] = useState(listing.image);
+  const [url, setUrl] = useState(listing.image ? listing.image : 'https://i.imgur.com/BPOYKBx.png')
   const [disableState, setDisableState] = useState(false)
 
   const deleteListing = async (e) => {
@@ -42,6 +42,18 @@ const EditListingForm = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
+    let image_url = listing.image
+    if (url !== listing.image) {
+      const formData = new FormData()
+      formData.append('image', image)
+      const res = await fetch('/api/images/', {
+        method: "POST",
+        body: formData,
+      });
+      const x = await res.json()
+      image_url = x['url']
+    }
+
     const data = await dispatch(fetchEditListing(
       listing.id,
       name,
@@ -49,25 +61,13 @@ const EditListingForm = () => {
       age,
       petType,
       description,
-      image
+      image_url
     ));
 
-    if (data.errors) {
+    if (data) {
       setErrors(data.errors)
-    }
-
-    if (data.id) {
-      const formData = new FormData()
-      formData.append('image', image)
-      formData.append('listing_id', data['id'])
-      const res = await fetch('/api/images/edit', {
-        method: "POST",
-        body: formData,
-      });
-      const newData = await res.json()
-      if (newData) {
-        history.push(`/users/${user.id}`)
-      }
+    } else {
+      history.push(`/users/${user.id}`)
     }
   };
 
@@ -112,7 +112,6 @@ const EditListingForm = () => {
         }
     }
   }
-
 
 
   return (

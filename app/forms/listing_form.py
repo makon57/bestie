@@ -12,4 +12,4 @@ class ListingCreateForm(FlaskForm):
     age = IntegerField('Age', validators=[DataRequired()])
     pet_type = StringField('Pet Type', validators=[DataRequired()])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=0, max=2000)])
-    image = TextField("Image")
+    image_url = TextField('Image')
