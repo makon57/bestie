@@ -22,7 +22,7 @@ const Header = () => {
             <div className="span-header">
               <h1>WELCOME TO BESTIE!</h1>
               { user ? null :
-              <div className='vol-don-header' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+              <div className='vol-don-header'>
                 <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button>
                 <button className='foster-btn' onClick={() => dispatch(login('foster@aa.io', 'password'))} type='button'>FOSTER DEMO</button>
               </div>
