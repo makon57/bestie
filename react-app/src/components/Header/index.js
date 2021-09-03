@@ -23,8 +23,8 @@ const Header = () => {
               <h1>WELCOME TO BESTIE!</h1>
               { user ? null :
               <div className='vol-don-header' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
-                <button className='demo-btn' type='button'>DEMO</button>
-                <button className='foster-btn' type='button'>FOSTER DEMO</button>
+                <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button>
+                <button className='foster-btn' onClick={() => dispatch(login('foster@aa.io', 'password'))} type='button'>FOSTER DEMO</button>
               </div>
               }
             </div>
