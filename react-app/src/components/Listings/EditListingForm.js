@@ -65,7 +65,7 @@ const EditListingForm = () => {
     ));
 
     if (data) {
-      setErrors(data)
+      setErrors(data.errors)
       alert("Please review your form again.")
     } else {
       history.push(`/users/${user.id}`)
