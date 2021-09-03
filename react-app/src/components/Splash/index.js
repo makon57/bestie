@@ -3,12 +3,13 @@ import "../Splash/Splash.css";
 import Footer from "../Footer";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 
 const Splash = () => {
 
     const [params, setParams] = useState(window.location.pathname)
-
+    const user = useSelector(state => state.session.user)
 
     useEffect(() => (
         setParams(window.location.pathname)
@@ -18,7 +19,19 @@ const Splash = () => {
     <>
     <div className='splash-container'>
         <Header />
+        { user ?
+        <>
         <div>
+            <div className='intro'>
+                <h1 className='how-to'>Our mission at Bestie:</h1>
+                <p>
+                Our mission is to engage the hearts, hands, and minds of the community to help animals and to
+                compassionately and responsibly create a more humane world for animals. We believe that everyone
+                should be good to animals, so we'd like to partner with people and learn alongside
+                eachother how to lead responsibly and with compassion.
+                </p>
+            </div>
+            <hr></hr>
             <div className='intro'>
                 <h1 className='how-to'>How To Adopt A Bestie:</h1>
                 <p>
@@ -99,6 +112,18 @@ const Splash = () => {
                 <button><Link to='/sponsor'>Become a sponsor</Link></button>
             </div>
         </div>
+        </>
+    :
+    <div className='intro'>
+        <h1 className='how-to'>Our mission at Bestie:</h1>
+        <p>
+        Our mission is to engage the hearts, hands, and minds of the community to help animals and to
+        compassionately and responsibly create a more humane world for animals. We believe that everyone
+        should be good to animals, so we'd like to partner with people and learn alongside
+        eachother how to lead responsibly and with compassion.
+        </p>
+    </div>
+    }
     </div>
     <Footer />
     </>
