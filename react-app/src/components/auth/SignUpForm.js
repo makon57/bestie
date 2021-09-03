@@ -26,7 +26,6 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    console.log(foster)
     if (password === repeatPassword) {
       const data = await dispatch(signUp(name, email, password, foster));
       if (data) {
@@ -53,9 +52,9 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  const updateFoster = (e) => {
-    setFoster(true);
-  };
+  // const updateFoster = (e) => {
+  //   setFoster(true);
+  // };
 
   if (user) {
     return <Redirect to={`/users/:id`} />;
