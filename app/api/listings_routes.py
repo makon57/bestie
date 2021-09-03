@@ -41,7 +41,6 @@ def create_listing():
 
         db.session.add(new_listing)
         db.session.commit()
-        edit_image(new_listing.to_dict())
         return new_listing.to_dict()
     else:
         return {'errors':form.errors}, 500
@@ -82,9 +81,8 @@ def edit_listings(id):
 @listings_routes.route("/images", methods=["PUT"])
 @login_required
 def edit_image(data):
-    print(data)
     Image.query\
-        .filter(Image.listing_id == 1)\
+        .filter(Image.listing_id == listing_id and Image.user_id == user_id)\
         .update({Image.listing_id: data['id']})
     db.session.commit()
     return

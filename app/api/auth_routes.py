@@ -68,7 +68,7 @@ def sign_up():
             password=form.data['password'],
             foster=form.data['foster'],
         )
-        print(user)
+        
         db.session.add(user)
         db.session.commit()
         login_user(user)

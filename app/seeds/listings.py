@@ -23,7 +23,7 @@ def thing(animal, array):
         db.session.add(l)
         db.session.commit()
         listing = l.to_dict()
-        print(listing)
+
         img = Image(
             listing_id=listing['id'],
             image_url= array[k],
@@ -88,7 +88,7 @@ def seed_listings():
 
     i = 0
     items = list(list_of_pets.keys())
-    print(items)
+    
     while i < len(items):
         if items[i] == 'cat':
             thing('Cat', list_of_pets['cat'])

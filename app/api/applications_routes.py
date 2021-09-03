@@ -18,8 +18,6 @@ def applications():
 def create_application():
     form = ApplicationCreateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('-----------')
-    print(form.data)
     if form.validate_on_submit():
         data = form.data
         new_application = Application(

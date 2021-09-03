@@ -31,7 +31,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
             <li key={listing.id} className="listing-item">
                 <div>
                     <div className="hover-petInfo" onClick={() => {setShowListModal(true); setModalData(listing)}}>
-                        {listing.images.images[listing.images.images.length - 1] ? <img src={listing.images.images[listing.images.images.length - 1]} alt='listing'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
+                        {listing.images.images[0] ? <img src={listing.images.images[0]} alt='listing'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
                         <div className='petInfo-list'>
                             <div className="petInfo-name">
                                 <label >NAME</label>
@@ -76,7 +76,7 @@ const ListingModal = ({ listing, showListModal, setShowListModal}) =>{
             </li>
             {showListModal && modalData && (
                 <Modal onClose={() => {setShowListModal(false); setModalData(null)}}>
-                    {modalData.images.images[modalData.images.images.length - 1] ? <img src={modalData.images.images[modalData.images.images.length - 1]} alt='modalData'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
+                    {modalData.images.images[0] ? <img src={modalData.images.images[0]} alt='modalData'></img> : <img src='https://i.imgur.com/BPOYKBx.png' alt =''></img> }
                     <div className='petInfo'>
                         <h1>{listing.name}</h1>
                         <p>PET TYPE: {listing.pet_type}</p>

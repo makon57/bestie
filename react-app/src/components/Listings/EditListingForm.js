@@ -26,6 +26,8 @@ const EditListingForm = () => {
   const [description, setDescription] = useState(listing.description)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [image, setImage] = useState(listing.images);
+  const [url, setUrl] = useState('https://i.imgur.com/BPOYKBx.png')
+  const [disableState, setDisableState] = useState(false)
 
   const deleteListing = async (e) => {
     e.preventDefault();
@@ -49,10 +51,23 @@ const EditListingForm = () => {
       description,
       image
     ));
-    if (data) {
-      setErrors(data);
-    } else {
-      history.push(`/users/${user.id}`)
+
+    if (data.errors) {
+      setErrors(data.errors)
+    }
+
+    if (data.id) {
+      const formData = new FormData()
+      formData.append('image', image)
+      formData.append('listing_id', data['id'])
+      const res = await fetch('/api/images/edit', {
+        method: "POST",
+        body: formData,
+      });
+      const newData = await res.json()
+      if (newData) {
+        history.push(`/users/${user.id}`)
+      }
     }
   };
 
@@ -77,14 +92,46 @@ const EditListingForm = () => {
     setDescription(e.target.value);
   };
 
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) {
+        setUrl(url);
+        setImage(image);
+
+    } else {
+        const ext = file.type.split('/')
+        const extensions = "pdf, png, jpg, jpeg, gif"
+        if (extensions.includes(ext[1])) {
+            setUrl(URL.createObjectURL(file))
+            setImage(file);
+            setDisableState(true);
+
+        } else {
+            setErrors({filetype: 'Filetype not supported, please upload a pdf, png, jpg, jpeg, or gif file.'})
+        }
+    }
+  }
+
 
 
   return (
     <>
       <Header />
       <div className='background-div'></div>
-        <div>
-          <UploadPicture listImage={listing.images.images[listing.images.images.length - 1]}/>
+        <div className='upload-container'>
+        <form>
+          <img src={url} alt="i" />
+          <input
+            type="file"
+            accept="image/png, image/gif, image/jpeg, image/pdf, image/jpg"
+            id="imgInp"
+            onChange={updateImage}
+            placeholder={image}
+            disabled={disableState}
+          />
+          <p>{errors?.filetype}</p>
+        </form>
         </div>
         <div className='form-listing-container'>
           <form onSubmit={onSubmit}>
