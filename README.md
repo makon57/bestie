@@ -22,6 +22,9 @@
 
 # Features
 
+## Splash Page
+![Splash](https://i.imgur.com/9sTesbK.png)
+
 ## Sign Up & Login
 ![Sign Up](https://i.imgur.com/sHGCig8.png)
 ![Login](https://i.imgur.com/0WuNxef.png)
@@ -29,10 +32,10 @@
 ## Feed Page
 Bestie's feed displays all available bestie pets.
 Discover and search for new besties here!
-![Feed Page](https://i.imgur.com/1vMCV2W.png)
-![Feed Page](https://i.imgur.com/rRTg0ig.png)
-![Feed Page](https://i.imgur.com/KcPWcNF.png)
-![Feed Page](https://i.imgur.com/nHyD4nn.png)
+![Feed Page](https://i.imgur.com/SUNfKb3.png)
+![Feed Page](https://i.imgur.com/oQZ4Yt7.png)
+![Feed Page](https://i.imgur.com/RMO1Wd6.png)
+![Feed Page](https://i.imgur.com/YXiekmV.png)
 
 ## Profile
 ### Demo Profile
@@ -45,7 +48,7 @@ A regular user's profile show all the applications they've submitted.
 A foster user's profile will display all the applications they've submitted as well as all the listings they've created alng with the applications that have been submitted for that particular listing, if any.
 ![Foster Profile](https://i.imgur.com/wu87BEp.png)
 ![Foster Apps](https://i.imgur.com/BnXAhKQ.png)
-![Foster View](https://i.imgur.com/AFfcwpm.png)
+![Foster View](https://i.imgur.com/MFOvW3S.png)
 
 ## Adoption Form
 Add a new adoption form to the database
@@ -57,7 +60,7 @@ Delete your adoption form
 
 ## Bestie Listing Form
 Add a new besting listing to the database
-![Add Bestie](https://i.imgur.com/0nN6arz.png)
+![Add Bestie](https://i.imgur.com/1eJwBsM.png)
 Edit and Delete bestie listing in the database
 ![Edit bestie](https://i.imgur.com/fUUpSQw.png)
 
