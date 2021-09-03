@@ -53,6 +53,7 @@ const CreateListingForm = () => {
 
     if (data) {
       setErrors(data.errors)
+      alert("Please review your form again.")
     } else {
       history.push(`/users/${userId}`)
     }
