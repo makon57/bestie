@@ -137,15 +137,18 @@ h3 {
     justify-content: space-around;
 }
 
+.vol-don-header,
 .vol-don {
     padding-top: 8%;
     padding-bottom: 8%;
 }
 
+
 .vol-don h1 {
     font-family: 'PT Sans Narrow';
 }
 
+.vol-don-header div,
 .vol-don div {
     display: flex;
     justify-content: space-around;
@@ -163,6 +166,21 @@ h3 {
     text-align: center;
     margin-top: 20px;
 }
+
+.vol-don-header button {
+    background-color: rgb(255, 89, 74);
+    color: white;
+    height: 50px;
+    width: 15%;
+    border: none;
+    border-radius: 6px;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 2%;
+    margin-right: 2%
+}
+
 
 .vol-don button {
     background-color: rgb(255, 89, 74);

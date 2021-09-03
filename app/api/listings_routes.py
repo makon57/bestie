@@ -35,13 +35,13 @@ def create_listing():
             age= data['age'],
             pet_type=data['pet_type'],
             description=data['description'],
+            image=data['image_url'],
             created_at = datetime.now(),
             updated_at= datetime.now()
         )
 
         db.session.add(new_listing)
         db.session.commit()
-        edit_image(new_listing.to_dict())
         return new_listing.to_dict()
     else:
         return {'errors':form.errors}, 500
@@ -64,11 +64,11 @@ def edit_listings(id):
             listing.age = new_data['age']
             listing.pet_type = new_data['pet_type']
             listing.description = new_data['description']
+            listing.image = new_data['image_url']
             listing.updated_at = datetime.now()
 
             db.session.add(listing)
             db.session.commit()
-            edit_image(listing.to_dict())
             return listing.to_dict()
         else:
             return {'errors':form.errors}, 500
@@ -79,15 +79,14 @@ def edit_listings(id):
         return {"deletion":"successful"}
 
 
-@listings_routes.route("/images", methods=["PUT"])
-@login_required
-def edit_image(data):
-    print(data)
-    Image.query\
-        .filter(Image.listing_id == 1)\
-        .update({Image.listing_id: data['id']})
-    db.session.commit()
-    return
+# @listings_routes.route("/images", methods=["PUT"])
+# @login_required
+# def edit_image(data):
+#     Image.query\
+#         .filter(Image.listing_id == listing_id and Image.user_id == user_id)\
+#         .update({Image.listing_id: data['id']})
+#     db.session.commit()
+#     return
 
 
 @listings_routes.route("/<int:id>/applications")

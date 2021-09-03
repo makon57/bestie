@@ -29,7 +29,5 @@ def upload_image():
 
     url = upload["url"]
 
-    new_image = Image(listing_id=1, image_url=url, created_at = datetime.now(), updated_at= datetime.now())
-    db.session.add(new_image)
-    db.session.commit()
     return {"url": url}
+

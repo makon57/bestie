@@ -18,8 +18,6 @@ def applications():
 def create_application():
     form = ApplicationCreateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('-----------')
-    print(form.data)
     if form.validate_on_submit():
         data = form.data
         new_application = Application(
@@ -46,7 +44,7 @@ def create_application():
         db.session.commit()
         return new_application.to_dict()
     else:
-        return {'errors': form.errors}, 500
+        return {'errors': form.errors},500
 
 
 @applications_routes.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])

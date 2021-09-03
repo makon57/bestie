@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../store/session';
 import '../Header/Header.css'
 import '../Splash/Splash.css'
 
 const Header = () => {
 
   const [params, setParams] = useState(window.location.pathname)
-
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user);
 
   useEffect(() => (
     setParams(window.location.pathname)
@@ -18,6 +21,12 @@ const Header = () => {
           <span className='user-header-name'>
             <div className="span-header">
               <h1>WELCOME TO BESTIE!</h1>
+              { user ? null :
+              <div className='vol-don-header' onClick={() => dispatch(login('demo@aa.io', 'password'))}>
+                <button className='demo-btn' type='button'>DEMO</button>
+                <button className='foster-btn' type='button'>FOSTER DEMO</button>
+              </div>
+              }
             </div>
           </span>
         </div>
