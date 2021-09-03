@@ -90,7 +90,7 @@ export const fetchEditListing = (id, name, gender, age, pet_type, description, i
     } else if (response.status === 500) {
         const data = await response.json();
         if (data.errors) {
-            return data.errors;
+            return data;
         }
     } else {
         return ['An error occurred. Please try again.']

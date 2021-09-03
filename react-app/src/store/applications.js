@@ -35,7 +35,7 @@ const deleteApplication = (applicationId) => ({
 export const fetchAllApplications = () => async (dispatch) => {
     const response = await fetch('/api/applications/');
     const data = await response.json();
-    
+
     if (response.ok) {
         dispatch(getAllApplications(data));
         return data
@@ -91,7 +91,7 @@ export const createApplicationThunk = (
     if (response.ok) {
         const data = await response.json();
         dispatch(createApplication(data))
-        return response;
+        return;
     } else if (response.status === 500) {
         const data = await response.json();
         if (data.errors) {
@@ -155,7 +155,7 @@ export const fetchEditApplication = (
     if (response.ok) {
         const data = await response.json();
         dispatch(editApplication(data))
-        return response;
+        return;
     } else if (response.status === 500) {
         const data = await response.json();
         if (data.errors) {
