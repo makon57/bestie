@@ -174,7 +174,7 @@ h3 {
     width: 15%;
     border: none;
     border-radius: 6px;
-    font-size: 35px;
+    font-size: 2vw;
     text-align: center;
     margin-top: 20px;
     margin-left: 2%;
@@ -189,7 +189,7 @@ h3 {
     width: 30%;
     border: none;
     border-radius: 6px;
-    font-size: 35px;
+    font-size: 2vw;
     text-align: center;
     margin-top: 20px;
 }

@@ -43,7 +43,7 @@ ul {
 .logout-btn,
 a {
     color: white;
-    font-size: 35px;
+    font-size: 2vw;
 }
 
 .logout-btn,
@@ -53,7 +53,7 @@ a:hover {
 
 .auth a {
     color: black;
-    font-size: 35px;
+    font-size: 2vw;
 }
 
 .auth a:hover {

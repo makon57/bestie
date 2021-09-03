@@ -68,6 +68,7 @@ const EditApplication = () => {
     ))
     if (data) {
       setErrors(data);
+      alert("Please review your form again.")
     }
     if (data.ok) {
       history.push(`/users/${userId}`)

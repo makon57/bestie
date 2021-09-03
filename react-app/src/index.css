@@ -1,6 +1,9 @@
 /* TODO Add site wide styles */
 
-
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
 
 html, body{
     margin: 0;
