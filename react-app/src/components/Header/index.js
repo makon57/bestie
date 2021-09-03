@@ -1,18 +1,35 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../Header/Header.css'
 import '../Splash/Splash.css'
+import User from '../User';
+
+
 
 const Header = () => {
 
   const [params, setParams] = useState(window.location.pathname)
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user);
+  const history = useHistory()
 
   useEffect(() => (
     setParams(window.location.pathname)
   ),[setParams])
+
+  const onDemoLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    history.push(`/users/${data.id}`)
+  };
+
+  const onFosterLogin = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('foster@aa.io', 'password'));
+    history.push(`/users/${data.id}`)
+  };
 
   return (
     <div>
@@ -23,8 +40,8 @@ const Header = () => {
               <h1>WELCOME TO BESTIE!</h1>
               { user ? null :
               <div className='vol-don-header'>
-                <button className='demo-btn' onClick={() => dispatch(login('demo@aa.io', 'password'))} type='button'>DEMO</button>
-                <button className='foster-btn' onClick={() => dispatch(login('foster@aa.io', 'password'))} type='button'>FOSTER DEMO</button>
+                <button className='demo-btn' onClick={onDemoLogin} type='button'>DEMO</button>
+                <button className='foster-btn' onClick={onFosterLogin} type='button'>FOSTER DEMO</button>
               </div>
               }
             </div>
