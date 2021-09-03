@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Length, ValidationError
 def valid_age(form, field):
     age = field.data
     if age < 0:
-        raise ValidationError("You must be 18 and over to adopt a bestie.")
+        raise ValidationError("Please enter a valid age greater than zero.")
 
 class ListingEditForm(FlaskForm):
     user_id = IntegerField()
