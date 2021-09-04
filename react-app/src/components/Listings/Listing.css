@@ -76,6 +76,7 @@ button i {
 .listing-item {
     width: 100%;
     margin: none;
+    overflow: hidden;
 }
 
 .list-container img {
@@ -139,4 +140,14 @@ div .petInfo {
 .hover-petInfo {
     width: 100%;
     font-size: 40px;
+    overflow-x: hidden;
 }
+
+.petInfo-list {
+    overflow: hidden;
+}
+
+.petInfo {
+    overflow: hidden;
+}
+
