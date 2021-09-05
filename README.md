@@ -98,7 +98,7 @@ pipenv shell
 
 5. In the root folder, create the database by running in the terminal:
 ```shell
-flask db create
+flask db init
 ```
 
 6. In the root folder, migrate tables to the database by running in the terminal:
