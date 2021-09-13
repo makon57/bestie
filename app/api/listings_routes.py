@@ -102,5 +102,16 @@ def listing_search():
 
     # listings_dict = {listing.to_dict()['id']: listing.to_dict() for listing in listings if request.body in listing.to_dict().itervalues() }
     # return listings_dict
+    columns = [
+       "name",
+       "gender",
+       "pet_type",
+       "description",
+    ]
 
+    d = {column: request.args for column in columns}
+    raw = [
+        Listing.query.filter(getattr(Listing, col).ilike(f"{val}%")).all()
+        for col, val in d.items()
+    ]
     return {listing.to_dict()['id']: listing.to_dict() for listing in listings}
