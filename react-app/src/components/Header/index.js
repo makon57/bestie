@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../Header/Header.css'
+import Listings from '../Listings';
 import '../Splash/Splash.css'
 import User from '../User';
 
@@ -13,7 +14,10 @@ const Header = () => {
   const [params, setParams] = useState(window.location.pathname)
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user);
+  const [listings, setListings] = useState(Object.values(useSelector((state) => state.listings)));
   const history = useHistory()
+
+  const [search, setSearch] = useState("")
 
   useEffect(() => (
     setParams(window.location.pathname)
@@ -30,6 +34,23 @@ const Header = () => {
     const data = await dispatch(login('foster@aa.io', 'password'));
     history.push(`/users/${data.id}`)
   };
+
+  const updateSearch = async (e) => {
+    setSearch(e.target.value);
+    const res = await fetch('/api/listings/search', {
+      method: "POST",
+      headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify({
+            search
+        })
+    });
+    const data = await res.json()
+    setListings(data)
+  };
+
+  useEffect(() => (
+    <Listings searchListings={listings} />
+  ), [listings])
 
   return (
     <div>
@@ -69,6 +90,8 @@ const Header = () => {
         <div className='user-header-container'>
           <span className='user-header-name'>
             <h1>BESTIE LISTING</h1>
+            <h2>Find your bestie...</h2>
+            <input onChange={updateSearch} placeholder="Search..."></input>
           </span>
         </div>
       : params === '/login' ?

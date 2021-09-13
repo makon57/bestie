@@ -94,3 +94,13 @@ def edit_listings(id):
 def listing_applications(id):
     applications = Application.query.filter(Application.listing_id == id).all()
     return {application.to_dict()['id']: application.to_dict() for application in applications}
+
+
+@listings_routes.route("/search", methods=['GET', 'POST'])
+def listing_search():
+    listings = Listing.query.filter(Listing.contains(f"{request.body}")).all()
+
+    # listings_dict = {listing.to_dict()['id']: listing.to_dict() for listing in listings if request.body in listing.to_dict().itervalues() }
+    # return listings_dict
+
+    return {listing.to_dict()['id']: listing.to_dict() for listing in listings}

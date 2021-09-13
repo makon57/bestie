@@ -8,10 +8,15 @@ import ListingModal from '../Listings/ListingModal';
 // import { Modal } from '../../context/Modal';
 import "../Listings/Listing.css"
 
-const Listings = () => {
+const Listings = ({ props }) => {
 
-  const dispatch = useDispatch()
-  const listings = Object.values(useSelector((state) => state.listings));
+  const dispatch = useDispatch();
+  let searchListings = null;
+  if (props) {
+    ({ searchListings } = props)
+  }
+
+  const [listings, setListings] = useState(Object.values(useSelector((state) => state.listings)));
   const [showListModal, setShowListModal] = useState(false)
 
   useEffect(() => {
@@ -22,6 +27,9 @@ const Listings = () => {
     document.querySelector("body").scrollTo(0,0)
   }, [])
 
+  if (searchListings) {
+    setListings(searchListings)
+  }
 
   return (
     <div>
