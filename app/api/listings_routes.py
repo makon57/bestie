@@ -98,20 +98,23 @@ def listing_applications(id):
 
 @listings_routes.route("/search", methods=['GET', 'POST'])
 def listing_search():
-    listings = Listing.query.filter(Listing.contains(f"{request.body}")).all()
+    # listings = Listing.query.filter(Listing.contains(f"{request.body}")).all()
+    all_listings = Listing.query.all()
+    # listings_dict = {listing.to_dict()['id']: listing.to_dict() for listing in listings if request.args in listing.to_dict().itervalues() }
+    listings_dict = {listing.to_dict()['id']: listing.to_dict() for listing in all_listings if request.args in listing.to_dict().values() }
 
-    # listings_dict = {listing.to_dict()['id']: listing.to_dict() for listing in listings if request.body in listing.to_dict().itervalues() }
-    # return listings_dict
-    columns = [
-       "name",
-       "gender",
-       "pet_type",
-       "description",
-    ]
 
-    d = {column: request.args for column in columns}
-    raw = [
-        Listing.query.filter(getattr(Listing, col).ilike(f"{val}%")).all()
-        for col, val in d.items()
-    ]
-    return {listing.to_dict()['id']: listing.to_dict() for listing in listings}
+    return listings_dict
+    # columns = [
+    #    "name",
+    #    "gender",
+    #    "pet_type",
+    #    "description",
+    # ]
+
+    # d = {column: request.args for column in columns}
+    # listings = [
+    #     Listing.query.filter(getattr(Listing, col).ilike(f"{val}%")).all()
+    #     for col, val in d.items()
+    # ]
+    # return {listing.to_dict()['id']: listing.to_dict() for listing in listings}
