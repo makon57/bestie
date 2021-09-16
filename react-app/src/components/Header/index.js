@@ -81,19 +81,20 @@ const Header = () => {
           </span>
         </div>
       : params === '/about' ?
-        <div className='header-container'>
-          <span className='user-header-name'>
-            <h1>OUR MISSION AT BESTIE</h1>
-          </span>
-        </div>
+          <div className='header-container'>
+            <span className='user-header-name'>
+              <h1>OUR MISSION AT BESTIE</h1>
+            </span>
+          </div>
       : params === '/adopt' ?
-        <div className='user-header-container'>
-          <span className='user-header-name'>
-            <h1>BESTIE LISTING</h1>
-            <h2>Find your bestie...</h2>
-            <input onChange={updateSearch} placeholder="Search..."></input>
-          </span>
-        </div>
+        // <div className='user-header-container'>
+        //   <span className='user-header-name'>
+        //     <h1>BESTIE LISTINGS</h1>
+        //     <h2>Find your bestie...</h2>
+        //     <input onChange={updateSearch} placeholder="Search..."></input>
+        //   </span>
+        // </div>
+        <Listings />
       : params === '/login' ?
         <div className='login-header-container'>
           <img src="https://i.imgur.com/VunlvLt.jpg" alt='cat'></img>

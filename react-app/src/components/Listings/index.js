@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { fetchAllListings } from '../../store/listings';
 import Footer from "../Footer";
-import Header from "../Header";
+import '../Header/Header.css'
 import ListingModal from '../Listings/ListingModal';
 // import { Modal } from '../../context/Modal';
 import "../Listings/Listing.css"
@@ -16,12 +16,17 @@ const Listings = ({ props }) => {
     ({ searchListings } = props)
   }
 
-  const [listings, setListings] = useState(Object.values(useSelector((state) => state.listings)));
+  const list = Object.values(useSelector((state) => state.listings))
+  const [listings, setListings] = useState(list);
   const [showListModal, setShowListModal] = useState(false)
+  const [search, setSearch] = useState("")
+
 
   useEffect(() => {
-    dispatch(fetchAllListings());
-  }, [dispatch]);
+    if (search === '') {
+      setListings(list);
+    }
+  }, [dispatch, search]);
 
   useEffect(() => {
     document.querySelector("body").scrollTo(0,0)
@@ -31,9 +36,29 @@ const Listings = ({ props }) => {
     setListings(searchListings)
   }
 
+  const updateSearch = async (e) => {
+    setSearch(e.target.value);
+    const res = await fetch('/api/listings/search', {
+      method: "POST",
+      headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify({
+            search
+        })
+    });
+    const data = await res.json()
+    const values = Object.values(data)
+    setListings(values)
+  };
+
   return (
     <div>
-      <Header />
+      <div className='user-header-container'>
+        <span className='user-header-name'>
+          <h1>BESTIE LISTINGS</h1>
+          <h2>Find your bestie...</h2>
+          <input onChange={updateSearch} placeholder="Search..."></input>
+        </span>
+      </div>
       <div className='list-container'>
       <ul className="listing-list">
         {listings?.map((listing) => (
