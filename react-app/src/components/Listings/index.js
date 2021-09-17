@@ -10,34 +10,36 @@ import "../Listings/Listing.css"
 
 const Listings = ({ props }) => {
 
-  const dispatch = useDispatch();
-  let searchListings = null;
-  if (props) {
-    ({ searchListings } = props)
-  }
+  // const dispatch = useDispatch();
+  // let searchListings = null;
+  // if (props) {
+  //   ({ searchListings } = props)
+  // }
 
   const list = Object.values(useSelector((state) => state.listings))
-  const [listings, setListings] = useState(list);
+  const [listings, setListings] = useState(null);
   const [showListModal, setShowListModal] = useState(false)
   const [search, setSearch] = useState("")
 
 
   useEffect(() => {
-    if (search === '') {
-      setListings(list);
+    // dispatch(fetchAllListings())
+    if (search === "") {
+      setListings(list)
     }
-  }, [dispatch, search]);
+  }, [search]);
 
   useEffect(() => {
     document.querySelector("body").scrollTo(0,0)
   }, [])
 
-  if (searchListings) {
-    setListings(searchListings)
-  }
+  // if (searchListings) {
+  //   setListings(searchListings)
+  // }
 
   const updateSearch = async (e) => {
     setSearch(e.target.value);
+    console.log(search)
     const res = await fetch('/api/listings/search', {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
