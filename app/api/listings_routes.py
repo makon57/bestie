@@ -108,14 +108,17 @@ def listing_search():
     word = request.json['search']
     for listing in all_listings:
         dict = listing.to_dict()
-        values = dict.values()
+        values = []
+        values.append(dict['name'])
+        values.append(dict['age'])
+        values.append(dict['gender'])
+        values.append(dict['pet_type'])
+        values.append(dict['description'])
         print(values)
-        print('===========')
-        print(word)
         for value in values:
-            print(value)
-            print(word == value)
-            if (word == value):
+            value = str(value)
+            word = str(word)
+            if (word.lower() == value.lower()):
                 list_dictionary[dict['id']] = dict
                 break
         # elif word in value.lower():

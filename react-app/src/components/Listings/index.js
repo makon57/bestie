@@ -10,7 +10,7 @@ import "../Listings/Listing.css"
 
 const Listings = ({ props }) => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // let searchListings = null;
   // if (props) {
   //   ({ searchListings } = props)
@@ -19,12 +19,12 @@ const Listings = ({ props }) => {
   const list = Object.values(useSelector((state) => state.listings))
   const [listings, setListings] = useState(null);
   const [showListModal, setShowListModal] = useState(false)
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState('')
 
 
   useEffect(() => {
     // dispatch(fetchAllListings())
-    if (search === "") {
+    if (search === '') {
       setListings(list)
     }
   }, [search]);
@@ -39,7 +39,6 @@ const Listings = ({ props }) => {
 
   const updateSearch = async (e) => {
     setSearch(e.target.value);
-    console.log(search)
     const res = await fetch('/api/listings/search', {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
