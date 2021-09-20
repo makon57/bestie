@@ -10,12 +10,6 @@ import "../Listings/Listing.css"
 
 const Listings = ({ props }) => {
 
-  const dispatch = useDispatch();
-  // let searchListings = null;
-  // if (props) {
-  //   ({ searchListings } = props)
-  // }
-
   const list = Object.values(useSelector((state) => state.listings))
   const [listings, setListings] = useState(null);
   const [showListModal, setShowListModal] = useState(false)
@@ -23,9 +17,10 @@ const Listings = ({ props }) => {
 
 
   useEffect(() => {
-    // dispatch(fetchAllListings())
     if (search === '') {
       setListings(list)
+    } else {
+      updateSearch()
     }
   }, [search]);
 
@@ -33,12 +28,7 @@ const Listings = ({ props }) => {
     document.querySelector("body").scrollTo(0,0)
   }, [])
 
-  // if (searchListings) {
-  //   setListings(searchListings)
-  // }
-
-  const updateSearch = async (e) => {
-    setSearch(e.target.value);
+  const updateSearch = async () => {
     const res = await fetch('/api/listings/search', {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
@@ -51,13 +41,17 @@ const Listings = ({ props }) => {
     setListings(values)
   };
 
+  const handleTextChange = (e) => {
+    setSearch(e.target.value);
+  }
+
   return (
     <div>
       <div className='user-header-container'>
         <span className='user-header-name'>
           <h1>BESTIE LISTINGS</h1>
           <h2>Find your bestie...</h2>
-          <input onChange={updateSearch} placeholder="Search..."></input>
+          <input onChange={(e) => handleTextChange(e)} placeholder="Search..."></input>
         </span>
       </div>
       <div className='list-container'>
