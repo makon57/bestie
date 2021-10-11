@@ -94,3 +94,40 @@ def edit_listings(id):
 def listing_applications(id):
     applications = Application.query.filter(Application.listing_id == id).all()
     return {application.to_dict()['id']: application.to_dict() for application in applications}
+
+
+@listings_routes.route("/search", methods=['GET', 'POST'])
+def listing_search():
+    all_listings = Listing.query.all()
+    list_dictionary = {}
+    # for listing in all_listings:
+    #     print(list_dictionary)
+    #     if (request.json['search'] in listing.to_dict().values()):
+    #         list_dictionary[listing.to_dict()['id']] = listing.to_dict()
+    # print({listing.to_dict()['id']: listing.to_dict() for listing in all_listings})
+    word = request.json['search']
+    for listing in all_listings:
+        dict = listing.to_dict()
+        values = []
+        values.append(dict['name'])
+        values.append(dict['age'])
+        values.append(dict['gender'])
+        values.append(dict['pet_type'])
+        values.append(dict['description'])
+        print(values)
+        for value in values:
+            value = str(value)
+            word = str(word)
+            if (word.lower() == value.lower()):
+                list_dictionary[dict['id']] = dict
+                break
+        # elif word in value.lower():
+        #     list_dictionary[dict()['id']] = dict
+        #     break
+
+    return list_dictionary
+
+
+
+    #     if (request.json['search'].lower in value.lower())
+    # return {listing.to_dict()['id']: listing.to_dict() for listing in all_listings if (request.json['search'].lower() in value.lower() for value in listing.to_dict().values())}

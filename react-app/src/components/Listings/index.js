@@ -3,29 +3,57 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { useHistory } from 'react-router-dom';
 import { fetchAllListings } from '../../store/listings';
 import Footer from "../Footer";
-import Header from "../Header";
+import '../Header/Header.css'
 import ListingModal from '../Listings/ListingModal';
 // import { Modal } from '../../context/Modal';
 import "../Listings/Listing.css"
 
-const Listings = () => {
+const Listings = ({ props }) => {
 
-  const dispatch = useDispatch()
-  const listings = Object.values(useSelector((state) => state.listings));
+  const list = Object.values(useSelector((state) => state.listings))
+  const [listings, setListings] = useState(null);
   const [showListModal, setShowListModal] = useState(false)
+  const [search, setSearch] = useState('')
+
 
   useEffect(() => {
-    dispatch(fetchAllListings());
-  }, [dispatch]);
+    if (search === '') {
+      setListings(list)
+    } else {
+      updateSearch()
+    }
+  }, [search]);
 
   useEffect(() => {
     document.querySelector("body").scrollTo(0,0)
   }, [])
 
+  const updateSearch = async () => {
+    const res = await fetch('/api/listings/search', {
+      method: "POST",
+      headers: { 'Content-Type': "application/json" },
+        body: JSON.stringify({
+            search
+        })
+    });
+    const data = await res.json()
+    const values = Object.values(data)
+    setListings(values)
+  };
+
+  const handleTextChange = (e) => {
+    setSearch(e.target.value);
+  }
 
   return (
     <div>
-      <Header />
+      <div className='user-header-container'>
+        <span className='user-header-name'>
+          <h1>BESTIE LISTINGS</h1>
+          <h2>Find your bestie...</h2>
+          <input onChange={(e) => handleTextChange(e)} placeholder="Search..."></input>
+        </span>
+      </div>
       <div className='list-container'>
       <ul className="listing-list">
         {listings?.map((listing) => (
