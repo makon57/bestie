@@ -11,18 +11,18 @@ import "../Listings/Listing.css"
 const Listings = ({ props }) => {
 
   const list = Object.values(useSelector((state) => state.listings))
-  const [listings, setListings] = useState(null);
+  const [listings, setListings] = useState(list);
   const [showListModal, setShowListModal] = useState(false)
   const [search, setSearch] = useState('')
 
 
   useEffect(() => {
-    if (search === '') {
-      setListings(list)
-    } else {
+    if (search !== '') {
       updateSearch()
+    } else {
+      setListings(list)
     }
-  }, [search]);
+  },[search]);
 
   useEffect(() => {
     document.querySelector("body").scrollTo(0,0)
