@@ -18,13 +18,14 @@ def seed_users():
     ana = User(
         name='Ana Banana', email='ana@aa.io', password='password', foster=False)
 
-    db.session.add(demo)
-    db.session.add(foster)
-    db.session.add(marnie)
-    db.session.add(bobbie)
-    db.session.add(manna)
-    db.session.add(ollie)
-    db.session.add(ana)
+    i = 0
+    things = [demo, foster, marnie, bobbie, manna, ollie, ana]
+
+    while i < len(things):
+        seed_data = db.session.query(User).filter_by(name=things[i].name).first()
+        if seed_data is None:
+            db.session.add(things[i])
+        i += 1
 
     db.session.commit()
 

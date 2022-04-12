@@ -1,6 +1,7 @@
 from app.models import listing
 import os
-from flask import Flask, render_template, request, session, redirect
+import logging
+from flask import Flask, render_template, request, session, redirect, jsonify
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -17,7 +18,17 @@ from .seeds import seed_commands
 
 from .config import Config
 
+from prometheus_flask_exporter import PrometheusMetrics
+
+
+logging.basicConfig(level=logging.INFO)
+logging.info("Setting LOGLEVEL to INFO")
+
+
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
+
+metrics.info("app_info", "App Info, this can be anything you want", version="1.0.0")
 
 # Setup login manager
 login = LoginManager(app)
@@ -79,3 +90,12 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+
+@app.route('/flask-prometheus-grafana-example/')
+def hello():
+    return jsonify(say_hello())
+
+
+def say_hello():
+    return {'message': 'hello'}

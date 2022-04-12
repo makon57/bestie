@@ -58,7 +58,7 @@ const Header = () => {
         <div className='header-container'>
           <span className='user-header-name'>
             <div className="span-header">
-              <h1>WELCOME TO BESTIE!</h1>
+              <h1>WELCOME TO BESTIE 2.0!</h1>
               { user ? null :
               <div className='vol-don-header'>
                 <button className='demo-btn' onClick={onDemoLogin} type='button'>DEMO</button>
@@ -77,13 +77,13 @@ const Header = () => {
       : params === '/sponsor' ?
         <div className='header-container'>
           <span className='user-header-name'>
-            <h1>HOW DO I BECOME A SPONSOR?</h1>
+            <h1>HOW DO I SPONSOR A BESTIE?</h1>
           </span>
         </div>
       : params === '/about' ?
           <div className='header-container'>
             <span className='user-header-name'>
-              <h1>OUR MISSION AT BESTIE</h1>
+              <h1>OUR MISSION AT BESTIE 2.0</h1>
             </span>
           </div>
       : params === '/adopt' ?

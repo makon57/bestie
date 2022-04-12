@@ -175,17 +175,17 @@ def seed_applications():
         created_at=datetime.now(), updated_at=datetime.now()
     )
 
+    s = 0
+    things = [app1,app2,app3,app4,app5,app6,app7,app8,app9,app10]
 
-    db.session.add(app1)
-    db.session.add(app2)
-    db.session.add(app3)
-    db.session.add(app4)
-    db.session.add(app5)
-    db.session.add(app6)
-    db.session.add(app7)
-    db.session.add(app8)
-    db.session.add(app9)
-    db.session.add(app10)
+    while s < len(things):
+        ss = s + 1
+        if db.session.query(Application).filter_by(id=ss).first() is not None:
+            pass
+        # seed_data = db.session.query(Application).where(name=things[s].name).where(id=s).first()
+        elif db.session.query(Application).filter_by(id=ss).first() is None:
+            db.session.add(things[s])
+        s += 1
 
 
     db.session.commit()

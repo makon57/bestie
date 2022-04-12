@@ -4,9 +4,12 @@ import random
 from faker import Faker
 fake = Faker()
 from app.seeds.images_list import list_of_pets
+# from sqlalchemy.orm import exists
+
 
 def thing(animal, array):
     k = 0
+
     gender = ['Male', 'Female']
     numbers = [2, 3, 5, 6]
     while k < len(array):
@@ -21,9 +24,9 @@ def thing(animal, array):
             created_at=datetime.now(),
             updated_at= datetime.now()
         )
-        db.session.add(l)
-        db.session.commit()
-        db.session.commit()
+        seed_data = db.session.query(Listing).all()
+        if len(seed_data) < 50:
+            db.session.add(l)
         k += 1
 
 def seed_listings():
@@ -42,7 +45,7 @@ def seed_listings():
     pet3 = Listing(
         user_id=4, name="Rocker", gender="Female", age=1, pet_type="Guinea Pig",
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        image="https://assets.animalhumanesociety.org/animalhumanesociety.org/files/styles/animal_450x330/public/adoption/images/large/2021/08/15/46766912-1668-4635-b558-47c5b95c775f.jpg?h=8a14a818&itok=quvM1otg",
+        image="https://i.imgur.com/fBnRvAb.jpeg",
         created_at=datetime.now(), updated_at=datetime.now()
     )
     pet4 = Listing(
@@ -76,15 +79,19 @@ def seed_listings():
         created_at=datetime.now(), updated_at=datetime.now()
     )
 
+    s = 0
+    things = [pet1,pet2,pet3,pet4,pet5,pet6,pet7,pet8]
 
-    db.session.add(pet1)
-    db.session.add(pet2)
-    db.session.add(pet3)
-    db.session.add(pet4)
-    db.session.add(pet5)
-    db.session.add(pet6)
-    db.session.add(pet7)
-    db.session.add(pet8)
+    while s < len(things):
+        ss = s + 1
+        seed_data = db.session.query(Listing).filter_by(id=ss).first()
+        print('**********************')
+        print(pet1)
+        print(seed_data)
+        if seed_data is None:
+            db.session.add(things[s])
+        s += 1
+        
 
     i = 0
     items = list(list_of_pets.keys())
