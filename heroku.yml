@@ -6,7 +6,7 @@ setup:
     S3_BUCKET: bestiebucket
 build:
   docker:
-    web: web/Dockerfile
+    web: Dockerfile
 # release:
   # copy resources
   # skip in this example
