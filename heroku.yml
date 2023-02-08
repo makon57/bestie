@@ -1,0 +1,15 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+  config:
+    S3_BUCKET: bestiebucket
+build:
+  docker:
+    web: web/Dockerfile
+# release:
+  # copy resources
+  # skip in this example
+# run:
+  # startup script
+  # skip in this example
