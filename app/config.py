@@ -1,5 +1,5 @@
 import os
-
+import psycopg2
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -11,3 +11,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URL').replace('postgres://', 'postgresql://')
     SQLALCHEMY_ECHO = True
+
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
